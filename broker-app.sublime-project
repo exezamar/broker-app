@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "/C/broker-app"
+		},
+		{
+			"path": "/C/agd-solicitudes"
 		}
 	]
 }

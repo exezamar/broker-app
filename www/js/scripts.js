@@ -5,13 +5,12 @@ var cuenta = 0;
 document.addEventListener('deviceready', function()
 {
 	//CREAR BASE SI NO EXISTE
-	db = window.sqlitePlugin.openDatabase({name: 'broker.db', location: 'default'});
+	db = window.sqlitePlugin.openDatabase({name: 'brokers1.db', location: 'default'});
 	db.transaction(function (tx) {
-        tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id text primary key, nombre text, ubicacion text, moneda text)");
+        tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text)");
     }, function (err) {
         alert("An error occurred while initializing the app");
     });
-
 
 });//fin deviceready
 
@@ -20,7 +19,7 @@ document.addEventListener('deviceready', function()
  	   //INGRESAR NUEVO REGISTRO
        db.transaction(function(tx)
        {
-		  tx.executeSql('INSERT INTO tours (nombre, ubicacion, moneda) VALUES (?,?,?)', [ 'Alice','Alice','Alice']);
+		  tx.executeSql('INSERT INTO tours (nombre, ubicacion, moneda) VALUES (?,?,?)', [ 'nombre','ubicacion','moneda']);
 		  }, function(error) {
 		   alert('Transaction ERROR: ' + error.message);
 		  }, function() {
@@ -99,35 +98,45 @@ $("#bmTours").click(function(){
     }, 500);
     //BUSCAMOS LOS TOURS
     db.executeSql("SELECT * FROM Tours order by id desc", [], function (resultSet) {
-    var count = resultSet.rows.length;
-    var nombre = resultSet.rows.item(10).nombre;
-    for (var i = 0; i < resultSet.rows.length; i++)
-    {
-    	alert(resultSet.rows.item(i).nombre);
-    };
+		    var count = resultSet.rows.length;
+		    for (var i = 0; i < resultSet.rows.length; i++)
+		    {
+		    	var id = resultSet.rows.item(i).id;
+		    	var ubicacion = resultSet.rows.item(i).ubicacion;
+		    	var nombre = resultSet.rows.item(i).nombre;
+		    	var moneda = resultSet.rows.item(i).moneda;
+		    	$("#bodyTours").append("<tr idTour='"+id+"'><td>"+nombre+"</td><td>"+ubicacion+"</td><td>"+moneda+"</td></tr>")
+		    };
+		        $('#tablaTours').DataTable( 
+			      {
+			         order:[],
+			         "paging": false,
+			         "initComplete": function(settings, json) {},
+			         "scrollY": "400px",
+                     "scrollCollapse": true,
 
-	 
+			     });
+
 	}, function(error) {
 	  alert('SELECT error: ' + error.message);
 	});
 
 
-    $('#tablaTours').DataTable( 
-      {
-         order:[],
-         "paging": true,
-        "initComplete": function(settings, json) {swal.close();},
-
-     });
-
-  });
+  });//fin btnTours
 $("#bntour").click(function(){
-  $("#modal-ntour").removeClass('oculto');
+  
+	ocultarSlide('cont-tours');
 
-  $("#modal-ntour").addClass('fadeIn');
+	mostrarSlide('modal-ntour');
 
   });
-
+$("#bcmntour").click(function(){
+	ocultarSlide('modal-ntour');
+	mostrarSlide('cont-tours');
+	$(".inputmodal").each(function(){
+	 $(this).val(''); 
+	});
+});
 
 
 
