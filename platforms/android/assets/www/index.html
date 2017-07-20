@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="css/sweetalert.css" rel="stylesheet">
+        <link href="css/daterangepicker.css" rel="stylesheet">
+        <link href="css/tabla.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <title>Broker management tool</title>
+    </head>
+    <body id='deviceready'>
+
+         <div id='cont-login'class="animated ">
+        <div>
+            <img src="img/logo.png" id='logo' style=''>
+        </div>
+        <div>
+           <b><span> Broker management tool </span></b> 
+        </div>
+        <div style='margin-top:30px;'>
+            <span>User</span> <br>
+            <input type='text' id='txtUser' class='iform'>
+        </div>
+        <div style='margin-top:15px;'>
+            <span>Password</span> <br>
+            <input type='password' id='txtPass' class='iform'>
+        </div>
+        <div class='btn'>
+            <a href="#" id='login' style='color:white;'>Login</a>
+        </div>
+    </div>
+    <div id='cont-menu' class='animated oculto'>
+       <div class='hmenus blue'>
+            <div>
+                 <!-- <span>///</span> -->
+                 <a href="#" onclick="goToTours()">
+                     <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
+                 </a>
+            </div>
+            <div class='flex' style='margin-top:20px;color:white;'>
+                <div class='iniciales'>
+                    <div style='margin-top:25px'>
+                        <span class='tnamein'>EZ</span>
+                    </div>
+                </div>
+                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>
+                  <span>Welcome </span><br><span id='tname'>Exequiel Zamar</span>
+                </div>
+            </div>
+        </div>
+        <div class='cmmodulos'>
+            <div class='modulo'>
+                <a href="#" id='bmTours'class='hmodulo blue'>
+                   <div>
+                         <div style='margin-left:30px;margin-top:10px;'>
+                              <span>My</span><br>
+                                <span>Tours</span>
+                        </div>
+                    </div>
+                </a>
+                <div class='imtour'>
+                    <div>
+                         <span style='margin-left:20px;'>Siam Paragon | </span>
+                         <b><span> 06-30-17 </span></b>
+                    </div>
+                </div>
+                <div class='imtour'>
+                    <div>
+                         <span style='margin-left:20px;'>The place |</span>
+                         <b><span> 04-30-17 </span></b>
+                    </div>
+                </div>
+                <div class='imtour'>
+                    <div>
+                         <span style='margin-left:20px;'>Super Brand |</span>
+                         <b> <span> 02-30-17 </span></b>
+                    </div>
+                </div>
+
+            </div>
+             <div class='modulo'>
+                <div class='hmodulo green'>
+                    <div style='margin-left:30px;margin-top:10px;'>
+                         <br>
+                            <span>Products</span>
+                    </div>
+                  
+                </div>
+                <div class='imtour'>
+                    <div>
+                         <span style='margin-left:20px;'>Fidget Spinner | </span>
+                         <b> <span>¥ 2.75</span></b>
+                    </div>
+                </div>
+                <div class='imtour'>
+                    <div>
+                         <span style='margin-left:20px;'>iPhone case black | </span>
+                         <b> <span>¥ 14.00</span></b>
+                    </div>
+                </div>
+                <div class='imtour'>
+                    <div>
+                         <span style='margin-left:20px;'>S7 edge case white | </span>
+                         <b> <span>¥ 9.75</span></b>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> <!-- fin cont-menu -->
+    <div id='cont-tours' class='animated oculto'>
+       <div class='hmenus blue'>
+            <div>
+                 <!-- <span>///</span> -->
+                 <a href="#" onclick="goToTours()">
+                     <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
+                 </a>
+            </div>
+            <div style='margin-top:20px;color:white;' class='flex'>
+                <div class='iniciales'>
+                    <div style='margin-top:15px'>
+                        <span class='tnamein'>EZ</span>
+                    </div>
+                </div>
+                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>
+                  <span>Welcome </span><br><span class='tname'>Exequiel Zamar</span>
+                </div>
+            </div>
+        </div>
+        <div class='cmmodulos'>
+           <div>
+             <table id='tablaTours' onClick="">
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Location</th>
+                          <th>Date</th>
+                      </tr>
+                  </thead>
+                  <tbody id='bodyTours'> 
+                        <tr>
+                            <td>Siam Paragon</td>
+                            <td> Thailand</td>
+                            <td>20-04-2016</td>
+                        </tr>
+                        <tr>
+                            <td>Siam Paragon</td>
+                            <td> Thailand</td>
+                            <td>20-04-2016</td>
+                        </tr>
+                        <tr>
+                            <td>Siam Paragon</td>
+                            <td> Thailand</td>
+                            <td>20-04-2016</td>
+                        </tr>
+                        <tr>
+                            <td>Siam Paragon</td>
+                            <td> Thailand</td>
+                            <td>20-04-2016</td>
+                        </tr>
+                  </tbody>
+              </table><br>
+          </div>
+        </div> 
+        <div class='iniciales flex-stretch' style='margin:auto;background-color:#2196F3 !important;'>
+            <div id='bntour'>
+                <span style='font-size:2.1em;'>+</span>
+            </div>
+        </div>
+        <div id='modal-ntour' class='animated oculto white'>
+          <div class='modalHeader green'>
+            <div >
+              <span style='font-size:1.5em;'>X</span>
+            </div>
+            <div>
+               <span>New tour</span>
+            </div>
+          </div>
+          <div class='modalBody'>
+            <div>
+              <span>Location</span> <br>
+              <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+            </div>
+          
+          <div>
+              <span>Date</span> <br>
+              <input type='text' class='inputmodal' ></input>
+            </div>
+          <div>
+              <span>Select currency</span> <br>
+              <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+          </div>
+        </div>
+</div><!-- fin cont-tours -->  
+       
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="js/tabla.min.js"></script>
+        <script type="text/javascript" src="js/daterangepicker.js"></script>
+
+        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript">
+       
+
+        </script>
+
+    </body>
+</html>
