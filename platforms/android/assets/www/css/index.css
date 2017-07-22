@@ -245,6 +245,7 @@ table.dataTable tbody td{
   padding-bottom:30px;
 
 }
+.liTour{color: red !important;font-size: .5em;}
 #modal-ntour{
   display: -webkit-box;
   display: -ms-flexbox;

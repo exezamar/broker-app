@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
 				"img",
 				"imgCover"
 			],
@@ -84,10 +92,6 @@
 				"bounceOutLeft"
 			],
 			[
-				"tex",
-				"text-align"
-			],
-			[
 				"image",
 				"imageData"
 			],
@@ -110,10 +114,6 @@
 			[
 				"marg",
 				"margin-top"
-			],
-			[
-				"border",
-				"border-radius"
 			],
 			[
 				"can",
@@ -519,6 +519,54 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/extroversia/routes/web.php",
+			"settings":
+			{
+				"buffer_size": 657,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/extroversia/resources/views/pages/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 18421,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/extroversia/app/Http/Controllers/PagesController.php",
+			"settings":
+			{
+				"buffer_size": 2359,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/extroversia/public/css/dashboard.css",
+			"settings":
+			{
+				"buffer_size": 1337,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/extroversia/resources/views/home.blade.php",
+			"settings":
+			{
+				"buffer_size": 6747,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/extroversia/public/css/index.css",
+			"settings":
+			{
+				"buffer_size": 9473,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -572,30 +620,40 @@
 	},
 	"file_history":
 	[
+		"/C/extroversia/resources/views/home.blade.php",
+		"/C/extroversia/routes/api.php",
+		"/C/broker-app/www/js/scripts.js",
+		"/C/broker-app/www/css/index.css",
+		"/C/broker-app/www/index.html",
+		"/C/agd-solicitudes/www/js/scripts.js",
+		"/C/agd-solicitudes/www/js/index.js",
+		"/C/agd-solicitudes/www/index.html",
+		"/C/agd-solicitudes/www/css/index.css",
+		"/C/broker-app/platforms/browser/css/index.css",
+		"/C/broker-app-vieja/www/index.html",
+		"/C/broker-app-vieja/www/js/scripts.js",
+		"/C/broker-app/config.xml",
+		"/C/broker-app-legact/www/js/scripts.js",
+		"/C/broker-app-legact/www/index.html",
+		"/C/broker-app/www/js/index.js",
+		"/C/broker-app/node_modules/cordova-android/cordova-js-src/plugin/android/app.js",
 		"/C/broker-app-nueva/www/index.html",
 		"/C/broker-app-nueva/www/js/scripts.js",
 		"/C/ultimate/www/index.html",
 		"/C/ultimate/www/js/index.js",
 		"/C/broker-app-nueva/www/js/index.js",
 		"/C/broker-app-nueva/www/css/index.css",
-		"/C/broker-app/www/index.html",
-		"/C/broker-app/www/js/scripts.js",
 		"/C/Users/Exequiel/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/broker-app-nueva/www/css/build/index.css",
-		"/C/broker-app/www/css/index.css",
 		"/C/broker-app-nueva/platforms/browser/css/index.css",
 		"/C/broker-app/platforms/android/build/intermediates/assets/debug/www/js/scripts.js",
-		"/C/broker-app/node_modules/cordova-android/cordova-js-src/plugin/android/app.js",
 		"/C/Users/Exequiel/Desktop/containex/index.html",
-		"/C/agd-solicitudes/www/index.html",
 		"/C/hello/www/js/index.js",
 		"/C/hello/www/index.html",
 		"/C/testSqlite/www/index.html",
 		"/C/testSqlite/config.xml",
 		"/C/testSqlite/platforms/browser/platform_www/cordova.js",
-		"/C/broker-app/config.xml",
 		"/C/broker-app/www/spec.html",
-		"/C/broker-app/www/js/index.js",
 		"/C/extroversia/app/Http/Controllers/Auth/RegisterController.php",
 		"/C/extroversia/public/css/dashboard.css",
 		"/C/extroversia/app/Http/Controllers/PagesController.php",
@@ -603,7 +661,6 @@
 		"/C/extroversia/resources/views/pages/index.blade.php",
 		"/C/extroversia/resources/views/pages/detalle-evento.blade.php",
 		"/C/extroversia/public/css/index.css",
-		"/C/extroversia/resources/views/home.blade.php",
 		"/C/extroversia/routes/web.php",
 		"/C/extroversia/app/Http/Controllers/HomeController.php",
 		"/C/extroversia/app/Http/Controllers/Auth/LoginController.php",
@@ -622,7 +679,6 @@
 		"/C/nexo/config/database.php",
 		"/C/nexo/.env",
 		"/C/extroversia/public/index.php",
-		"/C/agd-solicitudes/www/js/scripts.js",
 		"/C/extroversia/resources/views/master.blade.php",
 		"/C/extroversia/config/filesystems.php",
 		"/C/extroversia/composer.json",
@@ -677,7 +733,6 @@
 		"/C/CRM/public/css/main.css",
 		"/C/CRM/public/css/index.css",
 		"/C/broker-app/www/tours.html",
-		"/C/agd-solicitudes/www/js/index.js",
 		"/C/broker-app/platforms/browser/index.html",
 		"/C/broker-app/www/pages/tours.html",
 		"/C/broker-app/www/pages/menu.html",
@@ -691,15 +746,8 @@
 		"/C/broker-app/CONTRIBUTING.md",
 		"/C/agd-solicitudes/config.xml",
 		"/C/agd/app/Http/Controllers/MobileController.php",
-		"/C/agd-solicitudes/www/css/index.css",
 		"/C/Users/Exequiel/Desktop/.htaccess",
-		"/C/agd/public/js/scripts.js",
-		"/C/agd/config/jwt.php",
-		"/C/agd/app/Http/Controllers/PagesController.php",
-		"/C/Users/Exequiel/Desktop/mundose/deFabrica.html",
-		"/C/agd/routes/web.php",
-		"/C/agd/resources/views/pages/solicitante/historial.blade.php",
-		"/C/agd-solicitudes/www/test.html"
+		"/C/agd/public/js/scripts.js"
 	],
 	"find":
 	{
@@ -717,6 +765,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"moneda",
+			"itemnt",
+			"body",
+			"ntour",
+			";",
+			"\n",
+			"tablaNuevoPedido",
+			"iniciales",
+			"id",
+			"bodyTours",
+			"cmmodulos",
+			"nombre",
+			"deviceready",
 			"window",
 			"iniciales",
 			"flex",
@@ -831,20 +892,7 @@
 			"USD",
 			"count",
 			"10px",
-			"<div>\n                     <span style='margin-left:20px;'>Super Brand |</span>\n                     <b> <span> 02-30-17 </span></b>\n                </div>",
-			"tour",
-			"/",
-			"-",
-			"border-rad",
-			"border",
-			"backgroun",
-			"npd",
-			"descripcionMenu",
-			"token",
-			"Authorization",
-			"http",
-			"swal",
-			"type"
+			"<div>\n                     <span style='margin-left:20px;'>Super Brand |</span>\n                     <b> <span> 02-30-17 </span></b>\n                </div>"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -862,8 +910,170 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/extroversia/routes/web.php",
+					"settings":
+					{
+						"buffer_size": 657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/extroversia/resources/views/pages/index.blade.php",
+					"settings":
+					{
+						"buffer_size": 18421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5500,
+								5500
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2622.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/extroversia/app/Http/Controllers/PagesController.php",
+					"settings":
+					{
+						"buffer_size": 2359,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								491,
+								491
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/extroversia/public/css/dashboard.css",
+					"settings":
+					{
+						"buffer_size": 1337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/extroversia/resources/views/home.blade.php",
+					"settings":
+					{
+						"buffer_size": 6747,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5159,
+								5196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2346.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/extroversia/public/css/index.css",
+					"settings":
+					{
+						"buffer_size": 9473,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								998,
+								897
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 552.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		},
 		{
@@ -925,16 +1135,44 @@
 		"selected_items":
 		[
 			[
-				"index.js",
-				"www/js/index.js"
+				"index",
+				"public/css/index.css"
 			],
 			[
-				"index",
-				"www/js/index.js"
+				"home.",
+				"resources/views/home.blade.php"
+			],
+			[
+				"web",
+				"routes/web.php"
+			],
+			[
+				"home",
+				"resources/views/home.blade.php"
+			],
+			[
+				"dashbo",
+				"public/css/dashboard.css"
+			],
+			[
+				"pages",
+				"app/Http/Controllers/PagesController.php"
 			],
 			[
 				"index.css",
 				"platforms/browser/css/index.css"
+			],
+			[
+				"indec",
+				"www/css/index.css"
+			],
+			[
+				"index.js",
+				"www/js/index.js"
+			],
+			[
+				"app.js",
+				"node_modules/cordova-android/cordova-js-src/plugin/android/app.js"
 			],
 			[
 				"scripts",
@@ -945,20 +1183,12 @@
 				"www/js/scripts.js"
 			],
 			[
-				"app.js",
-				"node_modules/cordova-android/cordova-js-src/plugin/android/app.js"
-			],
-			[
 				"cordova.js",
 				"platforms/browser/platform_www/cordova.js"
 			],
 			[
 				"register",
 				"app/Http/Controllers/Auth/RegisterController.php"
-			],
-			[
-				"pages",
-				"app/Http/Controllers/PagesController.php"
 			],
 			[
 				"crear",
@@ -977,16 +1207,8 @@
 				"app/Http/Controllers/HomeController.php"
 			],
 			[
-				"web",
-				"routes/web.php"
-			],
-			[
 				"detall",
 				"resources/views/pages/detalle-evento.blade.php"
-			],
-			[
-				"home",
-				"resources/views/home.blade.php"
 			],
 			[
 				"mapne",
@@ -1423,18 +1645,6 @@
 			[
 				"user",
 				"app/User.php"
-			],
-			[
-				"style",
-				"public/css/styles.css"
-			],
-			[
-				"pedi",
-				"app/Http/Controllers/PedidosController.php"
-			],
-			[
-				"nuevoped",
-				"resources/views/pages/solicitante/nuevoPedido.blade.php"
 			]
 		],
 		"width": 0.0

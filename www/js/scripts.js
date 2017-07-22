@@ -7,7 +7,7 @@ document.addEventListener('deviceready', function()
 	//CREAR BASE SI NO EXISTE
 	db = window.sqlitePlugin.openDatabase({name: 'brokers1.db', location: 'default'});
 	db.transaction(function (tx) {
-        tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text)");
+        tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text, fecha text)");
     }, function (err) {
         alert("An error occurred while initializing the app");
     });
@@ -19,7 +19,7 @@ document.addEventListener('deviceready', function()
  	   //INGRESAR NUEVO REGISTRO
        db.transaction(function(tx)
        {
-		  tx.executeSql('INSERT INTO tours (nombre, ubicacion, moneda) VALUES (?,?,?)', [ 'nombre','ubicacion','moneda']);
+		  tx.executeSql('INSERT INTO tours (nombre, ubicacion, moneda) VALUES (?,?,?)', [ 'nombre','ubicacion','moneda','fecha']);
 		  }, function(error) {
 		   alert('Transaction ERROR: ' + error.message);
 		  }, function() {
@@ -105,7 +105,9 @@ $("#bmTours").click(function(){
 		    	var ubicacion = resultSet.rows.item(i).ubicacion;
 		    	var nombre = resultSet.rows.item(i).nombre;
 		    	var moneda = resultSet.rows.item(i).moneda;
-		    	$("#bodyTours").append("<tr idTour='"+id+"'><td>"+nombre+"</td><td>"+ubicacion+"</td><td>"+moneda+"</td></tr>")
+		    	var fecha = resultSet.rows.item(i).fecha;
+
+		    	$("#bodyTours").append("<tr idTour='"+id+"'><td style='color:black !important;font-size:1em;'>"+nombre+"</td><td>"+ubicacion+"</td><td>"+fecha+"</td></tr>")
 		    };
 		        $('#tablaTours').DataTable( 
 			      {
@@ -132,12 +134,19 @@ $("#bntour").click(function(){
   });
 $("#bcmntour").click(function(){
 	ocultarSlide('modal-ntour');
-	mostrarSlide('cont-tours');
-	$(".inputmodal").each(function(){
-	 $(this).val(''); 
-	});
+	setTimeout(function () {
+    	mostrarSlide('cont-tours');
+		$(".inputmodal").each(function(){
+		 $(this).val(''); 
+		});
+    }, 200);
+
 });
 
+  $(document).on('click','#tablaTours > tbody > tr > td', function() {
+          var padre = $(this).parent();
+          alert(padre.attr('idTour'));
+  });//fin eliminarInsumo
 
 
 });//fin onready
