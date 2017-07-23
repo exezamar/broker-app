@@ -520,50 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "/C/extroversia/routes/web.php",
+			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 657,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/extroversia/resources/views/pages/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 18421,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/extroversia/app/Http/Controllers/PagesController.php",
-			"settings":
-			{
-				"buffer_size": 2359,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/extroversia/public/css/dashboard.css",
-			"settings":
-			{
-				"buffer_size": 1337,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/extroversia/resources/views/home.blade.php",
-			"settings":
-			{
-				"buffer_size": 6747,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/extroversia/public/css/index.css",
-			"settings":
-			{
-				"buffer_size": 9473,
+				"buffer_size": 4318,
 				"line_ending": "Windows"
 			}
 		}
@@ -621,13 +581,18 @@
 	"file_history":
 	[
 		"/C/extroversia/resources/views/home.blade.php",
+		"/C/extroversia/public/css/dashboard.css",
+		"/C/extroversia/app/Http/Controllers/PagesController.php",
+		"/C/extroversia/public/css/index.css",
+		"/C/extroversia/resources/views/pages/index.blade.php",
+		"/C/extroversia/routes/web.php",
+		"/C/agd-solicitudes/www/index.html",
 		"/C/extroversia/routes/api.php",
 		"/C/broker-app/www/js/scripts.js",
 		"/C/broker-app/www/css/index.css",
 		"/C/broker-app/www/index.html",
 		"/C/agd-solicitudes/www/js/scripts.js",
 		"/C/agd-solicitudes/www/js/index.js",
-		"/C/agd-solicitudes/www/index.html",
 		"/C/agd-solicitudes/www/css/index.css",
 		"/C/broker-app/platforms/browser/css/index.css",
 		"/C/broker-app-vieja/www/index.html",
@@ -655,13 +620,8 @@
 		"/C/testSqlite/platforms/browser/platform_www/cordova.js",
 		"/C/broker-app/www/spec.html",
 		"/C/extroversia/app/Http/Controllers/Auth/RegisterController.php",
-		"/C/extroversia/public/css/dashboard.css",
-		"/C/extroversia/app/Http/Controllers/PagesController.php",
 		"/C/extroversia/resources/views/pages/crear-evento.blade.php",
-		"/C/extroversia/resources/views/pages/index.blade.php",
 		"/C/extroversia/resources/views/pages/detalle-evento.blade.php",
-		"/C/extroversia/public/css/index.css",
-		"/C/extroversia/routes/web.php",
 		"/C/extroversia/app/Http/Controllers/HomeController.php",
 		"/C/extroversia/app/Http/Controllers/Auth/LoginController.php",
 		"/C/agd/resources/views/pages/solicitante/nuevoPedido.blade.php",
@@ -765,6 +725,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"cover",
+			"eventoDestacado",
+			"fevdest",
 			"moneda",
 			"itemnt",
 			"body",
@@ -889,10 +852,7 @@
 			"btnIngresar",
 			"tap",
 			"css",
-			"USD",
-			"count",
-			"10px",
-			"<div>\n                     <span style='margin-left:20px;'>Super Brand |</span>\n                     <b> <span> 02-30-17 </span></b>\n                </div>"
+			"USD"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -910,96 +870,15 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/extroversia/routes/web.php",
+					"file": "www/js/scripts.js",
 					"settings":
 					{
-						"buffer_size": 657,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								110,
-								110
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/extroversia/resources/views/pages/index.blade.php",
-					"settings":
-					{
-						"buffer_size": 18421,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5500,
-								5500
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2622.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/extroversia/app/Http/Controllers/PagesController.php",
-					"settings":
-					{
-						"buffer_size": 2359,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								491,
-								491
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/extroversia/public/css/dashboard.css",
-					"settings":
-					{
-						"buffer_size": 1337,
+						"buffer_size": 4318,
 						"regions":
 						{
 						},
@@ -1012,64 +891,12 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/extroversia/resources/views/home.blade.php",
-					"settings":
-					{
-						"buffer_size": 6747,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5159,
-								5196
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2346.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/extroversia/public/css/index.css",
-					"settings":
-					{
-						"buffer_size": 9473,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								998,
-								897
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 552.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

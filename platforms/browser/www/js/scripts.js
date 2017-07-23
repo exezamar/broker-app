@@ -4,9 +4,11 @@ var cuenta = 0;
 
 document.addEventListener('deviceready', function()
 {
+   
 	//CREAR BASE SI NO EXISTE
-	db = window.sqlitePlugin.openDatabase({name: 'brokers1.db', location: 'default'});
+	db = window.sqlitePlugin.openDatabase({name: 'brokers6.db', iosDatabaseLocation: 'Library'});
 	db.transaction(function (tx) {
+    
         tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text, fecha text)");
     }, function (err) {
         alert("An error occurred while initializing the app");
@@ -18,12 +20,12 @@ document.addEventListener('deviceready', function()
       
  	   //INGRESAR NUEVO REGISTRO
        db.transaction(function(tx)
-       {
-		  tx.executeSql('INSERT INTO tours (nombre, ubicacion, moneda) VALUES (?,?,?)', [ 'nombre','ubicacion','moneda','fecha']);
+      {
+		  tx.executeSql('INSERT INTO tours (nombre, ubicacion, moneda, fecha) VALUES (?,?,?,?)', [ 'nombre','ubicacion','moneda','fecha']);
 		  }, function(error) {
-		   alert('Transaction ERROR: ' + error.message);
+		    alert('Transaction ERROR: ' + error.message);
 		  }, function() {
-		    console.log('Populated database OK');
+		    alert('Populated database OK');
 		});//fin transaccion
 
        //MOSTAR CUANTOS RECORDS HAY
@@ -89,6 +91,7 @@ $("#login").click(function(){
     setTimeout(function () {
       mostrarSlide('cont-menu')
     }, 500);
+
 });
 
 $("#bmTours").click(function(){
