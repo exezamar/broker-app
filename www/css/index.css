@@ -97,9 +97,9 @@ a:hover{text-decoration: none;}
       -ms-flex-align:center;
           align-items:center;
   width: 100%;
-  height: 100px;
+  max-height: 15%;
   padding-top:10%;
-  padding-bottom:10%;
+  padding-bottom:10px;
 }
 .blue{
   background-color: #2196F3;
@@ -139,12 +139,20 @@ border-radius: 10px;
 width: 100%;
 
 }
+table.dataTable,
+table.dataTable th,
+table.dataTable td {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
 #contTabla{
   width: 100%;
-  max-height: 50% !important;
   background-color: white;
   text-align: center;
+    overflow:auto;
 }
+
+
 .modulo{
   display: -webkit-box;
   display: -ms-flexbox;
@@ -192,7 +200,7 @@ table.dataTable tbody td{
 
 
 #bodyTours{width: 100% !important;border-style:none !important;}
-#logo{width:150px;margin-top:150px;}
+#logo{width:150px;margin-top:20%;}
 #cont-login{
   display:flex;
   display: -webkit-box;
@@ -225,13 +233,22 @@ table.dataTable tbody td{
 
 }
 #bntour{
-  width: 60px !important;
-  height: 60px !important;
   border-radius: 50%;
   color: white;
   text-align: center;
   cursor:pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack:center;
+      -ms-flex-pack:center;
+          justify-content:center;
 
+}
+.tdhmodal{
+  -webkit-box-flex:3;
+      -ms-flex-positive:3;
+          flex-grow:3;
 }
 .ntour{
     display: -webkit-box;
@@ -240,14 +257,14 @@ table.dataTable tbody td{
   -ms-flex-pack:distribute;
       justify-content:space-around;
   width: 100%;
-  height: 100px;
-  padding-top:30px;
-  padding-bottom:30px;
+  height: 50px;
+  padding-top:10px;
+  padding-bottom:10px;
 
 }
 .liTour{color: red !important;font-size: .5em;}
 #modal-ntour{
-  display: -webkit-box;
+/*  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient:vertical;
@@ -257,10 +274,12 @@ table.dataTable tbody td{
   z-index: 999;
   -webkit-box-pack:center;
       -ms-flex-pack:center;
-          justify-content:center;
+          justify-content:center;*/
   color: gray;
-
-  width: 100%;
+  width: 60%;
+  position: absolute;
+  top:20%;
+  left:20%;
 }
 .modalHeader{
   display: -webkit-box;
@@ -298,4 +317,12 @@ table.dataTable tbody td{
 }
 .itemnt{
   margin-top: 20px;
+}
+.ofuscado{
+  -webkit-filter: blur(1px);
+-moz-filter: blur(1px);
+-ms-filter: blur(1px);
+-o-filter: blur(1px);
+filter: blur(1px);
+pointer-events: none;
 }

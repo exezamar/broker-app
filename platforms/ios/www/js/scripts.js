@@ -6,9 +6,8 @@ document.addEventListener('deviceready', function()
 {
    
 	//CREAR BASE SI NO EXISTE
-	db = window.sqlitePlugin.openDatabase({name: 'brokers6.db', iosDatabaseLocation: 'Library'});
+	db = window.sqlitePlugin.openDatabase({name: 'brokersiOs.db', iosDatabaseLocation: 'Library'});
 	db.transaction(function (tx) {
-    
         tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text, fecha text)");
     }, function (err) {
         alert("An error occurred while initializing the app");

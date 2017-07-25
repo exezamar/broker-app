@@ -40,14 +40,10 @@
             <span>Password</span> <br>
             <input type='password' id='txtPass' class='iform'>
         </div>
-          <button id='btnPopular'>pop</button><br><br>
+       <!--    <button id='btnPopular'>pop</button><br><br> -->
         <div class='btn'>
             <a href="#" id='login' style='color:white;'>Login</a>
-
-           
         </div>
-       
-
     </div>
     <div id='cont-menu' class='animated oculto'>
        <div class='hmenus blue'>
@@ -57,7 +53,7 @@
                      <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
                  </a>
             </div>
-            <div class='flex' style='margin-top:20px;color:white;'>
+<!--             <div class='flex' style='margin-top:20px;color:white;'>
                 <div class='iniciales'>
                     <div style='margin-top:25px'>
                         <span class='tnamein'>EZ</span>
@@ -66,7 +62,7 @@
                 <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>
                   <span>Welcome </span><br><span id='tname'>Exequiel Zamar</span>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class='cmmodulos'>
             <div class='modulo'>
@@ -74,7 +70,7 @@
                    <div class='hmodulo blue'>
                          <div style='margin-left:30px;margin-top:10px;'>
                               <span>My</span><br>
-                                <span>Tours</span>
+                              <span>Tours</span>
                         </div>
                     </div>
                 </a>
@@ -129,14 +125,15 @@
         </div>
     </div> <!-- fin cont-menu -->
     <div id='cont-tours' class='animated oculto'>
-       <div class='hmenus blue'>
+      <div id='contTodoTours'>
+        <div class='hmenus blue'>
             <div>
                  <!-- <span>///</span> -->
                  <a href="#" onclick="goToTours()">
                      <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
                  </a>
             </div>
-            <div style='margin-top:20px;color:white;' class='flex'>
+<!--             <div style='margin-top:20px;color:white;' class='flex'>
                 <div class='iniciales'>
                     <div >
                         <span class='tnamein'>EZ</span>
@@ -145,18 +142,20 @@
                 <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>
                   <span>Welcome </span><br><span class='tname'>Exequiel Zamar</span>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class='cmmodulos'>
            <div id='contTabla'>
              <table id='tablaTours' onClick="" >
-                  <thead style='text-align:center !important;'>
-                      <tr style='text-align:center !important;'>
-                          <th>Name</th>
-                          <th>Location</th>
-                          <th>Date</th>
+                   <thead >
+                      <tr>
+                          <th  style='width:33% !important;'>Name</th>
+                          <th  style='width:33% !important;'>Location</th>
+                          <th  style='width:33% !important;'>Date</th>
                       </tr>
                   </thead>
+             
+
                   <tbody id='bodyTours'></tbody>
               </table><br>
           </div>
@@ -166,43 +165,44 @@
                 <span style='font-size:2.1em;'>+</span>
             </div>
         </div>
+      </div>
+       
+        <!-- modal nuevo tour -->
+          <div id='modal-ntour' class='animated oculto white'>
+             <div class=' green ntour'>
+                 <div id='bcmntour'>
+                    <span style='font-size:1em;margin-right:5%;color:white;'>X</span>
+                  </div>
+                  <div class='tdhmodal'>
+                   <a href="#">
+                       <span style='marign-left:10px;color:white;font-size:1.3em;'>NEW TOUR</span>
+                   </a>
+                  </div>
+              </div>
+              <div class='modalBodyNT'>
+                  <div class='itemnt'>
+                    <span>Name</span> <br>
+                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                  </div>
+
+                  <div class='itemnt'>
+                    <span>Location</span> <br>
+                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                  </div>
+                
+                 <div class='itemnt'>
+                    <span>Date</span> <br>
+                    <input type='text' class='inputmodal' ></input>
+                 </div>
+                  <div class='itemnt'>
+                    <span>Select currency</span> <br>
+                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                  </div>
+              </div>
+          </div>   
 </div><!-- fin cont-tours -->  
 
-<!-- modal nuevo tour -->
-
-    <div id='modal-ntour' class='animated oculto white'>
-      <div class=' green ntour'>
-            
-           <div id='bcmntour'>
-              <span style='font-size:3em;margin-right:200px;color:white;'>X</span>
-            </div>
-            <div>
-             <a href="#">
-                 <span style='marign-left:10px;color:white;font-size:3em;'>NEW TOUR</span>
-             </a>
-            </div>
-        </div>
-          <div class='modalBodyNT'>
-            <div class='itemnt'>
-              <span>Name</span> <br>
-              <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
-            </div>
-
-            <div class='itemnt'>
-              <span>Location</span> <br>
-              <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
-            </div>
-          
-          <div class='itemnt'>
-              <span>Date</span> <br>
-              <input type='text' class='inputmodal' ></input>
-            </div>
-          <div class='itemnt'>
-              <span>Select currency</span> <br>
-              <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
-          </div>
-        </div>
-      </div>      
+   
 
 
         <script type="text/javascript" src="cordova.js"></script>

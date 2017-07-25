@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"fechaEnvioCandidat",
+				"fechaEnvioCandidatosManual"
+			],
+			[
+				"fecha",
+				"fechaSolicitada"
+			],
+			[
 				"tex",
 				"text-decoration"
 			],
@@ -118,10 +126,6 @@
 			[
 				"can",
 				"cantidadSolicitada"
-			],
-			[
-				"fecha",
-				"fechaCancelacion"
 			],
 			[
 				"entre",
@@ -510,20 +514,19 @@
 			[
 				"CODIGO",
 				"codigoDestino"
-			],
-			[
-				"estad",
-				"estadoUsuario"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "www/js/scripts.js",
+			"contents": "<IfModule mod_rewrite.c>\n    <IfModule mod_negotiation.c>\n        Options -MultiViews \n    </IfModule>\n\n    RewriteEngine On\n\n    # Redirect Trailing Slashes If Not A Folder...\n    RewriteCond %{REQUEST_FILENAME} !-d\n    RewriteRule ^(.*)/$ /$1 [L,R=301]\n\n    # Handle Front Controller...\n    RewriteCond %{REQUEST_FILENAME} !-d\n    RewriteCond %{REQUEST_FILENAME} !-f\n    RewriteRule ^ index.php [L]\n\n    RewriteCond %{HTTPS} off\n# First rewrite to HTTPS:\n# Don't put www. here. If it is already there it will be included, if not\n# the subsequent rule will catch it.\nRewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n# Now, rewrite any request to the wrong domain to use www.\nRewriteCond %{HTTP_HOST} !^www\\.\nRewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n\nRewriteCond %{HTTP:Authorization} ^(.*)\nRewriteRule .* - [e=HTTP_AUTHORIZATION:%1]\n\n</IfModule>\n\n\n",
+			"file": "/C/Users/Exequiel/Desktop/.htaccess",
+			"file_size": 914,
+			"file_write_time": 131454643903635088,
 			"settings":
 			{
-				"buffer_size": 4318,
+				"buffer_size": 883,
 				"line_ending": "Windows"
 			}
 		}
@@ -580,20 +583,33 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Exequiel/Desktop/.htaccess",
+		"/C/Users/Exequiel/Desktop/index.html",
+		"/C/nexo/resources/views/pages/historialSelector.blade.php",
+		"/C/nexo/public/js/selector.js",
+		"/C/nexo/resources/views/pages/pendientesSelector.blade.php",
+		"/C/agd/resources/views/pages/solicitante/nuevoPedido.blade.php",
+		"/C/agd-solicitudes/config.xml",
+		"/C/agd/app/Http/Controllers/MobileController.php",
+		"/C/agd-solicitudes/www/css/index.css",
+		"/C/agd-solicitudes/www/js/scripts.js",
+		"/C/agd/app/Http/Controllers/PagesController.php",
+		"/C/agd-solicitudes/www/index.html",
+		"/C/agd/public/css/menu.css",
+		"/C/agd/public/css/index.css",
+		"/C/agd/resources/views/emails/nuevoPedido.blade.php",
+		"/C/agd-solicitudes/plugins/cordova-plugin-splashscreen/tests/ios/CDVSplashScreenTest/CDVSplashScreenTest.xcodeproj/project.xcworkspace/xcshareddata/CDVSplashScreenTest.xccheckout",
+		"/C/broker-app/www/js/scripts.js",
+		"/C/broker-app/www/index.html",
 		"/C/extroversia/resources/views/home.blade.php",
 		"/C/extroversia/public/css/dashboard.css",
 		"/C/extroversia/app/Http/Controllers/PagesController.php",
 		"/C/extroversia/public/css/index.css",
 		"/C/extroversia/resources/views/pages/index.blade.php",
 		"/C/extroversia/routes/web.php",
-		"/C/agd-solicitudes/www/index.html",
 		"/C/extroversia/routes/api.php",
-		"/C/broker-app/www/js/scripts.js",
 		"/C/broker-app/www/css/index.css",
-		"/C/broker-app/www/index.html",
-		"/C/agd-solicitudes/www/js/scripts.js",
 		"/C/agd-solicitudes/www/js/index.js",
-		"/C/agd-solicitudes/www/css/index.css",
 		"/C/broker-app/platforms/browser/css/index.css",
 		"/C/broker-app-vieja/www/index.html",
 		"/C/broker-app-vieja/www/js/scripts.js",
@@ -624,7 +640,6 @@
 		"/C/extroversia/resources/views/pages/detalle-evento.blade.php",
 		"/C/extroversia/app/Http/Controllers/HomeController.php",
 		"/C/extroversia/app/Http/Controllers/Auth/LoginController.php",
-		"/C/agd/resources/views/pages/solicitante/nuevoPedido.blade.php",
 		"/C/extroversia/public/css/detalleEvento.css",
 		"/C/extroversia/resources/views/pages/dashboard.blade.php",
 		"/C/extroversia/public/js/mapne.js",
@@ -654,8 +669,6 @@
 		"/C/agd/public/js/nuevaSolicitud.js",
 		"/C/Users/Exequiel/AppData/Local/Temp/Rar$DRa0.779/turnopolis/public/js/maps.js",
 		"/C/extroversia/public/css/app.css",
-		"/C/agd/public/css/menu.css",
-		"/C/agd/public/css/index.css",
 		"/C/start-app/resources/views/home.blade.php",
 		"/C/start-app/public/css/index.css",
 		"/C/extroversia/resources/views/layouts/app.blade.php",
@@ -697,21 +710,11 @@
 		"/C/broker-app/www/pages/tours.html",
 		"/C/broker-app/www/pages/menu.html",
 		"/C/broker2/.env",
-		"/C/broker2/app/Providers/AppServiceProvider.php",
-		"/C/broker/routes/web.php",
-		"/C/broker/.env",
-		"/C/broker/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/C/broker/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php",
-		"/C/Users/Exequiel/AppData/Roaming/Sublime Text 2/Packages/User/JavaScript.sublime-settings",
-		"/C/broker-app/CONTRIBUTING.md",
-		"/C/agd-solicitudes/config.xml",
-		"/C/agd/app/Http/Controllers/MobileController.php",
-		"/C/Users/Exequiel/Desktop/.htaccess",
-		"/C/agd/public/js/scripts.js"
+		"/C/broker2/app/Providers/AppServiceProvider.php"
 	],
 	"find":
 	{
-		"height": 55.0
+		"height": 50.0
 	},
 	"find_in_files":
 	{
@@ -725,6 +728,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ajax",
+			"fechaenviocandidatos",
+			"info-pedido",
+			"fechaEnvioCandidatosManual",
+			"FechaEnvioCandidatosManual",
+			"fechaEnvioCandidatosManual",
+			"txtFechaEnvioCandidatosManual",
+			"infoPedido",
+			"cancel",
+			"380px",
+			"display: flex",
+			"display:flex",
+			"display:flex;}",
+			"border-bottom:1px solid white;",
+			"volver",
+			"unidadMedida",
+			"CANTIDADSOLICITADA",
+			"tablacantidades",
+			"tablaselecciondeposito",
+			"itemdeposito",
+			"bodydepositos",
+			"red",
+			"btnRegistrar",
+			"UM",
 			"cover",
 			"eventoDestacado",
 			"fevdest",
@@ -828,31 +855,7 @@
 			" '",
 			"#162440",
 			"gray",
-			" <li>",
-			"Laravel",
-			"input",
-			"run",
-			"cacona",
-			"instrucciones",
-			"item",
-			"upload_max",
-			"instrucciones",
-			"Instrucciones",
-			"instrucciones",
-			"',\n",
-			"right",
-			"button",
-			"\"#instrucciones\"",
-			"instrucciones",
-			"append",
-			"h2",
-			"border",
-			"bntour",
-			"link",
-			"btnIngresar",
-			"tap",
-			"css",
-			"USD"
+			" <li>"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -875,24 +878,24 @@
 			[
 				{
 					"buffer": 0,
-					"file": "www/js/scripts.js",
+					"file": "/C/Users/Exequiel/Desktop/.htaccess",
 					"settings":
 					{
-						"buffer_size": 4318,
+						"buffer_size": 883,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								86,
+								86
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -962,8 +965,52 @@
 		"selected_items":
 		[
 			[
+				"historialselec",
+				"resources/views/pages/historialSelector.blade.php"
+			],
+			[
+				"seleco",
+				"public/js/selector.js"
+			],
+			[
+				"pendiente",
+				"resources/views/pages/pendientesSelector.blade.php"
+			],
+			[
+				"menu",
+				"agd/public/css/menu.css"
+			],
+			[
+				"index.css",
+				"agd/public/css/index.css"
+			],
+			[
+				"nuevop",
+				"agd/resources/views/pages/solicitante/nuevoPedido.blade.php"
+			],
+			[
+				"nuevo",
+				"agd/resources/views/emails/nuevoPedido.blade.php"
+			],
+			[
+				"pagescontro",
+				"agd/app/Http/Controllers/PagesController.php"
+			],
+			[
+				"mobilecon",
+				"agd/app/Http/Controllers/MobileController.php"
+			],
+			[
 				"index",
-				"public/css/index.css"
+				"www/css/index.css"
+			],
+			[
+				"scrip",
+				"www/js/scripts.js"
+			],
+			[
+				"scritps",
+				"plugins/cordova-plugin-splashscreen/tests/ios/CDVSplashScreenTest/CDVSplashScreenTest.xcodeproj/project.xcworkspace/xcshareddata/CDVSplashScreenTest.xccheckout"
 			],
 			[
 				"home.",
@@ -984,10 +1031,6 @@
 			[
 				"pages",
 				"app/Http/Controllers/PagesController.php"
-			],
-			[
-				"index.css",
-				"platforms/browser/css/index.css"
 			],
 			[
 				"indec",
@@ -1110,10 +1153,6 @@
 				"agd/resources/views/pages/solicitante/historial.blade.php"
 			],
 			[
-				"scrip",
-				"www/js/scripts.js"
-			],
-			[
 				"scri",
 				"www/js/scripts.js"
 			],
@@ -1154,10 +1193,6 @@
 				"agd/app/Http/Controllers/PedidosController.php"
 			],
 			[
-				"mobilecon",
-				"agd/app/Http/Controllers/MobileController.php"
-			],
-			[
 				"homec",
 				"app/Http/Controllers/HomeController.php"
 			],
@@ -1176,10 +1211,6 @@
 			[
 				"selec",
 				"public/js/selector.js"
-			],
-			[
-				"pendiente",
-				"resources/views/pages/pendientesSelector.blade.php"
 			],
 			[
 				"actualizar",
@@ -1258,10 +1289,6 @@
 				"public/css/menu.css"
 			],
 			[
-				"nuevo",
-				"resources/views/pages/solicitante/nuevoPedido.blade.php"
-			],
-			[
 				"remito",
 				"resources/views/pages/resolutor/asignarRemitosYFacturas.blade.php"
 			],
@@ -1276,10 +1303,6 @@
 			[
 				"resolutor",
 				"public/js/resolutor.js"
-			],
-			[
-				"menu",
-				"public/css/menu.css"
 			],
 			[
 				"solici",
@@ -1452,26 +1475,6 @@
 			[
 				"pendiend",
 				"resources/views/pages/pendientesSelector.blade.php"
-			],
-			[
-				"ppedidos",
-				"resources/views/pages/PedidosController.php"
-			],
-			[
-				"map",
-				"public/js/maps.js"
-			],
-			[
-				"authenticatu",
-				"vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php"
-			],
-			[
-				"regis",
-				"app/Http/Controllers/RegistrationController.php"
-			],
-			[
-				"user",
-				"app/User.php"
 			]
 		],
 		"width": 0.0
