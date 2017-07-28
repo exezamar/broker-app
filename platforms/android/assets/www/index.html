@@ -128,21 +128,10 @@
       <div id='contTodoTours'>
         <div class='hmenus blue'>
             <div>
-                 <!-- <span>///</span> -->
-                 <a href="#" onclick="goToTours()">
+                 <a href="#">
                      <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
                  </a>
             </div>
-<!--             <div style='margin-top:20px;color:white;' class='flex'>
-                <div class='iniciales'>
-                    <div >
-                        <span class='tnamein'>EZ</span>
-                    </div>
-                </div>
-                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>
-                  <span>Welcome </span><br><span class='tname'>Exequiel Zamar</span>
-                </div>
-            </div> -->
         </div>
         <div class='cmmodulos'>
            <div id='contTabla'>
@@ -154,8 +143,6 @@
                           <th  style='width:33% !important;'>Date</th>
                       </tr>
                   </thead>
-             
-
                   <tbody id='bodyTours'></tbody>
               </table><br>
           </div>
@@ -170,38 +157,124 @@
         <!-- modal nuevo tour -->
           <div id='modal-ntour' class='animated oculto white'>
              <div class=' green ntour'>
-                 <div id='bcmntour'>
-                    <span style='font-size:1em;margin-right:5%;color:white;'>X</span>
+                 <div id='bcmntour'style="padding:10px;">
+                    <span style='font-size:1em;margin-right:5%;color:white;'>x</span>
                   </div>
                   <div class='tdhmodal'>
                    <a href="#">
-                       <span style='marign-left:10px;color:white;font-size:1.3em;'>NEW TOUR</span>
+                       <span style='marign-left:10%;color:white;font-size:1.3em;'>NEW TOUR</span>
+                   </a>
+                  </div>
+              </div>
+              <div class='modalBodyNT' >
+                  <div class='itemnt' style='margin-top:10px;'>
+                    <span class='tiformnt'>Name</span> <br>
+                    <input type='text' id='nnuevtour' class='inputmodal'></input>
+                  </div>
+
+                  <div class='itemnt'>
+                    <span class='tiformnt'>Location</span> <br>
+                    <input type='text' id='ubinuevtour' class='inputmodal' ></input>
+                  </div>
+                
+                 <div class='itemnt'>
+                    <span class='tiformnt'>Date</span> <br>
+                    <input type='date' id='fechnuevtour' name='fechnuevtour' class='inputmodal' ></input>
+                 </div>
+                  <div class='itemnt'>
+                    <span class='tiformnt'>Currency</span> <br>
+                    <select id='inputMoneda'class='inputmodal' style='min-width:140px;'>
+                      <option value="">Select</option>
+                      <option value="USD">USD</option>
+                      <option value="RMB">RMB</option>
+
+                    </select>
+                  </div>
+                 <div class='btnModal green'>
+                    <div >
+                        <a href="#" id='btnCrearTour' style='color:white;'>CREATE</a>
+                    </div>
+                </div>
+              </div>
+          </div>   
+</div><!-- fin cont-tours -->  
+<div id='cont-products' class='animated oculto'>
+      <div id='contTodoProductos'>
+        <div class='hmenus blue'>
+            <div>
+                 <a href="#">
+                     <span style='marign-left:10px;color:white;font-size:1.3em;'>My products from</span> <br>
+                 </a>
+                 <a href="#">
+                     <span style='marign-left:10px;color:white;font-size:1.3em;'>Tour name</span>
+                 </a>
+            </div>
+        </div>
+        <div class='cmmodulos'>
+           <div id='contTabla'>
+             <table id='tablaTours' onClick="" >
+                   <thead >
+                      <tr>
+                          <th  style='width:33% !important;'>Name</th>
+                          <th  style='width:33% !important;'>Location</th>
+                          <th  style='width:33% !important;'>Date</th>
+                      </tr>
+                  </thead>
+                  <tbody id='bodyTours' style='height:250px !important; overflow:auto !important;position:relative;'></tbody>
+              </table><br>
+          </div>
+        </div> 
+        <div class='iniciales flex-stretch' style='margin:auto;background-color:#2196F3 !important;margin-top:20px;'>
+            <div id='bntour'>
+                <span style='font-size:2.1em;'>+</span>
+            </div>
+        </div>
+      </div>
+       
+        <!-- modal nuevo producto -->
+          <div id='modal-nproducto' class='animated oculto white'>
+             <div class=' green ntour'>
+                 <div id='bcmntour'style="padding:10px;">
+                    <span style='font-size:1em;margin-right:5%;color:white;'>x</span>
+                  </div>
+                  <div class='tdhmodal'>
+                   <a href="#">
+                       <span style='marign-left:10%;color:white;font-size:1.3em;'>ADD PRODUCT</span>
                    </a>
                   </div>
               </div>
               <div class='modalBodyNT'>
-                  <div class='itemnt'>
-                    <span>Name</span> <br>
-                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                  <div class='itemnt' style='margin-top:10px;'>
+                    <span class='tiformnt'>Name</span> <br>
+                    <input type='text' id='nnuevtour' class='inputmodal'></input>
                   </div>
 
                   <div class='itemnt'>
-                    <span>Location</span> <br>
-                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                    <span class='tiformnt'>Location</span> <br>
+                    <input type='text' id='ubinuevtour' class='inputmodal' ></input>
                   </div>
                 
                  <div class='itemnt'>
-                    <span>Date</span> <br>
-                    <input type='text' class='inputmodal' ></input>
+                    <span class='tiformnt'>Date</span> <br>
+                    <input type='date' id='fechnuevtour' name='fechnuevtour' class='inputmodal' ></input>
                  </div>
                   <div class='itemnt'>
-                    <span>Select currency</span> <br>
-                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                    <span class='tiformnt'>Currency</span> <br>
+                    <select id='inputMoneda'class='inputmodal' style='min-width:140px;'>
+                      <option value="">Select</option>
+                      <option value="USD">USD</option>
+                      <option value="RMB">RMB</option>
+
+                    </select>
                   </div>
+                 <div class='btnModal green'>
+                    <div >
+                        <a href="#" id='btnCrearTour' style='color:white;'>CREATE</a>
+                    </div>
+                </div>
               </div>
           </div>   
-</div><!-- fin cont-tours -->  
-
+</div><!-- fin cont-producto -->  
    
 
 
@@ -216,7 +289,7 @@
 
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript">
-
+          
 
         </script>
 

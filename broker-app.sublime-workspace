@@ -520,13 +520,42 @@
 	"buffers":
 	[
 		{
-			"contents": "<IfModule mod_rewrite.c>\n    <IfModule mod_negotiation.c>\n        Options -MultiViews \n    </IfModule>\n\n    RewriteEngine On\n\n    # Redirect Trailing Slashes If Not A Folder...\n    RewriteCond %{REQUEST_FILENAME} !-d\n    RewriteRule ^(.*)/$ /$1 [L,R=301]\n\n    # Handle Front Controller...\n    RewriteCond %{REQUEST_FILENAME} !-d\n    RewriteCond %{REQUEST_FILENAME} !-f\n    RewriteRule ^ index.php [L]\n\n    RewriteCond %{HTTPS} off\n# First rewrite to HTTPS:\n# Don't put www. here. If it is already there it will be included, if not\n# the subsequent rule will catch it.\nRewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n# Now, rewrite any request to the wrong domain to use www.\nRewriteCond %{HTTP_HOST} !^www\\.\nRewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]\n\nRewriteCond %{HTTP:Authorization} ^(.*)\nRewriteRule .* - [e=HTTP_AUTHORIZATION:%1]\n\n</IfModule>\n\n\n",
-			"file": "/C/Users/Exequiel/Desktop/.htaccess",
-			"file_size": 914,
-			"file_write_time": 131454643903635088,
+			"file": "/C/Naum/app/Console/Kernel.php",
 			"settings":
 			{
-				"buffer_size": 883,
+				"buffer_size": 1167,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Naum/app/Console/Commands/ActualizarConta.php",
+			"settings":
+			{
+				"buffer_size": 5018,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Extroversia-viejo/resources/views/pages/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 15076,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Exequiel/Dropbox/Naum/QBICONTA/crear tablas qbicobnta completa.txt",
+			"settings":
+			{
+				"buffer_size": 12717,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -583,6 +612,20 @@
 	},
 	"file_history":
 	[
+		"/C/Extroversia-viejo/resources/views/home.blade.php",
+		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/posv5.sql",
+		"/C/Naum/app/Console/Commands/ActualizarPOV5.php",
+		"/C/Users/Exequiel/Desktop/FMCUBI_PR.csv",
+		"/C/Users/Exequiel/Dropbox/Naum/QBICOMERCIAL/crear tablas qbicomercial.txt",
+		"/C/Naum/app/Console/Commands/ActualizarConta - Copy.php",
+		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/QBIPOSV5.sql",
+		"/C/Users/Exequiel/Desktop/posv5.sql",
+		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/FHCTBI_PR.csv",
+		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/FAPDBI.csv",
+		"/C/Users/Exequiel/Desktop/FTSOBI3_PR.csv",
+		"/C/broker-app/www/js/scripts.js",
+		"/C/broker-app/www/css/index.css",
+		"/C/broker-app/www/index.html",
 		"/C/Users/Exequiel/Desktop/.htaccess",
 		"/C/Users/Exequiel/Desktop/index.html",
 		"/C/nexo/resources/views/pages/historialSelector.blade.php",
@@ -599,8 +642,6 @@
 		"/C/agd/public/css/index.css",
 		"/C/agd/resources/views/emails/nuevoPedido.blade.php",
 		"/C/agd-solicitudes/plugins/cordova-plugin-splashscreen/tests/ios/CDVSplashScreenTest/CDVSplashScreenTest.xcodeproj/project.xcworkspace/xcshareddata/CDVSplashScreenTest.xccheckout",
-		"/C/broker-app/www/js/scripts.js",
-		"/C/broker-app/www/index.html",
 		"/C/extroversia/resources/views/home.blade.php",
 		"/C/extroversia/public/css/dashboard.css",
 		"/C/extroversia/app/Http/Controllers/PagesController.php",
@@ -608,7 +649,6 @@
 		"/C/extroversia/resources/views/pages/index.blade.php",
 		"/C/extroversia/routes/web.php",
 		"/C/extroversia/routes/api.php",
-		"/C/broker-app/www/css/index.css",
 		"/C/agd-solicitudes/www/js/index.js",
 		"/C/broker-app/platforms/browser/css/index.css",
 		"/C/broker-app-vieja/www/index.html",
@@ -699,22 +739,11 @@
 		"/C/Extroversia/routes/web.php",
 		"/C/Extroversia/resources/views/pages/index.blade.php",
 		"/C/extension-samuranium/manifest.json",
-		"/C/test.php",
-		"/C/Naum/app/Console/Commands/ActualizarBase.php",
-		"/C/Naum/app/Console/Commands/test.php",
-		"/C/broker-app/www/menu.html",
-		"/C/CRM/public/css/main.css",
-		"/C/CRM/public/css/index.css",
-		"/C/broker-app/www/tours.html",
-		"/C/broker-app/platforms/browser/index.html",
-		"/C/broker-app/www/pages/tours.html",
-		"/C/broker-app/www/pages/menu.html",
-		"/C/broker2/.env",
-		"/C/broker2/app/Providers/AppServiceProvider.php"
+		"/C/test.php"
 	],
 	"find":
 	{
-		"height": 50.0
+		"height": 49.0
 	},
 	"find_in_files":
 	{
@@ -728,6 +757,68 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
+			",",
+			"FMCUMBI_PR",
+			",",
+			"150",
+			"15",
+			"(250)",
+			"(150)",
+			"150",
+			"`",
+			"-- --------------------------------------------------------\n\n--\n-- Table structure for table",
+			"varchar(150)",
+			"varchar(150) DEFAULT NULL",
+			"varchar(150) DEFAULT NULL,",
+			"(16)",
+			"91",
+			"varchar(8)",
+			"(62)",
+			"(37)",
+			"(45",
+			"(74)",
+			"(42)",
+			"(29)",
+			"(31)",
+			"(41)",
+			"(63)",
+			"(72)",
+			"(27)",
+			"(9)",
+			"(14)",
+			"150",
+			"(24)",
+			"(11)",
+			"varchar(32)",
+			"(18)",
+			"(17)",
+			"(52)",
+			"(12)",
+			"(2)",
+			"varchar(3)",
+			"varchar(4)",
+			"decimal",
+			"varchar(5)",
+			"varchar(7)",
+			"varchar(6)",
+			"ENGINE=InnoDB DEFAULT CHARSET=utf8;",
+			"varchar(10)",
+			"varchar(1)",
+			"int",
+			"int(1)",
+			"varchar(1)",
+			"varchar(8)",
+			"varchar(6)",
+			",",
+			",\"",
+			"ntour",
+			"1em",
+			"2em",
+			"100",
+			"                   <",
+			"            <div style='margin-top:20px;color:white;' class='flex'>\n                <div class='iniciales'>\n                    <div >\n                        <span class='tnamein'>EZ</span>\n                    </div>\n                </div>\n                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>\n                  <span>Welcome </span><br><span class='tname'>Exequiel Zamar</span>\n                </div>\n            </div>",
+			"            <div class='flex' style='margin-top:20px;color:white;'>\n                <div class='iniciales'>\n                    <div style='margin-top:25px'>\n                        <span class='tnamein'>EZ</span>\n                    </div>\n                </div>\n                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>\n                  <span>Welcome </span><br><span id='tname'>Exequiel Zamar</span>\n                </div>\n            </div>",
 			"ajax",
 			"fechaenviocandidatos",
 			"info-pedido",
@@ -793,69 +884,7 @@
 			"extrdtrw",
 			"ccevento",
 			"1",
-			"form1",
-			"imagen3",
-			"imagen2",
-			"#imagen2",
-			"#simg2",
-			"imagen2",
-			"img/sinFoto.png",
-			"imagen1",
-			"simg1",
-			"portada",
-			"fotoPortada",
-			"text",
-			"fecha",
-			"titulo",
-			"aws",
-			"token",
-			"onselectExample",
-			"\n",
-			"scripts",
-			",\n'",
-			">\n",
-			"audi",
-			"opel",
-			"saab",
-			"    var uluru = {lat: -31.4, lng: -64.1833};\n    var map = new google.maps.Map(document.getElementById('map'), {\n                    zoom: 4,\n                    center: uluru\n                  });",
-			"waypointMarker",
-			"}\n",
-			"};\n",
-			"cgmunevent",
-			"map",
-			"body",
-			"form",
-			"body",
-			";\n",
-			"ctmm",
-			"%;*/\n",
-			"ctmm",
-			"mm",
-			"cpgaleria",
-			"formEvento",
-			"volvo",
-			"a{",
-			"red",
-			"eventodestacado",
-			"cdevdest",
-			"eventoDestacado",
-			"fevdest",
-			"ceventxcate",
-			"  padding-bottom:200px;\n",
-			"ceventxcate",
-			"ccate",
-			"style='position:relative;'",
-			"</b>",
-			"<b>",
-			"span",
-			"style='color:#195B74;",
-			";",
-			"#162440",
-			"class='msl'",
-			" '",
-			"#162440",
-			"gray",
-			" <li>"
+			"form1"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -873,30 +902,139 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/Exequiel/Desktop/.htaccess",
+					"file": "/C/Naum/app/Console/Kernel.php",
 					"settings":
 					{
-						"buffer_size": 883,
+						"buffer_size": 1167,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								86,
-								86
+								194,
+								194
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Naum/app/Console/Commands/ActualizarConta.php",
+					"settings":
+					{
+						"buffer_size": 5018,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1368,
+								1368
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 830.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Extroversia-viejo/resources/views/pages/index.blade.php",
+					"settings":
+					{
+						"buffer_size": 15076,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12938,
+								12938
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 11120.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Exequiel/Dropbox/Naum/QBICONTA/crear tablas qbicobnta completa.txt",
+					"settings":
+					{
+						"buffer_size": 12717,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3533,
+								3192
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2187.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -965,6 +1103,18 @@
 		"selected_items":
 		[
 			[
+				"index",
+				"www/css/index.css"
+			],
+			[
+				"index.",
+				"www/index.html"
+			],
+			[
+				"script",
+				"www/js/scripts.js"
+			],
+			[
 				"historialselec",
 				"resources/views/pages/historialSelector.blade.php"
 			],
@@ -999,10 +1149,6 @@
 			[
 				"mobilecon",
 				"agd/app/Http/Controllers/MobileController.php"
-			],
-			[
-				"index",
-				"www/css/index.css"
 			],
 			[
 				"scrip",
@@ -1046,10 +1192,6 @@
 			],
 			[
 				"scripts",
-				"www/js/scripts.js"
-			],
-			[
-				"script",
 				"www/js/scripts.js"
 			],
 			[
@@ -1471,10 +1613,6 @@
 			[
 				"vended",
 				"public/js/vendedor.js"
-			],
-			[
-				"pendiend",
-				"resources/views/pages/pendientesSelector.blade.php"
 			]
 		],
 		"width": 0.0

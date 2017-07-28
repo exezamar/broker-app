@@ -16,6 +16,7 @@ body {
     padding:0px;
     /*text-transform:uppercase;*/
     width:100%;
+    text-transform: uppercase;
 }
 
 /* Portrait layout (default) */
@@ -70,12 +71,25 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 .btn{
-  font-size: 1.5em;
-  margin-top:25px;
+    font-size: 1.5em;
   margin-top:30px;
   background-color: #2096F3;
   color: white !important;
   padding:15px;
+
+  text-align: center;
+}
+.btnModal{
+  font-size: 1.2em;
+  margin-top:30px;
+  background-color: #2096F3;
+  color: white !important;
+  padding-top:10px;
+  padding-bottom:10px;
+
+  width: 100%;
+  text-align: center;
+
 }
 a{text-decoration: none;}
 a:hover{text-decoration: none;}
@@ -149,7 +163,7 @@ table.dataTable td {
   width: 100%;
   background-color: white;
   text-align: center;
-    overflow:auto;
+ position:relative;
 }
 
 
@@ -198,8 +212,17 @@ table.dataTable tbody td{
 
 
 
+#tablaTours{
+        overflow:auto !important;
+ height: 300px !important;
+ position:relative;
+}
+#bodyTours{
+  width: 100% !important;
+  border-style:none !important;
 
-#bodyTours{width: 100% !important;border-style:none !important;}
+}
+div.dataTables_scroll { clear: both !important; }
 #logo{width:150px;margin-top:20%;}
 #cont-login{
   display:flex;
@@ -246,16 +269,17 @@ table.dataTable tbody td{
 
 }
 .tdhmodal{
-  -webkit-box-flex:3;
-      -ms-flex-positive:3;
-          flex-grow:3;
+  -webkit-box-flex:2;
+      -ms-flex-positive:2;
+          flex-grow:2;
 }
 .ntour{
-    display: -webkit-box;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack:distribute;
-      justify-content:space-around;
+  -webkit-box-pack:center;
+      -ms-flex-pack:center;
+          justify-content:center;
   width: 100%;
   height: 50px;
   padding-top:10px;
@@ -264,17 +288,7 @@ table.dataTable tbody td{
 }
 .liTour{color: red !important;font-size: .5em;}
 #modal-ntour{
-/*  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient:vertical;
-  -webkit-box-direction:normal;
-      -ms-flex-direction:column;
-          flex-direction:column;
-  z-index: 999;
-  -webkit-box-pack:center;
-      -ms-flex-pack:center;
-          justify-content:center;*/
+
   color: gray;
   width: 60%;
   position: absolute;
@@ -306,23 +320,34 @@ table.dataTable tbody td{
       -ms-flex-align:center;
           align-items:center;
   background-color:#E4E4E4;
+
 }
 .inputmodal{
-  text-decoration: none;
-  color: #E4E4E4;
-  font-size: 1.8em;
-  background-color: white;
-  width: 80%;
-  max-width: 800px;
+  text-decoration: none !important;
+  color: #009688 !important;
+  font-size: 1.2em !important;
+  background-color: white !important;
+  border-style:none !important;
 }
+
 .itemnt{
-  margin-top: 20px;
+  margin-top: 15px;
+  margin:auto;
+  max-width: 800px;
+  text-align: center;
+  padding-bottom:10px;
 }
 .ofuscado{
-  -webkit-filter: blur(1px);
--moz-filter: blur(1px);
--ms-filter: blur(1px);
--o-filter: blur(1px);
-filter: blur(1px);
+  -webkit-filter: blur(2px);
+-moz-filter: blur(2px);
+-ms-filter: blur(2px);
+-o-filter: blur(2px);
+filter: blur(2px);
 pointer-events: none;
+}
+.tiformnt{
+  text-align: center;
+  font-size: 1.4em;
+  margin-bottom:5px;
+
 }
