@@ -1,7 +1,9 @@
 
 var db = null;
 var cuenta = 0;
-
+var idTour = '';
+var nombreTour = '';
+var ubicacionTour = '';
 document.addEventListener('deviceready', function()
 {
 
@@ -195,21 +197,39 @@ $("#btnCrearTour").click(function(){
       });//fin transaccion
 
     });
-$(document).on('click','#tablaTours > tbody > tr > td', function() {
-  var padre = $(this).parent();
-  var idTour = padre.attr('idTour');
-
+$(document).on('click','#tablaTours > tbody > tr', function() {
+   
+   idTour = $(this).attr('idTour');
+   nombreTour = $(this).children('td').eq(0).text();
+   ubicacionTour = $(this).children('td').eq(1).text();
+   $("#tnombtour").text(nombreTour);
+   $("#tubictour").text(ubicacionTour);
   ocultarSlide('cont-tours');
   setTimeout(function () {
           mostrarSlide('cont-products');
           
-        }, 100);
+        }, 200);
   });//fin clickTablaTours
+  $("#btnVolverTour").click(function(){
+    ocultarSlide('cont-products');
+    setTimeout(function () {
+          mostrarSlide('cont-tours');
+        }, 200);
+  });
+
   $("#contNewProduct").click(function(){
     ocultarSlide('contTodoProductos');
+
     setTimeout(function () {
           mostrarSlide('modal-nproducto');
-        }, 100);
+        }, 200);
 
   });
+  $("#btnVolverNProd").click(function(){
+    ocultarSlide('modal-nproducto');
+    setTimeout(function () {
+          mostrarSlide('contTodoProductos');
+        }, 200);
+  });
+
 });//fin onready

@@ -153,6 +153,12 @@ a:hover{text-decoration: none;}
   width: 100%;
 
 }
+.txtinfotour{
+  marign-left:10px;
+  color:white;
+  font-size:1.3em;
+
+}
 table.dataTable,
 table.dataTable th,
 table.dataTable td {
@@ -197,19 +203,22 @@ table.dataTable td {
   position: relative;
   padding-bottom:10px;
   border-bottom: solid 1px white;
+  width: 100%;
+}
+.contImagenProd{
+  width: 90px;
+  height: 90px;
 }
 .imgProduct{ 
   width: 75px;
    height: 75px;
-  margin-left:15px;
-  margin-top:5px;
+margin:5px;
  }
 .contDescProd{
   display: flex;
   font-size: 1em;
   text-transform: none !important;
-
-  
+  position: relative;
 
 }
 #cont-products{
@@ -228,24 +237,34 @@ table.dataTable td {
   
 
 }
+.contTodoHeader{
+  display: flex;
+  justify-content:left;
+}
 .contInfoProd{
   margin-left: 10px;
   margin-top: 5px;
 /*  background-color: red;*/
-
+  width: 40%;
   color: white;
   display: flex;
   flex-direction:column;
   align-items:left;
   text-align: left;
-  flex-grow:2;
+word-break: break-all;
 }
 .parrow-right{
 
   width: 20px;
   height: 20px;
   margin-top:30px;
- margin-left:20px;
+ margin-left:10px;
+}
+.arrow-back{
+  width: 20px;
+  height: 20px;
+  margin-top:20px;
+ margin-left:10px;
 }
 .modulo{
   display: -webkit-box;

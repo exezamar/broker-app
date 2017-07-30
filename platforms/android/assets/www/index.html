@@ -187,15 +187,19 @@
           </div>   
 </div><!-- fin cont-tours -->  
 <div id='cont-products' class='animated oculto'>
-      <div id='contTodoProductos'>
-        <div class='hmenus green'>
-            <div>
-                 <a href="#">
-                     <span style='marign-left:10px;color:white;font-size:1.3em;'>product list from</span> <br>
-                 </a>
-                 <a href="#">
-                     <span style='marign-left:10px;color:white;font-size:1.3em;'>Tour info</span>
-                 </a>
+      <div id='contTodoProductos' class='animated'>
+        <div class=' contTodoHeader green'>
+            <div id='btnVolverTour'>
+              <img src="img/arrow-left.svg" class='arrow-back'>
+            </div>
+            <div class='hmenus'>
+              <div>
+                 <span class='txtinfotour'>product list from</span> <br>
+              </div>
+              <div>
+                <span class='txtinfotour' id='tnombtour'>tour name</span> <span class='txtinfotour'> - </span>
+                <span class='txtinfotour' id='tubictour'>location</span>
+              </div>
             </div>
         </div>
         <div class='cmmodulos'>
@@ -206,58 +210,31 @@
               </div>
             </div>
             <div id='contTodosProdu'>
-              <div class='contPrduct'>
-               <div>
+              <div class='contPrduct' idProduct='idProducto'>
+               <div class='contImagenProd'>
                    <img src="img/sinFoto.png" class='imgProduct'>
                </div>
                <div class='contDescProd'>
                  <div class='contInfoProd'>
                    <div>
-                     <span>Nombre producto</span>
+                     <span>Nombre producto largo sdasdasd </span>
                    </div>
-                   <div>
-                     <span>Codigo tienda</span>
+                   <div style='margin-top:20px;'>
+                     <span>Store ID: </span><br><span>Codigo tienda</span>
                    </div>
                  </div>
                  <div class='contInfoProd'>
-                   <div>
-                     <span>Unit price: USD 0,50</span>
+                    <div>
+                     <span>Unit price: <br> USD 151,50</span>
                    </div>
-                   <div>
-                    <span>Bulk price: USD 0,30</span>
-                   </div>
-                 </div>
-                 <div>
-                   <div>
-                     <img src="img/arrow-right.svg" class='parrow-right'>
+                   <div style='margin-top:20px;'>
+                    <span>Bulk price: <br> USD 879,30</span>
                    </div>
                  </div>
                </div>
-              </div> <!-- fin contProduct --><div class='contPrduct'>
                <div>
-                   <img src="img/sinFoto.png" class='imgProduct'>
-               </div>
-               <div class='contDescProd'>
-                 <div class='contInfoProd'>
-                   <div>
-                     <span>Nombre producto</span>
-                   </div>
-                   <div>
-                     <span>Codigo tienda</span>
-                   </div>
-                 </div>
-                 <div class='contInfoProd'>
-                   <div>
-                     <span>Unit price: USD 0,50</span>
-                   </div>
-                   <div>
-                    <span>Bulk price: USD 0,30</span>
-                   </div>
-                 </div>
                  <div>
-                   <div>
-                     <img src="img/arrow-right.svg" class='parrow-right'>
-                   </div>
+                   <img src="img/arrow-right.svg" class='parrow-right'>
                  </div>
                </div>
               </div> <!-- fin contProduct -->
@@ -265,26 +242,29 @@
              
           </div><!--  //fin contTabla -->
 
-        </div> 
+        </div> <!-- fin cmmodulo -->
         <div id='contNewProduct' class='blue'>
             <div style='padding-top:20px'>
                 <span>NEW PRODUCT</span>
             </div>
         </div>
-      </div>
-       
+      </div> <!-- fin contTodoProductos -->
         <!-- modal nuevo producto -->
           <div id='modal-nproducto' class='animated oculto white'>
-             <div class=' green ntour'>
-                 <div id='bcmntour'style="padding:10px;">
-                    <span style='font-size:1em;margin-right:5%;color:white;'>x</span>
-                  </div>
-                  <div class='tdhmodal'>
-                   <a href="#">
-                       <span style='marign-left:10%;color:white;font-size:1.3em;'>ADD PRODUCT</span>
-                   </a>
-                  </div>
-              </div>
+             <div class=' contTodoHeader blue'>
+                 <div id='btnVolverNProd'>
+                   <img src="img/arrow-left.svg" class='arrow-back'>
+                 </div>
+                 <div class='hmenus'>
+                   <div>
+                      <span class='txtinfotour'>new product for</span> <br>
+                   </div>
+                   <div>
+                     <span class='txtinfotour' id='tnombtour'>tour name</span> <span class='txtinfotour'> - </span>
+                     <span class='txtinfotour' id='tubictour'>location</span>
+                   </div>
+                 </div>
+             </div>
               <div class='modalBodyNT'>
                   <div class='itemnt' style='margin-top:10px;'>
                     <span class='tiformnt'>Name</span> <br>
@@ -308,7 +288,7 @@
                       <option value="RMB">RMB</option>
                     </select>
                   </div>
-                 <div class='btnModal green'>
+                 <div class='btnModal blue'>
                     <div >
                         <a href="#" id='btnCrearTour' style='color:white;'>CREATE</a>
                     </div>
