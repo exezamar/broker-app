@@ -4,6 +4,7 @@ var cuenta = 0;
 var idTour = '';
 var nombreTour = '';
 var ubicacionTour = '';
+var monedaTour = '';
 document.addEventListener('deviceready', function()
 {
 
@@ -107,6 +108,7 @@ $(document).ready( function() {
       //CREAR TABLA PARA TOURS
       db.executeSql("SELECT * FROM Tours order by id desc", [], function (resultSet) {
         var count = resultSet.rows.length;
+        
         for (var i = 0; i < resultSet.rows.length; i++)
         {
           var id = resultSet.rows.item(i).id;
@@ -205,13 +207,9 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
    nombreTour = $(this).children('td').eq(0).text();
    ubicacionTour = $(this).children('td').eq(1).text();
    var query = 'SELECT * FROM Products where "idTour" = "'+idTour+'" order by id desc';
-
    db.executeSql(query, [], function (resultSet) {
         var count = resultSet.rows.length;
-        // $("#contTodosProdu").empty();
-        
-
-
+        $("#contTodosProdu").empty();
         for (var i = 0; i < resultSet.rows.length; i++)
         {
           var id = resultSet.rows.item(i).id;
