@@ -2,15 +2,6 @@
 
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -20,12 +11,11 @@
         <link href="css/tabla.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-
         <title>Broker management tool</title>
     </head>
     <body id='deviceready'>
 
-         <div id='cont-login'class="animated ">
+    <div id='cont-login'class="animated">
         <div>
             <img src="img/logo.png" id='logo' style=''>
         </div>
@@ -48,7 +38,6 @@
     <div id='cont-menu' class='animated oculto'>
        <div class='hmenus blue'>
             <div>
-                 <!-- <span>///</span> -->
                  <a href="#" onclick="goToTours()">
                      <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
                  </a>
@@ -100,7 +89,6 @@
                          <br>
                             <span>Products</span>
                     </div>
-                  
                 </div>
                 <div class='imtour'>
                     <div>
@@ -128,21 +116,10 @@
       <div id='contTodoTours'>
         <div class='hmenus blue'>
             <div>
-                 <!-- <span>///</span> -->
-                 <a href="#" onclick="goToTours()">
+                 <a href="#">
                      <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
                  </a>
             </div>
-<!--             <div style='margin-top:20px;color:white;' class='flex'>
-                <div class='iniciales'>
-                    <div >
-                        <span class='tnamein'>EZ</span>
-                    </div>
-                </div>
-                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>
-                  <span>Welcome </span><br><span class='tname'>Exequiel Zamar</span>
-                </div>
-            </div> -->
         </div>
         <div class='cmmodulos'>
            <div id='contTabla'>
@@ -154,8 +131,6 @@
                           <th  style='width:33% !important;'>Date</th>
                       </tr>
                   </thead>
-             
-
                   <tbody id='bodyTours'></tbody>
               </table><br>
           </div>
@@ -170,39 +145,237 @@
         <!-- modal nuevo tour -->
           <div id='modal-ntour' class='animated oculto white'>
              <div class=' green ntour'>
-                 <div id='bcmntour'>
-                    <span style='font-size:1em;margin-right:5%;color:white;'>X</span>
+                 <div id='bcmntour'style="padding:10px;">
+                    <span style='font-size:1em;margin-right:5%;color:white;'>x</span>
                   </div>
                   <div class='tdhmodal'>
                    <a href="#">
-                       <span style='marign-left:10px;color:white;font-size:1.3em;'>NEW TOUR</span>
+                       <span style='marign-left:10%;color:white;font-size:1.3em;'>NEW TOUR</span>
                    </a>
                   </div>
               </div>
-              <div class='modalBodyNT'>
-                  <div class='itemnt'>
-                    <span>Name</span> <br>
-                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+              <div class='modalBodyNT' >
+                  <div class='itemnt' style='margin-top:10px;'>
+                    <span class='tiformnt'>Name</span> <br>
+                    <input type='text' id='nnuevtour' class='inputmodal'></input>
                   </div>
 
                   <div class='itemnt'>
-                    <span>Location</span> <br>
-                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                    <span class='tiformnt'>Location</span> <br>
+                    <input type='text' id='ubinuevtour' class='inputmodal' ></input>
                   </div>
                 
                  <div class='itemnt'>
-                    <span>Date</span> <br>
-                    <input type='text' class='inputmodal' ></input>
+                    <span class='tiformnt'>Date</span> <br>
+                    <input type='date' id='fechnuevtour' name='fechnuevtour' class='inputmodal' ></input>
                  </div>
                   <div class='itemnt'>
-                    <span>Select currency</span> <br>
-                    <input type='text' class='inputmodal' placeholder='i.e Siam Paragon'></input>
+                    <span class='tiformnt'>Currency</span> <br>
+                    <select id='inputMoneda'class='inputmodal' style='min-width:140px;'>
+                      <option value="">Select</option>
+                      <option value="USD">USD</option>
+                      <option value="RMB">RMB</option>
+
+                    </select>
                   </div>
+                 <div class='btnModal green'>
+                    <div >
+                        <a href="#" id='btnCrearTour' style='color:white;'>CREATE</a>
+                    </div>
+                </div>
               </div>
           </div>   
 </div><!-- fin cont-tours -->  
+<div id='cont-products' class='animated oculto'>
+      <div id='contTodoProductos' class='animated'>
+        <div class=' contTodoHeader green'>
+            <div id='btnVolverTour'>
+              <img src="img/arrow-left.svg" class='arrow-back'>
+            </div>
+            <div class='hmenus'>
+              <div>
+                 <span class='txtinfotour'>product list from</span> <br>
+              </div>
+              <div>
+                <span class='txtinfotour' id='tnombtour'>tour name</span> <span class='txtinfotour'> - </span>
+                <span class='txtinfotour' id='tubictour'>location</span>
+              </div>
+            </div>
+        </div>
+        <div class='cmmodulos'>
+           <div id='contTabla'>
+            <div class='contBusqProd'>
+              <div>
+                <input type='text' placeholder='Search' class='busqitem' >
+              </div>
+            </div>
+            <div id='contTodosProdu'>
+              <div class='contPrduct' idProduct='idProducto'>
+               <div class='contImagenProd'>
+                   <img src='img/sinFoto.png' class='imgProduct'>
+               </div>
+               <div class='contDescProd'>
+                 <div class='contInfoProd'>
+                   <div class='posnomprod'>
+                     <span>Nombre producto </span>
+                   </div>
+                   <div class='postienda'>
+                     <span>Store ID: </span><br><span>Codigo tienda</span>
+                   </div>
+                 </div>
+                 <div class='contInfoProd'>
+                    <div class='contUnitPrice'>
+                     <span>Unit price: <br> USD 151,50</span>
+                   </div>
+                   <div class='contBulkPrice'>
+                    <span>Bulk price: <br> USD 879,30</span>
+                   </div>
+                 </div>
+               </div>
+               <div class='posarrow'>
+                 <div>
+                   <img src='img/arrow-right.svg' class='parrow-right'>
+                 </div>
+               </div>
+              </div> <!-- fin contProduct -->
+            </div><!-- fin contTodosProdu -->
+             
+          </div><!--  //fin contTabla -->
 
-   
+        </div> <!-- fin cmmodulo -->
+        <div id='contNewProduct' class='blue'>
+            <div style='padding-top:20px'>
+                <span>NEW PRODUCT</span>
+            </div>
+        </div>
+      </div> <!-- fin contTodoProductos -->
+  </div><!-- fin cont-producto -->  
+        <!-- modal nuevo producto -->
+        <div id='modal-nproducto' class='animated oculto white'>
+           <div class=' contTodoHeader blue'>
+               <div id='btnVolverNProd'>
+                 <img src="img/arrow-left.svg" class='arrow-back'>
+               </div>
+               <div class='hmenus'>
+                 <div>
+                    <span class='txtinfotour'>new product for</span> <br>
+                 </div>
+                 <div>
+                   <span class='txtinfotour' id='tnombtour2'>tour name</span> <span class='txtinfotour'> - </span>
+                   <span class='txtinfotour' id='tubictour2'>location</span>
+                 </div>
+               </div>
+           </div>
+            <div class='modalBodyNP'>
+                <div class='ilabfnp' style='margin-top:10px'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>Name</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='nnuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>DESCRIPTION</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='descnuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>STORE ID</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='storenuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>Q.T.Y</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='qtynuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>C.B.M</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='cbmnuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>UNIT PRICE</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='upricenuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>BULK PRICE</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='bpricenuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>MIN AMOUNT</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='minamnuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp2'>
+                  <div class='itnpf'>
+                    <span class='tiformnt'>Quantity</span> 
+                  </div>
+                  <div class='tinpf'>
+                    <input type='text' id='cantcompranuevprod' class='inputmodal'></input>
+                  </div>
+                </div>
+                <div class='ilabfnp'>
+                  <div class='tinpf2'>
+                    <span class='tiformnt2'>Total Price: </span><b> <span id='totpriccalc' class='tiformnt2'>654654 </span> </b>
+                  </div>
+                  <div class='tinpf2'>
+                    <span class='tiformnt2'>C.B.M: </span><b> <span id='cbmcalc'class='tiformnt2'>654654 </span> </b>
+                  </div>
+                </div>
+                <div class='cboagfo'>
+                  <div class='bagrefoto' id='bafp1'>
+                    <div style='margin-top:20px;text-align:center;color:gray'>
+                      <span>Add <br>Photo</span>
+                    </div>
+                  </div>
+                  <div class='bagrefoto' id='bafp2'>
+                    <div style='margin-top:20px;text-align:center;color:gray'>
+                       <span>Add <br>Photo</span>
+                    </div>
+                  </div>
+                  <div class='bagrefoto' id='bafp3'>
+                    <div style='margin-top:20px;text-align:center;color:gray'>
+                       <span>Add <br>Photo</span>
+                    </div>
+                  </div>
+<!--                   <div class='bagrefoto' id='bafp4'>
+                    <div style='margin-top:20px;text-align:center'>
+                      <span>Add Photo</span>
+                    </div>
+                  </div> -->
+                </div>
+            </div>
+             <div class='btnModal2 blue'>
+                <div >
+                    <a href="#" id='btnCrearProducto' style='color:white;'>CREATE</a>
+                </div>
+            </div>
+        </div> <!--   //fin modal nuevo producto -->   
 
 
         <script type="text/javascript" src="cordova.js"></script>
@@ -216,7 +389,7 @@
 
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript">
-
+          
 
         </script>
 

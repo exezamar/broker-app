@@ -8,10 +8,10 @@ document.addEventListener('deviceready', function()
 {
 
 	//CREAR BASE SI NO EXISTE
-	db = window.sqlitePlugin.openDatabase({name: 'brokersDev00.db', iosDatabaseLocation: 'Library'});
+	db = window.sqlitePlugin.openDatabase({name: 'brokersDev01.db', iosDatabaseLocation: 'Library'});
 	db.transaction(function (tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text, fecha text)");
-    tx.executeSql("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY,idTour text, nombre text, precioUnidad text,precioCantidad, descripcion text,cantidadMinima text, CBM text, QTY text, tienda text, foto1 text, foto2 text, foto3 text)");
+    tx.executeSql("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY,idTour text, nombre text, precioUnidad text,precioCantidad, descripcion text,cantidadMinima text, CBM text, QTY text, tienda text, foto1 text, foto2 text, foto3 text, cantidadComprada text)");
   }, function (err) {
     alert("An error occurred while initializing the app");
   });
@@ -27,7 +27,7 @@ $("#btnPopular").click(function(){
       }, function(error) {
         alert('Transaction ERROR: ' + error.message);
       }, function() {
-        alert('Populated database OK');
+       
 		  });//fin transaccion
 
       //MOSTAR CUANTOS RECORDS HAY
@@ -110,6 +110,7 @@ $(document).ready( function() {
         for (var i = 0; i < resultSet.rows.length; i++)
         {
           var id = resultSet.rows.item(i).id;
+          
           var ubicacion = resultSet.rows.item(i).ubicacion;
           var nombre = resultSet.rows.item(i).nombre;
           var moneda = resultSet.rows.item(i).moneda;
@@ -200,10 +201,48 @@ $("#btnCrearTour").click(function(){
 $(document).on('click','#tablaTours > tbody > tr', function() {
    
    idTour = $(this).attr('idTour');
+   
    nombreTour = $(this).children('td').eq(0).text();
    ubicacionTour = $(this).children('td').eq(1).text();
+   var query = 'SELECT * FROM Products where "idTour" = "'+idTour+'" order by id desc';
+
+   db.executeSql(query, [], function (resultSet) {
+        var count = resultSet.rows.length;
+        // $("#contTodosProdu").empty();
+        
+
+
+        for (var i = 0; i < resultSet.rows.length; i++)
+        {
+          var id = resultSet.rows.item(i).id;
+          var nombre = resultSet.rows.item(i).nombre;
+          var tienda = resultSet.rows.item(i).tienda;
+          var precioUnidad = resultSet.rows.item(i).precioUnidad;
+          var precioCantidad = resultSet.rows.item(i).precioCantidad;
+
+
+
+          $("#contTodosProdu").append("<div id=prod"+i+ " class='contPrduct' idProduct="+id+"></div>");  
+          $("#prod"+i).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
+          $("#prod"+i).append("<div class='contDescProd'><div class='contInfoProd'> <div class='posnomprod'><span>"+nombre+"</span> </div><div class='postienda'><span>Store ID: </span><br><span>"+tienda+"</span></div></div><div class='contInfoProd'><div class='contUnitPrice'><span>Unit price: <br>"+precioUnidad+"</span></div><div class='contBulkPrice'> <span>Bulk price: <br> "+precioCantidad+"</span></div></div>");
+
+          $("#prod"+i).append("<div class='posarrow'><div> <img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+
+
+
+
+
+          // var ubicacion = resultSet.rows.item(i).ubicacion;
+          // var nombre = resultSet.rows.item(i).nombre;
+          // var moneda = resultSet.rows.item(i).moneda;
+          // var fecha = resultSet.rows.item(i).fecha;
+          // $("#bodyTours").append("<tr idTour='"+id+"'><td style='color:black !important;font-size:1em;'>"+nombre+"</td><td>"+ubicacion+"</td><td>"+fecha+"</td></tr>")
+        };
+      });
    $("#tnombtour").text(nombreTour);
    $("#tubictour").text(ubicacionTour);
+   $("#tnombtour2").text(nombreTour);
+   $("#tubictour2").text(ubicacionTour);
   ocultarSlide('cont-tours');
   setTimeout(function () {
           mostrarSlide('cont-products');
@@ -231,5 +270,34 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
           mostrarSlide('contTodoProductos');
         }, 200);
   });
+  $("#btnCrearProducto").click(function(){
 
+      var nombreProd = $("#nnuevprod").val();
+      var descripcion = $("#descnuevprod").val();
+      var tienda = $("#storenuevprod").val();
+      var qty = $("#qtynuevprod").val();
+      var cbm = $("#cbmnuevprod").val();
+      var precioUnidad = $("#upricenuevprod").val();
+      var precioCantidad = $("#bpricenuevprod").val();
+      var minima = $("#minamnuevprod").val();
+      var cantidadComprada = $("#cantcompranuevprod").val();
+
+      alert(idTour+" | "+ nombreProd+" | "+ precioUnidad+" | "+ precioCantidad+" | "+descripcion+" | "+minima+" | "+cbm+" | "+qty+" | "+tienda+" | "+cantidadComprada);
+      // var foto1 = $("#").val();
+      // var foto2 = $("#").val();
+      // var foto3 = $("#").val();
+      alert('creando con idtour'+idTour);
+      //INGRESAR NUEVO REGISTRO
+        db.transaction(function(tx)
+        {
+          tx.executeSql('INSERT INTO products (idTour, nombre, precioUnidad, precioCantidad, descripcion,cantidadMinima,CBM,QTY,tienda, cantidadComprada ) VALUES (?,?,?,?,?,?,?,?,?,?)', [ idTour, nombreProd, precioUnidad, precioCantidad,descripcion,minima,cbm,qty,tienda,cantidadComprada]);
+        }, function(error) {
+          alert('Transaction ERROR: ' + error.message);
+        }, function() {
+          alert('producto agregado exitosamente al tour '+idTour);
+
+          $(".inputmodal").text('');
+        });//fin transaccion
+
+      });
 });//fin onready
