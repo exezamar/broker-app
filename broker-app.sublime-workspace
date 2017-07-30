@@ -4,16 +4,24 @@
 		"selected_items":
 		[
 			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
 				"fechaEnvioCandidat",
 				"fechaEnvioCandidatosManual"
 			],
 			[
 				"fecha",
 				"fechaSolicitada"
-			],
-			[
-				"tex",
-				"text-decoration"
 			],
 			[
 				"border",
@@ -44,20 +52,12 @@
 				"sin"
 			],
 			[
-				"margin",
-				"margin-top"
-			],
-			[
 				"lat",
 				"latLng"
 			],
 			[
 				"te",
 				"text-align"
-			],
-			[
-				"max",
-				"max-width"
 			],
 			[
 				"padding",
@@ -520,42 +520,26 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Naum/app/Console/Kernel.php",
+			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 1167,
+				"buffer_size": 13414,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Naum/app/Console/Commands/ActualizarConta.php",
+			"file": "www/css/index.css",
 			"settings":
 			{
-				"buffer_size": 5018,
+				"buffer_size": 8196,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Extroversia-viejo/resources/views/pages/index.blade.php",
+			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 15076,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Exequiel/Dropbox/Naum/QBICONTA/crear tablas qbicobnta completa.txt",
-			"settings":
-			{
-				"buffer_size": 12717,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 7231,
 				"line_ending": "Windows"
 			}
 		}
@@ -563,7 +547,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 334.0,
 		"selected_items":
 		[
 			[
@@ -595,7 +579,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -612,6 +596,14 @@
 	},
 	"file_history":
 	[
+		"/C/broker-app/www/css/index.css",
+		"/C/agd/app/Http/Controllers/PedidosController.php",
+		"/C/agd/app/Http/Controllers/PagesController.php",
+		"/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
+		"/C/Users/Exequiel/Dropbox/Naum/QBICONTA/crear tablas qbicobnta completa.txt",
+		"/C/Extroversia-viejo/resources/views/pages/index.blade.php",
+		"/C/Naum/app/Console/Commands/ActualizarConta.php",
+		"/C/Naum/app/Console/Kernel.php",
 		"/C/Extroversia-viejo/resources/views/home.blade.php",
 		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/posv5.sql",
 		"/C/Naum/app/Console/Commands/ActualizarPOV5.php",
@@ -624,7 +616,6 @@
 		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/FAPDBI.csv",
 		"/C/Users/Exequiel/Desktop/FTSOBI3_PR.csv",
 		"/C/broker-app/www/js/scripts.js",
-		"/C/broker-app/www/css/index.css",
 		"/C/broker-app/www/index.html",
 		"/C/Users/Exequiel/Desktop/.htaccess",
 		"/C/Users/Exequiel/Desktop/index.html",
@@ -636,7 +627,6 @@
 		"/C/agd/app/Http/Controllers/MobileController.php",
 		"/C/agd-solicitudes/www/css/index.css",
 		"/C/agd-solicitudes/www/js/scripts.js",
-		"/C/agd/app/Http/Controllers/PagesController.php",
 		"/C/agd-solicitudes/www/index.html",
 		"/C/agd/public/css/menu.css",
 		"/C/agd/public/css/index.css",
@@ -733,13 +723,7 @@
 		"/C/CRM/app/Http/Middleware/VerifyCsrfToken.php",
 		"/C/extension-samuranium/background.js",
 		"/C/extension-samuranium/scripts.js",
-		"/C/extension-samuranium/template.css",
-		"/C/extension-samuranium/template.js",
-		"/C/extension-samuranium/template.html",
-		"/C/Extroversia/routes/web.php",
-		"/C/Extroversia/resources/views/pages/index.blade.php",
-		"/C/extension-samuranium/manifest.json",
-		"/C/test.php"
+		"/C/extension-samuranium/template.css"
 	],
 	"find":
 	{
@@ -757,6 +741,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<div class='contPrduct'>\n               <div>\n                   <img src=\"img/sinFoto.png\" class='imgProduct'>\n               </div>\n               <div class='contDescProd'>\n                 <div class='contInfoProd'>\n                   <div>\n                     <span>Nombre producto</span>\n                   </div>\n                   <div>\n                     <span>Codigo tienda</span>\n                   </div>\n                 </div>\n                 <div class='contInfoProd'>\n                   <div>\n                     <span>Unit price: USD 0,50</span>\n                   </div>\n                   <div>\n                    <span>Bulk price: USD 0,30</span>\n                   </div>\n                 </div>\n                 <div>\n                   <div>\n                     <img src=\"img/arrow-right.svg\" class='parrow-right'>\n                   </div>\n                 </div>\n               </div>\n              </div> <!-- fin contProduct -->",
+			"300pc",
+			"6",
+			"alert",
+			"  ",
+			"         for (var i = 0; i < resultSet.rows.length; i++)\n         {\n          var id = resultSet.rows.item(i).id;\n          var ubicacion = resultSet.rows.item(i).ubicacion;\n          var nombre = resultSet.rows.item(i).nombre;\n          var moneda = resultSet.rows.item(i).moneda;\n          var fecha = resultSet.rows.item(i).fecha;\n          $(\"#bodyTours\").append(\"<tr idTour='\"+id+\"'><td style='color:black !important;font-size:1em;'>\"+nombre+\"</td><td>\"+ubicacion+\"</td><td>\"+fecha+\"</td></tr>\")\n         };",
+			"tablaTours",
+			"         ",
+			" \n",
+			"body",
+			"3",
+			"RBR",
+			"saab",
+			"volvo",
+			"ntour",
+			"1",
 			"\"",
 			",",
 			"FMCUMBI_PR",
@@ -868,23 +868,7 @@
 			"platform name",
 			"ready",
 			"tname",
-			"TITULOITULOITULO",
-			"1",
-			"longitud",
-			"portada",
-			"longitud",
-			"for",
-			"1",
-			"latitud",
-			"titulo",
-			"map",
-			"4",
-			"ccevento2",
-			"bounds",
-			"extrdtrw",
-			"ccevento",
-			"1",
-			"form1"
+			"TITULOITULOITULO"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -907,137 +891,84 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Naum/app/Console/Kernel.php",
+					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 1167,
+						"buffer_size": 13414,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								194,
-								194
+								7847,
+								7864
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4211.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/C/Naum/app/Console/Commands/ActualizarConta.php",
+					"file": "www/css/index.css",
 					"settings":
 					{
-						"buffer_size": 5018,
+						"buffer_size": 8196,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1368,
-								1368
+								4415,
+								4415
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 830.0,
+						"translation.y": 4755.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/C/Extroversia-viejo/resources/views/pages/index.blade.php",
+					"file": "www/js/scripts.js",
 					"settings":
 					{
-						"buffer_size": 15076,
+						"buffer_size": 7231,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12938,
-								12938
+								7208,
+								7208
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 11120.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Exequiel/Dropbox/Naum/QBICONTA/crear tablas qbicobnta completa.txt",
-					"settings":
-					{
-						"buffer_size": 12717,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3533,
-								3192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2187.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4278.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

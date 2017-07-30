@@ -2,15 +2,6 @@
 
 <html>
     <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -20,12 +11,11 @@
         <link href="css/tabla.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-
         <title>Broker management tool</title>
     </head>
     <body id='deviceready'>
 
-         <div id='cont-login'class="animated ">
+    <div id='cont-login'class="animated ">
         <div>
             <img src="img/logo.png" id='logo' style=''>
         </div>
@@ -48,7 +38,6 @@
     <div id='cont-menu' class='animated oculto'>
        <div class='hmenus blue'>
             <div>
-                 <!-- <span>///</span> -->
                  <a href="#" onclick="goToTours()">
                      <span style='marign-left:10px;color:white;font-size:1.3em;'>My shopping tours</span>
                  </a>
@@ -100,7 +89,6 @@
                          <br>
                             <span>Products</span>
                     </div>
-                  
                 </div>
                 <div class='imtour'>
                     <div>
@@ -200,33 +188,87 @@
 </div><!-- fin cont-tours -->  
 <div id='cont-products' class='animated oculto'>
       <div id='contTodoProductos'>
-        <div class='hmenus blue'>
+        <div class='hmenus green'>
             <div>
                  <a href="#">
-                     <span style='marign-left:10px;color:white;font-size:1.3em;'>My products from</span> <br>
+                     <span style='marign-left:10px;color:white;font-size:1.3em;'>product list from</span> <br>
                  </a>
                  <a href="#">
-                     <span style='marign-left:10px;color:white;font-size:1.3em;'>Tour name</span>
+                     <span style='marign-left:10px;color:white;font-size:1.3em;'>Tour info</span>
                  </a>
             </div>
         </div>
         <div class='cmmodulos'>
            <div id='contTabla'>
-             <table id='tablaTours' onClick="" >
-                   <thead >
-                      <tr>
-                          <th  style='width:33% !important;'>Name</th>
-                          <th  style='width:33% !important;'>Location</th>
-                          <th  style='width:33% !important;'>Date</th>
-                      </tr>
-                  </thead>
-                  <tbody id='bodyTours' style='height:250px !important; overflow:auto !important;position:relative;'></tbody>
-              </table><br>
-          </div>
+            <div class='contBusqProd'>
+              <div>
+                <input type='text' placeholder='Search' class='busqitem' >
+              </div>
+            </div>
+            <div id='contTodosProdu'>
+              <div class='contPrduct'>
+               <div>
+                   <img src="img/sinFoto.png" class='imgProduct'>
+               </div>
+               <div class='contDescProd'>
+                 <div class='contInfoProd'>
+                   <div>
+                     <span>Nombre producto</span>
+                   </div>
+                   <div>
+                     <span>Codigo tienda</span>
+                   </div>
+                 </div>
+                 <div class='contInfoProd'>
+                   <div>
+                     <span>Unit price: USD 0,50</span>
+                   </div>
+                   <div>
+                    <span>Bulk price: USD 0,30</span>
+                   </div>
+                 </div>
+                 <div>
+                   <div>
+                     <img src="img/arrow-right.svg" class='parrow-right'>
+                   </div>
+                 </div>
+               </div>
+              </div> <!-- fin contProduct --><div class='contPrduct'>
+               <div>
+                   <img src="img/sinFoto.png" class='imgProduct'>
+               </div>
+               <div class='contDescProd'>
+                 <div class='contInfoProd'>
+                   <div>
+                     <span>Nombre producto</span>
+                   </div>
+                   <div>
+                     <span>Codigo tienda</span>
+                   </div>
+                 </div>
+                 <div class='contInfoProd'>
+                   <div>
+                     <span>Unit price: USD 0,50</span>
+                   </div>
+                   <div>
+                    <span>Bulk price: USD 0,30</span>
+                   </div>
+                 </div>
+                 <div>
+                   <div>
+                     <img src="img/arrow-right.svg" class='parrow-right'>
+                   </div>
+                 </div>
+               </div>
+              </div> <!-- fin contProduct -->
+            </div><!-- fin contTodosProdu -->
+             
+          </div><!--  //fin contTabla -->
+
         </div> 
-        <div class='iniciales flex-stretch' style='margin:auto;background-color:#2196F3 !important;margin-top:20px;'>
-            <div id='bntour'>
-                <span style='font-size:2.1em;'>+</span>
+        <div id='contNewProduct' class='blue'>
+            <div style='padding-top:20px'>
+                <span>NEW PRODUCT</span>
             </div>
         </div>
       </div>
@@ -264,7 +306,6 @@
                       <option value="">Select</option>
                       <option value="USD">USD</option>
                       <option value="RMB">RMB</option>
-
                     </select>
                   </div>
                  <div class='btnModal green'>
