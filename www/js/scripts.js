@@ -5,6 +5,7 @@ var idTour = '';
 var nombreTour = '';
 var ubicacionTour = '';
 var monedaTour = '';
+var tablaTours = '';
 document.addEventListener('deviceready', function()
 {
 
@@ -97,7 +98,7 @@ $(document).ready( function() {
           }, 500);
 
         });
-        var tablaTours = '';
+        
         $("#bmTours").click(function(){
           ocultarSlide("cont-menu");
           setTimeout(function () {
@@ -117,37 +118,12 @@ $(document).ready( function() {
           var nombre = resultSet.rows.item(i).nombre;
           var moneda = resultSet.rows.item(i).moneda;
           var fecha = resultSet.rows.item(i).fecha;
-          $("#bodyTours").append("<tr idTour='"+id+"'><td style='color:black !important;font-size:1em;'>"+nombre+"</td><td>"+ubicacion+"</td><td>"+fecha+"</td></tr>")
-        };
-        for (var i = 0; i < resultSet.rows.length; i++)
-        {
-          var id = resultSet.rows.item(i).id;
-          var ubicacion = resultSet.rows.item(i).ubicacion;
-          var nombre = resultSet.rows.item(i).nombre;
-          var moneda = resultSet.rows.item(i).moneda;
-          var fecha = resultSet.rows.item(i).fecha;
-          $("#bodyTours").append("<tr idTour='"+id+"'><td style='color:black !important;font-size:1em;'>"+nombre+"</td><td>"+ubicacion+"</td><td>"+fecha+"</td></tr>")
-        };
-        for (var i = 0; i < resultSet.rows.length; i++)
-        {
-          var id = resultSet.rows.item(i).id;
-          var ubicacion = resultSet.rows.item(i).ubicacion;
-          var nombre = resultSet.rows.item(i).nombre;
-          var moneda = resultSet.rows.item(i).moneda;
-          var fecha = resultSet.rows.item(i).fecha;
-          $("#bodyTours").append("<tr idTour='"+id+"'><td style='color:black !important;font-size:1em;'>"+nombre+"</td><td>"+ubicacion+"</td><td>"+fecha+"</td></tr>")
-        };
-        tablaTours = $('#tablaTours').DataTable( 
-        {
-         order:[],
-         "paging": false,
-         "initComplete": function(settings, json) {
-         },
-         "scrollY": "250px"
-         
-       });
+          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"'></div>");
+          $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
 
-        tablaTours.DataTable().columns.adjust().draw(); 
+          $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+
+        };
       }, function(error) {
        alert('SELECT error: ' + error.message);
       });//fin query
@@ -155,7 +131,6 @@ $(document).ready( function() {
   });//fin btnTours
 
 $("#bntour").click(function(){
-
 	ofuscar('contTodoTours');
   setTimeout(function () {
     mostrarSlide('modal-ntour');
@@ -189,6 +164,30 @@ $("#btnCrearTour").click(function(){
       }, function() {
         //guardado exitosamente
         //ToDo: agregar el nuevo registro a la datatable.
+        //$("#bodyTours").empty();
+
+         //tablaTours.destroy();
+         db.executeSql("SELECT * FROM Tours order by id desc", [], function (resultSet) {
+         for (var i = 0; i < resultSet.rows.length; i++)
+        {
+          var id = resultSet.rows.item(i).id;
+          
+          var ubicacion = resultSet.rows.item(i).ubicacion;
+          var nombre = resultSet.rows.item(i).nombre;
+          var moneda = resultSet.rows.item(i).moneda;
+          var fecha = resultSet.rows.item(i).fecha;
+         // $("#bodyTours").append("<tr idTour='"+id+"'><td style='color:black !important;font-size:1em;'>"+nombre+"</td><td>"+ubicacion+"</td><td>"+fecha+"</td></tr>")
+        };
+      });//fin transaccion
+       //  tablaTours = $('#tablaTours').DataTable( 
+       //  {
+       //   order:[],
+       //   "paging": false,
+       //   "initComplete": function(settings, json) {
+       //   },
+       //   "scrollY": "250px"
+         
+       // });
         ocultarSlide('modal-ntour');
         setTimeout(function () {
           mostrarSlide('cont-tours');
@@ -210,33 +209,26 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
    db.executeSql(query, [], function (resultSet) {
         var count = resultSet.rows.length;
         $("#contTodosProdu").empty();
-        for (var i = 0; i < resultSet.rows.length; i++)
-        {
-          var id = resultSet.rows.item(i).id;
-          var nombre = resultSet.rows.item(i).nombre;
-          var tienda = resultSet.rows.item(i).tienda;
-          var precioUnidad = resultSet.rows.item(i).precioUnidad;
-          var precioCantidad = resultSet.rows.item(i).precioCantidad;
+        if (count == 0) {
+          $("#contTodosProdu").append("<div class='contPrduct'><div style='color:white;'>There are no products for this tour at this time.</div></div>");
+        }
+        else{
+          for (var i = 0; i < resultSet.rows.length; i++)
+          {
+            var id = resultSet.rows.item(i).id;
+            var nombre = resultSet.rows.item(i).nombre;
+            var tienda = resultSet.rows.item(i).tienda;
+            var precioUnidad = resultSet.rows.item(i).precioUnidad;
+            var precioCantidad = resultSet.rows.item(i).precioCantidad;
 
-
-
-          $("#contTodosProdu").append("<div id=prod"+i+ " class='contPrduct' idProduct="+id+"></div>");  
-          $("#prod"+i).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
-          $("#prod"+i).append("<div class='contDescProd'><div class='contInfoProd'> <div class='posnomprod'><span>"+nombre+"</span> </div><div class='postienda'><span>Store ID: </span><br><span>"+tienda+"</span></div></div><div class='contInfoProd'><div class='contUnitPrice'><span>Unit price: <br>"+precioUnidad+"</span></div><div class='contBulkPrice'> <span>Bulk price: <br> "+precioCantidad+"</span></div></div>");
-
-          $("#prod"+i).append("<div class='posarrow'><div> <img src='img/arrow-right.svg' class='parrow-right'></div></div>");
-
-
-
-
-
-          // var ubicacion = resultSet.rows.item(i).ubicacion;
-          // var nombre = resultSet.rows.item(i).nombre;
-          // var moneda = resultSet.rows.item(i).moneda;
-          // var fecha = resultSet.rows.item(i).fecha;
-          // $("#bodyTours").append("<tr idTour='"+id+"'><td style='color:black !important;font-size:1em;'>"+nombre+"</td><td>"+ubicacion+"</td><td>"+fecha+"</td></tr>")
-        };
-      });
+            $("#contTodosProdu").append("<div id=prod"+i+ " class='contPrduct' idProduct="+id+"></div>");  
+            $("#prod"+i).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
+            $("#prod"+i).append("<div class='contDescProd'><div class='contInfoProd'> <div class='posnomprod'><span>"+nombre+"</span> </div><div class='postienda'><span>Store ID: </span><br><span>"+tienda+"</span></div></div><div class='contInfoProd'><div class='contUnitPrice'><span>Unit price: <br>"+precioUnidad+"</span></div><div class='contBulkPrice'> <span>Bulk price: <br> "+precioCantidad+"</span></div></div>");
+            $("#prod"+i).append("<div class='posarrow'><div> <img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+          };
+        }//fin else
+        
+      });//fin query
    $("#tnombtour").text(nombreTour);
    $("#tubictour").text(ubicacionTour);
    $("#tnombtour2").text(nombreTour);
@@ -255,7 +247,7 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
   });
 
   $("#contNewProduct").click(function(){
-    ocultarSlide('contTodoProductos');
+    ocultarSlide('cont-products');
 
     setTimeout(function () {
           mostrarSlide('modal-nproducto');
@@ -265,7 +257,7 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
   $("#btnVolverNProd").click(function(){
     ocultarSlide('modal-nproducto');
     setTimeout(function () {
-          mostrarSlide('contTodoProductos');
+          mostrarSlide('cont-products');
         }, 200);
   });
   $("#btnCrearProducto").click(function(){
@@ -280,11 +272,9 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
       var minima = $("#minamnuevprod").val();
       var cantidadComprada = $("#cantcompranuevprod").val();
 
-      alert(idTour+" | "+ nombreProd+" | "+ precioUnidad+" | "+ precioCantidad+" | "+descripcion+" | "+minima+" | "+cbm+" | "+qty+" | "+tienda+" | "+cantidadComprada);
       // var foto1 = $("#").val();
       // var foto2 = $("#").val();
       // var foto3 = $("#").val();
-      alert('creando con idtour'+idTour);
       //INGRESAR NUEVO REGISTRO
         db.transaction(function(tx)
         {
@@ -292,10 +282,30 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
         }, function(error) {
           alert('Transaction ERROR: ' + error.message);
         }, function() {
-          alert('producto agregado exitosamente al tour '+idTour);
 
-          $(".inputmodal").text('');
+          var random = Math.floor((Math.random() * 1000) + 100);
+          var id='888'; //toDO conseguir el id del registro que acabo de crear. BUG.
+          $("#contTodosProdu").prepend("<div id=prod"+random+ " class='contPrduct' idProduct="+id+"></div>");  
+          $("#prod"+random).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
+          $("#prod"+random).append("<div class='contDescProd'><div class='contInfoProd'> <div class='posnomprod'><span>"+nombreProd+"</span> </div><div class='postienda'><span>Store ID: </span><br><span>"+tienda+"</span></div></div><div class='contInfoProd'><div class='contUnitPrice'><span>Unit price: <br>"+precioUnidad+"</span></div><div class='contBulkPrice'> <span>Bulk price: <br> "+precioCantidad+"</span></div></div>");
+          $("#prod"+random).append("<div class='posarrow'><div> <img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+          $("#contTodosProdu").animate({ scrollTop: 0 }, "fast");  
+          $(".inputmodal").val('');
+              ocultarSlide('modal-nproducto');
+              setTimeout(function () {
+                    mostrarSlide('cont-products');
+                  }, 200);
         });//fin transaccion
 
       });
+
+$("#buscarProductos" ).keyup(function() {
+    var valor = $( "#buscarProductos" ).val();
+    $(".contPrduct" ).each(function()
+    {
+       $('.contPrduct:not(:contains('+valor+'))').addClass('oculto');
+       $('.contPrduct:contains('+valor+')').removeClass('oculto');
+    });
+
+});
 });//fin onready

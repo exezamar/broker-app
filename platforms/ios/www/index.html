@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link href="css/sweetalert.css" rel="stylesheet">
         <link href="css/daterangepicker.css" rel="stylesheet">
         <link href="css/tabla.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     </head>
     <body id='deviceready'>
 
-    <div id='cont-login'class="animated">
+    <div id='cont-login'class="animated ">
         <div>
             <img src="img/logo.png" id='logo' style=''>
         </div>
@@ -121,7 +121,7 @@
                  </a>
             </div>
         </div>
-        <div class='cmmodulos'>
+        <!-- <div class='cmmodulos'>
            <div id='contTabla'>
              <table id='tablaTours' onClick="" >
                    <thead >
@@ -134,23 +134,61 @@
                   <tbody id='bodyTours'></tbody>
               </table><br>
           </div>
-        </div> 
+        </div>  -->
+        <div class='cmmodulos'>
+           <div id='contTabla' class='blue'>
+            <div class='contBusqProd'>
+              <div>
+                <input type='text' placeholder='Search' class='busqitem' id='buscarTours' >
+              </div>
+            </div>
+            <div id='bodyTours'>
+              <div class='animated contTour blue' idTour='idProducto'>
+               <div class='contDescProd'>
+                 <div class='contInfoProd'>
+                   <div class='posnomtour'>
+                     <span>Nombre Tour asdasdasddddddddddddddddddassssssssssssds</span>
+                   </div>
+                   <div class='postienda'>
+                     <span>Fecha: </span><br><span>24/11/1987</span>
+                   </div>
+                 </div>
+                 <div class='contInfoProd'>
+                  <div class='contLocation'>
+                     <span>Location: <br> shopping center, china</span>
+                   </div>
+                   <div class='contCurrency'>
+                    <span>Currency: <br> USD</span>
+                   </div>
+                 </div>
+               </div>
+               <div class='posarrowt'>
+                 <div>
+                   <img src='img/arrow-right.svg' class='parrow-right'>
+                 </div>
+               </div>
+              </div> <!-- fin contTour -->
+
+            </div><!-- fin bodyTours -->
+             
+          </div><!--  //fin contTabla -->
+
+        </div> <!-- fin cmmodulo -->
         <div class='iniciales flex-stretch' style='margin:auto;background-color:#2196F3 !important;margin-top:20px;'>
             <div id='bntour'>
                 <span style='font-size:2.1em;'>+</span>
             </div>
         </div>
       </div>
-       
         <!-- modal nuevo tour -->
           <div id='modal-ntour' class='animated oculto white'>
              <div class=' green ntour'>
-                 <div id='bcmntour'style="padding:10px;">
-                    <span style='font-size:1em;margin-right:5%;color:white;'>x</span>
+                 <div id='bcmntour'>
+                    <img src="img/arrow-left.svg" class='arrow-backModal'>
                   </div>
                   <div class='tdhmodal'>
                    <a href="#">
-                       <span style='marign-left:10%;color:white;font-size:1.3em;'>NEW TOUR</span>
+                       <span style='color:white;'>NEW TOUR</span>
                    </a>
                   </div>
               </div>
@@ -206,11 +244,11 @@
            <div id='contTabla'>
             <div class='contBusqProd'>
               <div>
-                <input type='text' placeholder='Search' class='busqitem' >
+                <input type='text' placeholder='Search' class='busqitem' id='buscarProductos' >
               </div>
             </div>
             <div id='contTodosProdu'>
-              <div class='contPrduct' idProduct='idProducto'>
+              <div class='animated contPrduct' idProduct='idProducto'>
                <div class='contImagenProd'>
                    <img src='img/sinFoto.png' class='imgProduct'>
                </div>

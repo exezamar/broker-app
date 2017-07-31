@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"moneda",
+				"monedaTour"
+			],
+			[
+				"id",
+				"idTour"
+			],
+			[
+				"cantidad",
+				"cantidadComprada"
+			],
+			[
+				"can",
+				"cantidadComprada"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"ali",
+				"vertical-align"
+			],
+			[
+				"MARGIN",
+				"margin-top"
+			],
+			[
+				"nombre",
+				"nombreTour"
+			],
+			[
 				"tex",
 				"text-transform"
 			],
@@ -72,10 +104,6 @@
 				"padding-bottom"
 			],
 			[
-				"min",
-				"min-height"
-			],
-			[
 				"back",
 				"background-color"
 			],
@@ -124,16 +152,8 @@
 				"margin-top"
 			],
 			[
-				"can",
-				"cantidadSolicitada"
-			],
-			[
 				"entre",
 				"entreDatitos"
-			],
-			[
-				"id",
-				"idSolicitud"
 			],
 			[
 				"estaod",
@@ -146,10 +166,6 @@
 			[
 				"int",
 				"int"
-			],
-			[
-				"cantidad",
-				"cantidadConfirmadaAdmin"
 			],
 			[
 				"nro",
@@ -189,10 +205,6 @@
 			],
 			[
 				"NOMBRE",
-				"nombreEmpresa"
-			],
-			[
-				"nombre",
 				"nombreEmpresa"
 			],
 			[
@@ -502,18 +514,6 @@
 			[
 				"es",
 				"es"
-			],
-			[
-				"denomin",
-				"denominacionDestino"
-			],
-			[
-				"UBICACION",
-				"ubicacionDestino"
-			],
-			[
-				"CODIGO",
-				"codigoDestino"
 			]
 		]
 	},
@@ -523,15 +523,7 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 13414,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "www/css/index.css",
-			"settings":
-			{
-				"buffer_size": 8196,
+				"buffer_size": 16372,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,15 +531,23 @@
 			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 7231,
+				"buffer_size": 11098,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/css/index.css",
+			"settings":
+			{
+				"buffer_size": 11335,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 334.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -579,7 +579,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 416.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -596,6 +596,7 @@
 	},
 	"file_history":
 	[
+		"/C/agd/public/js/resolutor.js",
 		"/C/broker-app/www/css/index.css",
 		"/C/agd/app/Http/Controllers/PedidosController.php",
 		"/C/agd/app/Http/Controllers/PagesController.php",
@@ -695,7 +696,6 @@
 		"/C/agd/resources/views/master.blade.php",
 		"/C/agd/resources/views/pages/resolutor/pedidosPendientes.blade.php",
 		"/C/agd/resources/views/pages/resolutor/menuResolutor.blade.php",
-		"/C/agd/public/js/resolutor.js",
 		"/C/agd/public/js/nuevaSolicitud.js",
 		"/C/Users/Exequiel/AppData/Local/Temp/Rar$DRa0.779/turnopolis/public/js/maps.js",
 		"/C/extroversia/public/css/app.css",
@@ -741,6 +741,40 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"430px",
+			"add",
+			"append",
+			"ap",
+			"precioUnidad",
+			"\"",
+			"'",
+			"\"",
+			",",
+			" '",
+			",",
+			"alert(",
+			"alert",
+			"idTour",
+			"<div style='margin-top:20px;text-align:center'>",
+			"max-he",
+			"itnpf",
+			"add picture",
+			"border-style",
+			"tiformnt.",
+			"tiformnt",
+			"14px",
+			"<span class='tiformnt'>otro</span> ",
+			"Name",
+			"modalBodyNP",
+			"itemnt",
+			"itemnp",
+			"center",
+			"<br>",
+			"class='inputmodal'",
+			"idtour",
+			"');\n",
+			"'';\n",
+			"tablaTours",
 			"<div class='contPrduct'>\n               <div>\n                   <img src=\"img/sinFoto.png\" class='imgProduct'>\n               </div>\n               <div class='contDescProd'>\n                 <div class='contInfoProd'>\n                   <div>\n                     <span>Nombre producto</span>\n                   </div>\n                   <div>\n                     <span>Codigo tienda</span>\n                   </div>\n                 </div>\n                 <div class='contInfoProd'>\n                   <div>\n                     <span>Unit price: USD 0,50</span>\n                   </div>\n                   <div>\n                    <span>Bulk price: USD 0,30</span>\n                   </div>\n                 </div>\n                 <div>\n                   <div>\n                     <img src=\"img/arrow-right.svg\" class='parrow-right'>\n                   </div>\n                 </div>\n               </div>\n              </div> <!-- fin contProduct -->",
 			"300pc",
 			"6",
@@ -834,41 +868,7 @@
 			"display:flex;}",
 			"border-bottom:1px solid white;",
 			"volver",
-			"unidadMedida",
-			"CANTIDADSOLICITADA",
-			"tablacantidades",
-			"tablaselecciondeposito",
-			"itemdeposito",
-			"bodydepositos",
-			"red",
-			"btnRegistrar",
-			"UM",
-			"cover",
-			"eventoDestacado",
-			"fevdest",
-			"moneda",
-			"itemnt",
-			"body",
-			"ntour",
-			";",
-			"\n",
-			"tablaNuevoPedido",
-			"iniciales",
-			"id",
-			"bodyTours",
-			"cmmodulos",
-			"nombre",
-			"deviceready",
-			"window",
-			"iniciales",
-			"flex",
-			"app",
-			"css",
-			"console.log",
-			"platform name",
-			"ready",
-			"tname",
-			"TITULOITULOITULO"
+			"unidadMedida"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -886,7 +886,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -894,15 +894,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 13414,
+						"buffer_size": 16372,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7847,
-								7864
+								15163,
+								15163
 							]
 						],
 						"settings":
@@ -912,53 +912,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4211.0,
+						"translation.y": 701.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "www/css/index.css",
-					"settings":
-					{
-						"buffer_size": 8196,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4415,
-								4415
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4755.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "www/js/scripts.js",
 					"settings":
 					{
-						"buffer_size": 7231,
+						"buffer_size": 11098,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7208,
-								7208
+								7626,
+								7626
 							]
 						],
 						"settings":
@@ -968,7 +940,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4278.0,
+						"translation.y": 4426.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/css/index.css",
+					"settings":
+					{
+						"buffer_size": 11335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4345,
+								4345
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4403.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
