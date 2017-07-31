@@ -118,7 +118,7 @@ $(document).ready( function() {
           var nombre = resultSet.rows.item(i).nombre;
           var moneda = resultSet.rows.item(i).moneda;
           var fecha = resultSet.rows.item(i).fecha;
-          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"'></div>");
+          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+"></div>");
           $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
 
           $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
@@ -199,10 +199,9 @@ $("#btnCrearTour").click(function(){
       });//fin transaccion
 
     });
-$(document).on('click','#tablaTours > tbody > tr', function() {
+$(document).on('click','.contTour', function() {
    
    idTour = $(this).attr('idTour');
-   
    nombreTour = $(this).children('td').eq(0).text();
    ubicacionTour = $(this).children('td').eq(1).text();
    var query = 'SELECT * FROM Products where "idTour" = "'+idTour+'" order by id desc';
@@ -299,13 +298,20 @@ $(document).on('click','#tablaTours > tbody > tr', function() {
 
       });
 
-$("#buscarProductos" ).keyup(function() {
-    var valor = $( "#buscarProductos" ).val();
-    $(".contPrduct" ).each(function()
-    {
-       $('.contPrduct:not(:contains('+valor+'))').addClass('oculto');
-       $('.contPrduct:contains('+valor+')').removeClass('oculto');
-    });
-
-});
+  $("#buscarProductos" ).keyup(function() {
+      var valor = $( "#buscarProductos" ).val();
+      $(".contPrduct" ).each(function()
+      {
+         $('.contPrduct:not(:contains('+valor+'))').addClass('oculto');
+         $('.contPrduct:contains('+valor+')').removeClass('oculto');
+      });
+  });
+  $("#buscarTours" ).keyup(function() {
+      var valor = $( "#buscarTours" ).val();
+      $(".contTour" ).each(function()
+      {
+         $('.contTour:not(:contains('+valor+'))').addClass('oculto');
+         $('.contTour:contains('+valor+')').removeClass('oculto');
+      });
+  });
 });//fin onready

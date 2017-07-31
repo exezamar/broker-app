@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"cont",
+				"cont-tours"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
 				"moneda",
 				"monedaTour"
 			],
@@ -18,10 +26,6 @@
 			[
 				"can",
 				"cantidadComprada"
-			],
-			[
-				"min",
-				"min-width"
 			],
 			[
 				"ali",
@@ -510,10 +514,6 @@
 			[
 				"histo",
 				"historialPedidos"
-			],
-			[
-				"es",
-				"es"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 16372,
+				"buffer_size": 16795,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 11098,
+				"buffer_size": 12545,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "www/css/index.css",
 			"settings":
 			{
-				"buffer_size": 11335,
+				"buffer_size": 12189,
 				"line_ending": "Unix"
 			}
 		}
@@ -596,6 +596,7 @@
 	},
 	"file_history":
 	[
+		"/C/CRM/public/js/scripts.js",
 		"/C/agd/public/js/resolutor.js",
 		"/C/broker-app/www/css/index.css",
 		"/C/agd/app/Http/Controllers/PedidosController.php",
@@ -722,8 +723,7 @@
 		"/C/CRM/app/Http/Controllers/HomeController.php",
 		"/C/CRM/app/Http/Middleware/VerifyCsrfToken.php",
 		"/C/extension-samuranium/background.js",
-		"/C/extension-samuranium/scripts.js",
-		"/C/extension-samuranium/template.css"
+		"/C/extension-samuranium/scripts.js"
 	],
 	"find":
 	{
@@ -741,6 +741,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Prduct",
+			" ",
+			"cmmodulos",
+			"ntour",
+			"bcmntour",
+			"cRowUsuario",
+			"buscarUsuario",
+			"append",
+			"+i",
+			"i",
+			"contDescProd",
 			"430px",
 			"add",
 			"append",
@@ -857,18 +868,7 @@
 			"fechaenviocandidatos",
 			"info-pedido",
 			"fechaEnvioCandidatosManual",
-			"FechaEnvioCandidatosManual",
-			"fechaEnvioCandidatosManual",
-			"txtFechaEnvioCandidatosManual",
-			"infoPedido",
-			"cancel",
-			"380px",
-			"display: flex",
-			"display:flex",
-			"display:flex;}",
-			"border-bottom:1px solid white;",
-			"volver",
-			"unidadMedida"
+			"FechaEnvioCandidatosManual"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -894,15 +894,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 16372,
+						"buffer_size": 16795,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15163,
-								15163
+								5827,
+								5838
 							]
 						],
 						"settings":
@@ -912,7 +912,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 701.0,
+						"translation.y": 2785.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -922,15 +922,15 @@
 					"file": "www/js/scripts.js",
 					"settings":
 					{
-						"buffer_size": 11098,
+						"buffer_size": 12545,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7626,
-								7626
+								12319,
+								12319
 							]
 						],
 						"settings":
@@ -940,7 +940,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4426.0,
+						"translation.y": 6640.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -950,15 +950,15 @@
 					"file": "www/css/index.css",
 					"settings":
 					{
-						"buffer_size": 11335,
+						"buffer_size": 12189,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4345,
-								4345
+								6070,
+								6070
 							]
 						],
 						"settings":
@@ -968,7 +968,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4403.0,
+						"translation.y": 7025.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
