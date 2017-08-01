@@ -340,21 +340,34 @@ position: relative;
   left:210px;
   width: 90px;
 }
+#no-tours{
+  color: white !important;
+  text-align: center;
+  display: flex;
+  justify-content:center;
+  padding-top:20px;
+  height: 350px;
+}
 .posarrow{
   position: absolute;
   top:30px;
-  left:380px;
+  left:360px;
 }
 .posarrowt{
   position: absolute;
   top:30px;
-  left:350px;
+  left:340px;
 }
 .parrow-right{
 
   width: 20px;
   height: 20px;
 
+}
+.minfoprod{
+  position: absolute;
+  top:30px;
+  left:260px;
 }
 .arrow-back{
   width: 20px;

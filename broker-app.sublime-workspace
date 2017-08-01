@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"tex",
+				"text-align"
+			],
+			[
 				"cont",
 				"cont-tours"
 			],
@@ -38,10 +42,6 @@
 			[
 				"nombre",
 				"nombreTour"
-			],
-			[
-				"tex",
-				"text-transform"
 			],
 			[
 				"margin",
@@ -523,7 +523,7 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 16795,
+				"buffer_size": 17515,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 12545,
+				"buffer_size": 13078,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "www/css/index.css",
 			"settings":
 			{
-				"buffer_size": 12189,
+				"buffer_size": 12393,
 				"line_ending": "Unix"
 			}
 		}
@@ -741,6 +741,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"222",
+			"contPrduct",
+			"class",
 			"Prduct",
 			" ",
 			"cmmodulos",
@@ -865,13 +868,10 @@
 			"            <div style='margin-top:20px;color:white;' class='flex'>\n                <div class='iniciales'>\n                    <div >\n                        <span class='tnamein'>EZ</span>\n                    </div>\n                </div>\n                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>\n                  <span>Welcome </span><br><span class='tname'>Exequiel Zamar</span>\n                </div>\n            </div>",
 			"            <div class='flex' style='margin-top:20px;color:white;'>\n                <div class='iniciales'>\n                    <div style='margin-top:25px'>\n                        <span class='tnamein'>EZ</span>\n                    </div>\n                </div>\n                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>\n                  <span>Welcome </span><br><span id='tname'>Exequiel Zamar</span>\n                </div>\n            </div>",
 			"ajax",
-			"fechaenviocandidatos",
-			"info-pedido",
-			"fechaEnvioCandidatosManual",
-			"FechaEnvioCandidatosManual"
+			"fechaenviocandidatos"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -886,7 +886,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -894,15 +894,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 16795,
+						"buffer_size": 17515,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5827,
-								5838
+								16697,
+								16697
 							]
 						],
 						"settings":
@@ -912,7 +912,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2785.0,
+						"translation.y": 9063.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -922,15 +922,15 @@
 					"file": "www/js/scripts.js",
 					"settings":
 					{
-						"buffer_size": 12545,
+						"buffer_size": 13078,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12319,
-								12319
+								277,
+								277
 							]
 						],
 						"settings":
@@ -940,7 +940,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6640.0,
+						"translation.y": 149.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -950,15 +950,15 @@
 					"file": "www/css/index.css",
 					"settings":
 					{
-						"buffer_size": 12189,
+						"buffer_size": 12393,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6070,
-								6070
+								6379,
+								6363
 							]
 						],
 						"settings":
@@ -968,7 +968,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7025.0,
+						"translation.y": 7843.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1560,6 +1560,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 410.0,
+	"side_bar_width": 50.0,
 	"status_bar_visible": true
 }
