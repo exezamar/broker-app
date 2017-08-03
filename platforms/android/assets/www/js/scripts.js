@@ -310,9 +310,31 @@ $(document).on('click','.contTour', function() {
       });
   });
 
-  $(".contPrduct" ).click(function(){
-    var id = $(this).attr('idProduct');
-    alert(id);
-
-  });//fin contProduct
+$(document).on('click','.contPrduct', function()
+{
+      var id = $(this).attr('idProduct');
+      var query = 'SELECT * FROM Products where "id" = "'+id+'"';
+        db.executeSql(query, [], function (resultSet) 
+        {
+             var count = resultSet.rows.length;
+             if (count == 0) {
+              alert('no se encontro el id del producto');
+             }
+             else{
+               
+                 var id = resultSet.rows.item(0).id;
+                 var nombre = resultSet.rows.item(0).nombre;
+                 alert('nombre es '+nombre);
+                 ocultarSlide('cont-products');
+                 setTimeout(function () {
+                 mostrarSlide('modal-infoproducto');
+                   
+                  }, 200);
+                 // $("#contTodosProdu").append("<div id=prod"+i+ " class='contPrduct' idProduct="+id+"></div>");  
+                 // $("#prod"+i).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
+               
+             }//fin else
+          });//fin query
+ }); //fin contPrduct
+  
 });//fin onready

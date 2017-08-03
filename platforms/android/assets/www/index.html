@@ -15,7 +15,7 @@
     </head>
     <body id='deviceready'>
 
-    <div id='cont-login'class="animated ">
+    <div id='cont-login'class="animated oculto">
         <div>
             <img src="img/logo.png" id='logo' style=''>
         </div>
@@ -121,7 +121,7 @@
                  </a>
             </div>
         </div>
-        <div class='cmmodulos'>
+        <div class='cmmodulos blue'>
            <div id='contTabla' class='blue'>
             <div class='contBusqProd'>
               <div>
@@ -250,7 +250,7 @@
       </div> <!-- fin contTodoProductos -->
   </div><!-- fin cont-producto -->  
         <!-- modal nuevo producto -->
-        <div id='modal-nproducto' class='animated oculto white'>
+        <div id='modal-nproducto' class='animated  oculto white'>
            <div class=' contTodoHeader blue'>
                <div id='btnVolverNProd'>
                  <img src="img/arrow-left.svg" class='arrow-back'>
@@ -376,7 +376,78 @@
             </div>
         </div> <!--   //fin modal nuevo producto -->   
 
+         <!-- contenedor info producto -->
+         <div id='modal-infoproducto' class='animated  white'>
+                   <div class=' contTodoHeader blue'>
+                       <div id='btnVolverNProd'>
+                         <img src="img/arrow-left.svg" class='arrow-back'>
+                       </div>
+                       <div class='hmenus'>
+                         <div>
+                            <span class='txtinfotour' id='nomprodinf'>Product name</span> <br>
+                         </div>
+                        <div>
+                           <span class='txtinfotour' id='nomprodinf'>STORE #</span> <br>
+                        </div>
+                       </div>
+                   </div>
+                    <div class='modalBodyinfoP'>
+                      <div id='contfprod' >
+                        <div style='min-height:200px;background: url("img/sinFoto.png") no-repeat fixed center; background-size:cover;'>
+                          
+                        </div>
+                      </div>
+                        <div class='ilabfnp'>
+                          <div class='tinpf2'>
+                           <b> <span class='tiformnt2'>aca va la descripcion</span></b>
+                          </div>
+                        </div>
+                        <div class='ilabfnp3'>
+                          <div class='tinpf2'>
+                            <span class='tiformnt2'>Unit price </span><b> <span id='totpriccalcinf' class='tiformnt2'>654654 </span> </b>
+                          </div>
+                          <div class='tinpf2'>
+                            <span class='tiformnt2'>Bulk price</span><b> <span id='cbmcalcinf'class='tiformnt2'>654654 </span> </b> <br>
+                            <span class='tiformnt2'>Min </span><b> <span id='cbmcalcinf'class='tiformnt2'>64 </span> </b> 
+                          </div>
+                        </div>
+                        <div class='ilabfnp3'>
+                          <div class='tinpf2'>
+                            <span class='tiformnt2'>Q.T.Y </span><b> <span id='totpriccalcinf' class='tiformnt2'>654654 </span> </b>
+                          </div>
+                          <div class='tinpf2'>
+                            <span class='tiformnt2'>C.B.M </span><b> <span id='cbmcalcinf'class='tiformnt2'>654654 </span> </b>
+                          </div>
+                        </div>
+                        <div class='subinfprod'>
+                          <div>
+                           <b> <span>Miscelaneous</span></b>
+                          </div>
+                        </div>
+                        <div class='miscinfprod'>
+                            <div>
+                              <span class='tiformnt2'>Purchase quantity </span>
 
+                            </div>
+                            <div style='margin-left:20px'>
+                              <input id='totpriccalcinf' style='width:75px;'></input> 
+                            </div>
+                        </div>
+                        <div class='miscinfprod'>
+                          <div>
+                             <span class='tiformnt2'>Total amount</span> <b> <span id='cbmcalcinf'class='tiformnt2'>64 </span> </b> 
+                          </div>
+                          <div style='margin-left:20px'>
+                               <span class='tiformnt2'>C.B.M </span><b> <span id='cbmcalcinf'class='tiformnt2'>654654 </span> </b>
+                          </div>
+                        </div>
+                    </div>
+                     <div class='btnModal3 blue'>
+                        <div >
+                            <a href="#" id='btnEditarProducto' style='color:white;'>EDIT</a>
+                        </div>
+                    </div>
+                </div> <!--   //fin modal info producto -->   
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 
@@ -394,3 +465,5 @@
 
     </body>
 </html>
+
+

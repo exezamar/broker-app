@@ -18,7 +18,9 @@ html, body {
   padding:0px;
   /*text-transform:uppercase;*/
   width:100%;
+  max-width: 100%;
   text-transform: uppercase;
+
 }
 
 /* Portrait layout (default) */
@@ -102,6 +104,18 @@ h1 {
   position: absolute;
   width: 100%;
   text-align: center;
+
+}
+.btnModal3{
+  font-size: 1.2em;
+  background-color: #2096F3;
+  color: white !important;
+  padding-top:20px;
+  padding-bottom:20px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom:0px;
 
 }
 a{text-decoration: none;}
@@ -348,6 +362,14 @@ position: relative;
   padding-top:20px;
   height: 350px;
 }
+#no-products{
+    color: white !important;
+  text-align: center;
+  display: flex;
+  justify-content:center;
+  padding-top:20px;
+  height: 350px;
+}
 .posarrow{
   position: absolute;
   top:30px;
@@ -564,6 +586,22 @@ color: white;
   color:#2196F3;
 
 }
+.modalBodyinfoP{
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column;
+  padding-bottom:30px;
+  text-transform: none;
+
+}
+#contfprod{
+  direction: flex;
+}
 .tfnprod{
   display: -webkit-box;
   display: -ms-flexbox;
@@ -574,6 +612,9 @@ color: white;
           flex-direction:column;
   
   width: 40%;
+}
+.finprod{
+  width: 55%;
 }
 .itnpf{
   width: 40%;
@@ -590,16 +631,18 @@ color: white;
    margin-top:5px;
    margin-bottom:5px;
    font-size: 1.3em;
-   min-width: 200px;
+
+ 
 }
 .ilabfnp{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-
+  justify-content:center;
   margin-bottom:10px;
 
 }
+
 .ilabfnp2{
   display: -webkit-box;
   display: -ms-flexbox;
@@ -607,6 +650,15 @@ color: white;
   width: 100%;
   margin-bottom:10px;
   margin-top:20px;
+}
+.ilabfnp3{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  justify-content:space-between;
+  font-size: 1em;
+
 }
 .inputmodal{
   text-decoration: none !important;
@@ -657,10 +709,23 @@ color: white;
   margin-bottom:5px;
 
 }
+.subinfprod{
+  display: flex;
+  justify-content:center;
+  border-bottom: solid 1px gray;
+color: gray;
+margin-top:5px;
+margin-bottom:5px;
+}
 .tiformnt2{
   text-align: center;
   font-size: 1.1em;
   margin-bottom:5px;
+  color: gray;
+}
+.tiformnt3{
+  text-align: center;
+  font-size: 1em !important;
   color: gray;
 }
 .bagrefoto{
@@ -676,4 +741,9 @@ color: white;
   display: flex;
   -ms-flex-pack:distribute;
       justify-content:space-around;
+}
+.miscinfprod{
+  display: flex;
+  justify-content:center;
+  margin-bottom:10px;
 }

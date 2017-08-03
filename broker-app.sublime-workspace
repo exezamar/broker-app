@@ -5,7 +5,7 @@
 		[
 			[
 				"tex",
-				"text-align"
+				"text-transform"
 			],
 			[
 				"cont",
@@ -523,7 +523,15 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 17515,
+				"buffer_size": 20251,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/css/index.css",
+			"settings":
+			{
+				"buffer_size": 13567,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,16 +539,8 @@
 			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 13078,
+				"buffer_size": 14054,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "www/css/index.css",
-			"settings":
-			{
-				"buffer_size": 12393,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -596,9 +596,9 @@
 	},
 	"file_history":
 	[
+		"/C/broker-app/www/css/index.css",
 		"/C/CRM/public/js/scripts.js",
 		"/C/agd/public/js/resolutor.js",
-		"/C/broker-app/www/css/index.css",
 		"/C/agd/app/Http/Controllers/PedidosController.php",
 		"/C/agd/app/Http/Controllers/PagesController.php",
 		"/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
@@ -741,6 +741,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ilabfnp3",
+			"span",
+			"important",
+			"png",
+			"nomprodinf",
+			"span",
+			"inputmodal",
+			"</input>",
+			"<input",
+			"input",
+			"<input",
+			"input",
+			"query",
+			"cont-product",
 			"222",
 			"contPrduct",
 			"class",
@@ -854,24 +868,10 @@
 			"varchar(10)",
 			"varchar(1)",
 			"int",
-			"int(1)",
-			"varchar(1)",
-			"varchar(8)",
-			"varchar(6)",
-			",",
-			",\"",
-			"ntour",
-			"1em",
-			"2em",
-			"100",
-			"                   <",
-			"            <div style='margin-top:20px;color:white;' class='flex'>\n                <div class='iniciales'>\n                    <div >\n                        <span class='tnamein'>EZ</span>\n                    </div>\n                </div>\n                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>\n                  <span>Welcome </span><br><span class='tname'>Exequiel Zamar</span>\n                </div>\n            </div>",
-			"            <div class='flex' style='margin-top:20px;color:white;'>\n                <div class='iniciales'>\n                    <div style='margin-top:25px'>\n                        <span class='tnamein'>EZ</span>\n                    </div>\n                </div>\n                <div style='margin-left:20px;margin-top:10px;font-size:1.3em;'>\n                  <span>Welcome </span><br><span id='tname'>Exequiel Zamar</span>\n                </div>\n            </div>",
-			"ajax",
-			"fechaenviocandidatos"
+			"int(1)"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -894,15 +894,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 17515,
+						"buffer_size": 20251,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16697,
-								16697
+								16703,
+								16703
 							]
 						],
 						"settings":
@@ -912,53 +912,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9063.0,
+						"translation.y": 8809.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "www/js/scripts.js",
-					"settings":
-					{
-						"buffer_size": 13078,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								277,
-								277
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 149.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "www/css/index.css",
 					"settings":
 					{
-						"buffer_size": 12393,
+						"buffer_size": 13567,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6379,
-								6363
+								11350,
+								11350
 							]
 						],
 						"settings":
@@ -968,7 +940,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7843.0,
+						"translation.y": 13388.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/js/scripts.js",
+					"settings":
+					{
+						"buffer_size": 14054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13807,
+								13808
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7006.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
