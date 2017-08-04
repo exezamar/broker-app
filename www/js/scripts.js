@@ -337,4 +337,13 @@ $(document).on('click','.contPrduct', function()
           });//fin query
  }); //fin contPrduct
   
+
+  $('#syncDB').click(function(){
+    //por cada tour hay que ver cada producto e ir subiendolos a la base
+    //ver el tema de las fotos
+    //todO> EDITAR - ELIMINAR PRODUCTO
+    // ASOCIAR FOTOS A PRODUCTOS
+    //SINCRONIZAR EN LA NUBE.
+
+  });
 });//fin onready
