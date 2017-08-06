@@ -4,16 +4,36 @@
 		"selected_items":
 		[
 			[
-				"id",
-				"idCreado"
+				"prodPrecio",
+				"prodPrecioCant"
+			],
+			[
+				"precio",
+				"precioCantidad"
+			],
+			[
+				"prodCa",
+				"prodCantidadComprada"
 			],
 			[
 				"cantidad",
 				"cantidadComprada"
 			],
 			[
-				"precio",
-				"precioCantidad"
+				"cant",
+				"cantidadMinima"
+			],
+			[
+				"prod",
+				"prodCantMin"
+			],
+			[
+				"total",
+				"totalBulto"
+			],
+			[
+				"id",
+				"idCreado"
 			],
 			[
 				"tex",
@@ -272,10 +292,6 @@
 				"entrevistasNuevas"
 			],
 			[
-				"cant",
-				"cantEntrevistas"
-			],
-			[
 				"viejo",
 				"viejoRNexo"
 			],
@@ -498,22 +514,6 @@
 			[
 				"nu",
 				"numeroRowsDatos"
-			],
-			[
-				"valor",
-				"valoresFinales"
-			],
-			[
-				"query",
-				"queryFinal"
-			],
-			[
-				"idSolic",
-				"idSolicitanteDestino"
-			],
-			[
-				"usuario",
-				"usuariosHabilitados"
 			]
 		]
 	},
@@ -523,7 +523,15 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 20439,
+				"buffer_size": 25765,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/css/index.css",
+			"settings":
+			{
+				"buffer_size": 14080,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,16 +539,8 @@
 			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 15539,
+				"buffer_size": 18298,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "www/css/index.css",
-			"settings":
-			{
-				"buffer_size": 13718,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -741,6 +741,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"val",
+			"var",
+			"inputmodal",
+			"text",
+			"descripcion2",
+			"cantidadComprada",
+			"precioUnidad2",
+			"var",
+			".substring(0,5)",
+			"btnEditarProducto",
+			"totpriccalcinf",
 			"idCreado",
 			"blue",
 			"val",
@@ -857,18 +868,7 @@
 			"(29)",
 			"(31)",
 			"(41)",
-			"(63)",
-			"(72)",
-			"(27)",
-			"(9)",
-			"(14)",
-			"150",
-			"(24)",
-			"(11)",
-			"varchar(32)",
-			"(18)",
-			"(17)",
-			"(52)"
+			"(63)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -886,7 +886,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -894,15 +894,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 20439,
+						"buffer_size": 25765,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18999,
-								18999
+								23536,
+								23550
 							]
 						],
 						"settings":
@@ -912,53 +912,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10076.0,
+						"translation.y": 11511.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "www/js/scripts.js",
-					"settings":
-					{
-						"buffer_size": 15539,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15457,
-								15457
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7646.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "www/css/index.css",
 					"settings":
 					{
-						"buffer_size": 13718,
+						"buffer_size": 14080,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4451,
-								4451
+								12522,
+								12522
 							]
 						],
 						"settings":
@@ -968,7 +940,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5116.0,
+						"translation.y": 15251.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/js/scripts.js",
+					"settings":
+					{
+						"buffer_size": 18298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17951,
+								17951
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 2680.0,
+						"translation.y": 9519.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1560,6 +1560,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 206.0,
+	"side_bar_width": 50.0,
 	"status_bar_visible": true
 }

@@ -120,7 +120,7 @@ h1 {
 
 }
 .btnModal4{
-  font-size: 1.2em;
+  font-size:1em;
   color: white !important;
   padding-top:5px;
   padding-bottom:5px;
@@ -156,6 +156,7 @@ a:hover{text-decoration: none;}
 }
 .red{background-color: #FF1249;}
 .green{background-color: #009688;}
+.gris{background-color: #E4E4E4;}
 .iniciales{
   background-color: #FF1249;
   width: 60px;
@@ -761,7 +762,7 @@ margin-bottom:5px;
   display: flex;
   -ms-flex-pack:distribute;
       justify-content:space-around;
-      margin-top:30px;
+      margin-top:10px;
 }
 .miscinfprod{
   display: flex;

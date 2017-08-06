@@ -351,7 +351,6 @@ $(document).on('click','.contPrduct', function()
                  $("#cbmincalcinf").text(prodCantMin);
                  $("#qtyprodinf").text(prodQTY);
                  $("#cbmcalcinf").text(prodCBM);
-
                  $("#totpriccalcinf2").val(prodCantidadComprada);
 
                  var cbmcalculado = Number(prodCBM);
@@ -406,6 +405,9 @@ $(document).on('click','.contPrduct', function()
       $("#edupricenuevprod").val(prodPrecioUn);
       $("#edbpricenuevprod").val(prodPrecioCant);
       $("#edminamnuevprod").val(prodCantMin);
+      $("#edcantComprada").val(prodCantidadComprada);
+
+      
       setTimeout(function () {
             mostrarSlide('modal-editanproducto');
           }, 200);
@@ -418,7 +420,7 @@ $(document).on('click','.contPrduct', function()
   });
 
   $("#btnGuardarCambiosProducto").click(function(){
-    // Guardar cambios en base
+    
      prodCBM = $("#edcbmnuevprod").val();
      prodQTY = $("#edqtynuevprod").val();
      prodNom = $("#ednnuevprod").val();
@@ -429,23 +431,62 @@ $(document).on('click','.contPrduct', function()
      prodDescripcion = $("#eddescnuevprod").val();
      prodCantMin =  $("#edminamnuevprod").val();
      
-     //INGRESAR NUEVO REGISTRO
+     //EDITAR REGISTRO
        db.transaction(function(tx)
        {
          tx.executeSql('UPDATE products SET cantidadMinima = "'+prodCantMin+'",cantidadComprada = "'+prodCantidadComprada+'",CBM = "'+prodCBM+'", QTY = "'+prodQTY+'", tienda = "'+prodTienda+'", precioUnidad = "'+prodPrecioUn+'", precioCantidad = "'+prodPrecioCant+'", nombre = "'+prodNom+'", descripcion = "'+prodDescripcion+'" WHERE id = "'+prodId+'"');
        }, function(error) {
          alert('Transaction ERROR: ' + error.message);
        }, function(tx) {
-
+         //ACTUALIZAR DATOS EN INFO
+        $("#nomprodinf").text(prodNom);
+        $("#nomtiendainf").text(prodTienda);
+        $("#descprodinfo").text(prodDescripcion);
+        $("#totpriccalcinf").text(prodPrecioUn);
+        $("#bulkprodinf").text(prodPrecioCant);
+        $("#cbmincalcinf").text(prodCantMin);
+        $("#qtyprodinf").text(prodQTY);
+        $("#cbmcalcinf").text(prodCBM);
+        $("#totpriccalcinf2").val(prodCantidadComprada);
         ocultarSlide('modal-editanproducto');
         setTimeout(function () {
               mostrarSlide('modal-infoproducto');
             }, 200);
 
        });//fin transaccion
-     
+  });//fin guardar cambios
+  $("#btnEliminarProd").click(function(){
+    //ELIMINAR REGISTRO
+
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(function () {
+      // //ELIMINAR REGISTRO
+      
+      //   db.transaction(function(tx)
+      //   {
+      //     tx.executeSql('DELETE FROM Products WHERE id = '+prodId+'');
+      //   }, function(error) {
+      //     alert('Transaction ERROR: ' + error.message);
+      //   }, function(tx) {
+      //   });//fin transaccion
+      ocultarSlide('modal-editanproducto');
+      setTimeout(function () {
+            mostrarSlide('cont-products');
+          }, 200);
+
+    });// fin swal
+
+
+  });//fin eliminar producto
 
 
 
-  });
+
 });//fin onready
