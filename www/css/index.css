@@ -104,19 +104,28 @@ h1 {
   position: absolute;
   width: 100%;
   text-align: center;
+  bottom:0px;
 
 }
 .btnModal3{
   font-size: 1.2em;
   background-color: #2096F3;
   color: white !important;
-  padding-top:20px;
-  padding-bottom:20px;
+  padding-top:5px;
+  padding-bottom:5px;
   position: absolute;
   width: 100%;
   text-align: center;
   bottom:0px;
 
+}
+.btnModal4{
+  font-size: 1.2em;
+  color: white !important;
+  padding-top:5px;
+  padding-bottom:5px;
+  width: 100%;
+  text-align: center;
 }
 a{text-decoration: none;}
 a:hover{text-decoration: none;}
@@ -228,6 +237,7 @@ table.dataTable td {
   height: 50%;
   max-height: 370px;
   overflow-y:scroll !important;
+  background-color: #009688 !important;
 }
 .contPrduct{
   display: -webkit-box;
@@ -458,6 +468,7 @@ table.dataTable tbody td{
   position: relative;
   height: 380px;
   overflow-y:scroll;
+  background-color: #2196F3;
 }
 div.dataTables_scroll { clear: both !important; }
 #logo{width:150px;margin-top:20%;}
@@ -539,10 +550,11 @@ color: white;
   left:20%;
 }
 #modal-nproducto{
-    position: absolute;
+
   bottom:0px;
   width: 100%;
   height: 100%;
+  background-color:#E4E4E4;
 }
 .modalHeader{
   display: -webkit-box;
@@ -557,7 +569,6 @@ color: white;
 .flex{display: -webkit-box;display: -ms-flexbox;display: flex;}
 .flex-stretch{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align: stretch;-ms-flex-align: stretch;align-items: stretch;}
 .modalBodyNT{
-  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -656,16 +667,25 @@ color: white;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  justify-content:space-between;
+  justify-content:center;
   font-size: 1em;
+  margin-left:20px;
 
 }
+
 .inputmodal{
   text-decoration: none !important;
   color: #009688 !important;
   font-size: 1.2em !important;
   background-color: white !important;
   border-style:none !important;
+}
+.inputmodal2{
+  text-decoration: none !important;
+  font-size: 1.2em !important;
+  background-color: white !important;
+  border-style:none !important;
+  color:#2196F3;
 }
 .inputmodalSm{
   text-decoration: none !important;
@@ -741,9 +761,18 @@ margin-bottom:5px;
   display: flex;
   -ms-flex-pack:distribute;
       justify-content:space-around;
+      margin-top:30px;
 }
 .miscinfprod{
   display: flex;
   justify-content:center;
   margin-bottom:10px;
+}
+#modal-infoproducto{
+  height: 100%;
+  bottom:0px;
+}
+#modal-editanproducto{
+  height: 100%;
+  bottom:0px;
 }

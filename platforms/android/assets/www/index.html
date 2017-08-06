@@ -35,7 +35,7 @@
             <a href="#" id='login' style='color:white;'>Login</a>
         </div>
     </div>
-    <div id='cont-menu' class='animated oculto'>
+    <div id='cont-menu' class='animated'>
        <div class='hmenus blue'>
             <div>
                  <a href="#" onclick="goToTours()">
@@ -249,6 +249,7 @@
         </div>
       </div> <!-- fin contTodoProductos -->
   </div><!-- fin cont-producto -->  
+
         <!-- modal nuevo producto -->
         <div id='modal-nproducto' class='animated  oculto white'>
            <div class=' contTodoHeader blue'>
@@ -330,22 +331,6 @@
                     <input type='text' id='minamnuevprod' class='inputmodal'></input>
                   </div>
                 </div>
-                <div class='ilabfnp2'>
-                  <div class='itnpf'>
-                    <span class='tiformnt'>Quantity</span> 
-                  </div>
-                  <div class='tinpf'>
-                    <input type='text' id='cantcompranuevprod' class='inputmodal'></input>
-                  </div>
-                </div>
-                <div class='ilabfnp'>
-                  <div class='tinpf2'>
-                    <span class='tiformnt2'>Total Price: </span><b> <span id='totpriccalc' class='tiformnt2'>654654 </span> </b>
-                  </div>
-                  <div class='tinpf2'>
-                    <span class='tiformnt2'>C.B.M: </span><b> <span id='cbmcalc'class='tiformnt2'>654654 </span> </b>
-                  </div>
-                </div>
                 <div class='cboagfo'>
                   <div class='bagrefoto' id='bafp1'>
                     <div style='margin-top:20px;text-align:center;color:gray'>
@@ -362,11 +347,6 @@
                        <span>Add <br>Photo</span>
                     </div>
                   </div>
-<!--                   <div class='bagrefoto' id='bafp4'>
-                    <div style='margin-top:20px;text-align:center'>
-                      <span>Add Photo</span>
-                    </div>
-                  </div> -->
                 </div>
             </div>
              <div class='btnModal2 blue'>
@@ -377,9 +357,9 @@
         </div> <!--   //fin modal nuevo producto -->   
 
          <!-- contenedor info producto -->
-         <div id='modal-infoproducto' class='animated  white'>
+         <div id='modal-infoproducto' class='animated oculto white'>
                    <div class=' contTodoHeader blue'>
-                       <div id='btnVolverNProd'>
+                       <div id='btnVolverInfoProd'>
                          <img src="img/arrow-left.svg" class='arrow-back'>
                        </div>
                        <div class='hmenus'>
@@ -387,7 +367,7 @@
                             <span class='txtinfotour' id='nomprodinf'>Product name</span> <br>
                          </div>
                         <div>
-                           <span class='txtinfotour' id='nomprodinf'>STORE #</span> <br>
+                           <span class='txtinfotour' id='nomtiendainf'>STORE #</span> <br>
                         </div>
                        </div>
                    </div>
@@ -399,23 +379,23 @@
                       </div>
                         <div class='ilabfnp'>
                           <div class='tinpf2'>
-                           <b> <span class='tiformnt2'>aca va la descripcion</span></b>
+                           <b> <span class='tiformnt2' id='descprodinfo'>aca va la descripcion</span></b>
                           </div>
                         </div>
                         <div class='ilabfnp3'>
                           <div class='tinpf2'>
                             <span class='tiformnt2'>Unit price </span><b> <span id='totpriccalcinf' class='tiformnt2'>654654 </span> </b>
                           </div>
-                          <div class='tinpf2'>
-                            <span class='tiformnt2'>Bulk price</span><b> <span id='cbmcalcinf'class='tiformnt2'>654654 </span> </b> <br>
-                            <span class='tiformnt2'>Min </span><b> <span id='cbmcalcinf'class='tiformnt2'>64 </span> </b> 
+                          <div class='tinpf2' style='margin-left:50px;'>
+                            <span class='tiformnt2'>Bulk price</span><b> <span id='bulkprodinf'class='tiformnt2'>654654 </span> </b> <br>
+                            <span class='tiformnt2'>Min </span><b> <span id='cbmincalcinf'class='tiformnt2'>64 </span> </b> 
                           </div>
                         </div>
                         <div class='ilabfnp3'>
                           <div class='tinpf2'>
-                            <span class='tiformnt2'>Q.T.Y </span><b> <span id='totpriccalcinf' class='tiformnt2'>654654 </span> </b>
+                            <span class='tiformnt2'>Q.T.Y </span><b> <span id='qtyprodinf' class='tiformnt2'>654654 </span> </b>
                           </div>
-                          <div class='tinpf2'>
+                          <div class='tinpf2' style='margin-left:50px;'>
                             <span class='tiformnt2'>C.B.M </span><b> <span id='cbmcalcinf'class='tiformnt2'>654654 </span> </b>
                           </div>
                         </div>
@@ -424,22 +404,29 @@
                            <b> <span>Miscelaneous</span></b>
                           </div>
                         </div>
-                        <div class='miscinfprod'>
+                        <div class='miscinfprod' style='margin-top:30px;'>
                             <div>
                               <span class='tiformnt2'>Purchase quantity </span>
-
                             </div>
                             <div style='margin-left:20px'>
-                              <input id='totpriccalcinf' style='width:75px;'></input> 
+                              <input id='totpriccalcinf2' style='width:75px;'></input> 
                             </div>
+                            
+                        </div>
+                        <div class='miscinfprod'>
+                           <div>
+                            <span class='tiformnt2'>Total Packages:  </span><b><span id='totPackages' class='tiformnt2'>20 </span></b>
+                          </div>
+                          <div style='margin-left:20px'>
+                               <span class='tiformnt2'>Total m3</span><b> <span id='cbmcalcprodinf'class='tiformnt2' >654654 </span> </b>
+                          </div>
+                          
                         </div>
                         <div class='miscinfprod'>
                           <div>
-                             <span class='tiformnt2'>Total amount</span> <b> <span id='cbmcalcinf'class='tiformnt2'>64 </span> </b> 
+                             <span class='tiformnt2'>Total amount</span> <b><span id='ticurrenprod' class='tiformnt2'> USD</span> <span id='imptotalprodinf'class='tiformnt2'>64 </span> </b> 
                           </div>
-                          <div style='margin-left:20px'>
-                               <span class='tiformnt2'>C.B.M </span><b> <span id='cbmcalcinf'class='tiformnt2'>654654 </span> </b>
-                          </div>
+                          
                         </div>
                     </div>
                      <div class='btnModal3 blue'>
@@ -448,6 +435,125 @@
                         </div>
                     </div>
                 </div> <!--   //fin modal info producto -->   
+                <!-- modal edita producto -->
+                <div id='modal-editanproducto' class='animated  oculto white'>
+                   <div class=' contTodoHeader blue'>
+                       <div id='btnVolverEdProd'>
+                         <img src="img/arrow-left.svg" class='arrow-back'>
+                       </div>
+                       <div class='hmenus'>
+                         <div>
+                            <span class='txtinfotour'></span> <br>
+                         </div>
+                         <div>
+                           <span class='txtinfotour' id='tnombtour2'>tour name</span> <span class='txtinfotour'> - </span>
+                           <span class='txtinfotour' id='tubictour2'>location</span>
+                         </div>
+                       </div>
+                   </div>
+                    <div class='modalBodyNP'>
+                        <div class='ilabfnp' style='margin-top:10px'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>Name</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='ednnuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>DESCRIPTION</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='eddescnuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>STORE ID</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='edstorenuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>Q.T.Y</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='edqtynuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>C.B.M</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='edcbmnuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>UNIT PRICE</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='edupricenuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>BULK PRICE</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='edbpricenuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>MIN AMOUNT</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='edminamnuevprod' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='ilabfnp'>
+                          <div class='itnpf'>
+                            <span class='tiformnt'>PURCHASE QUANTITY</span> 
+                          </div>
+                          <div class='tinpf'>
+                            <input type='text' id='edcantComprada' class='inputmodal2'></input>
+                          </div>
+                        </div>
+                        <div class='cboagfo'>
+                          <div class='bagrefoto' id='bafp1'>
+                            <div style='margin-top:20px;text-align:center;color:gray'>
+                              <span>Add <br>Photo</span>
+                            </div>
+                          </div>
+                          <div class='bagrefoto' id='bafp2'>
+                            <div style='margin-top:20px;text-align:center;color:gray'>
+                               <span>Add <br>Photo</span>
+                            </div>
+                          </div>
+                          <div class='bagrefoto' id='bafp3'>
+                            <div style='margin-top:20px;text-align:center;color:gray'>
+                               <span>Add <br>Photo</span>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                     <div class='btnModal4 red'>
+                        <div >
+                            <a href="#" id='btnEliminarProd' style='color:white;'>DELETE</a>
+                        </div>
+                    </div>
+                     <div class='btnModal2 blue'>
+                        <div >
+                            <a href="#" id='btnGuardarCambiosProducto' style='color:white;'>SAVE</a>
+                        </div>
+                    </div>
+                     
+                </div> <!--   //fin modal edita producto -->   
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 

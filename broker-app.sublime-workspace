@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"id",
+				"idCreado"
+			],
+			[
+				"cantidad",
+				"cantidadComprada"
+			],
+			[
+				"precio",
+				"precioCantidad"
+			],
+			[
 				"tex",
 				"text-transform"
 			],
@@ -18,14 +30,6 @@
 			[
 				"moneda",
 				"monedaTour"
-			],
-			[
-				"id",
-				"idTour"
-			],
-			[
-				"cantidad",
-				"cantidadComprada"
 			],
 			[
 				"can",
@@ -510,10 +514,6 @@
 			[
 				"usuario",
 				"usuariosHabilitados"
-			],
-			[
-				"histo",
-				"historialPedidos"
 			]
 		]
 	},
@@ -523,15 +523,7 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 20251,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "www/css/index.css",
-			"settings":
-			{
-				"buffer_size": 13567,
+				"buffer_size": 20439,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,8 +531,16 @@
 			"file": "www/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 14054,
+				"buffer_size": 15539,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/css/index.css",
+			"settings":
+			{
+				"buffer_size": 13718,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -596,11 +596,11 @@
 	},
 	"file_history":
 	[
+		"/C/agd/app/Http/Controllers/PagesController.php",
+		"/C/agd/app/Http/Controllers/PedidosController.php",
 		"/C/broker-app/www/css/index.css",
 		"/C/CRM/public/js/scripts.js",
 		"/C/agd/public/js/resolutor.js",
-		"/C/agd/app/Http/Controllers/PedidosController.php",
-		"/C/agd/app/Http/Controllers/PagesController.php",
 		"/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
 		"/C/Users/Exequiel/Dropbox/Naum/QBICONTA/crear tablas qbicobnta completa.txt",
 		"/C/Extroversia-viejo/resources/views/pages/index.blade.php",
@@ -741,6 +741,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"idCreado",
+			"blue",
+			"val",
+			"precioUnidad",
+			"descripcion",
+			"val",
+			"text",
+			"(\"",
+			"val",
+			")v",
+			"cbmcalcinf",
+			"precioCantidad",
+			"nombre",
 			"ilabfnp3",
 			"span",
 			"important",
@@ -855,20 +868,7 @@
 			"varchar(32)",
 			"(18)",
 			"(17)",
-			"(52)",
-			"(12)",
-			"(2)",
-			"varchar(3)",
-			"varchar(4)",
-			"decimal",
-			"varchar(5)",
-			"varchar(7)",
-			"varchar(6)",
-			"ENGINE=InnoDB DEFAULT CHARSET=utf8;",
-			"varchar(10)",
-			"varchar(1)",
-			"int",
-			"int(1)"
+			"(52)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -894,15 +894,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 20251,
+						"buffer_size": 20439,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16703,
-								16703
+								18999,
+								18999
 							]
 						],
 						"settings":
@@ -912,53 +912,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8809.0,
+						"translation.y": 10076.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "www/css/index.css",
-					"settings":
-					{
-						"buffer_size": 13567,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11350,
-								11350
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 13388.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "www/js/scripts.js",
 					"settings":
 					{
-						"buffer_size": 14054,
+						"buffer_size": 15539,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13807,
-								13808
+								15457,
+								15457
 							]
 						],
 						"settings":
@@ -968,7 +940,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7006.0,
+						"translation.y": 7646.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/css/index.css",
+					"settings":
+					{
+						"buffer_size": 13718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4451,
+								4451
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5116.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1033,6 +1033,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"pedidoscon",
+				"agd/app/Http/Controllers/PedidosController.php"
+			],
+			[
+				"pagescontr",
+				"agd/app/Http/Controllers/PagesController.php"
+			],
 			[
 				"index",
 				"www/css/index.css"
@@ -1260,10 +1268,6 @@
 			[
 				"jwt",
 				"agd/config/jwt.php"
-			],
-			[
-				"pedidoscon",
-				"agd/app/Http/Controllers/PedidosController.php"
 			],
 			[
 				"homec",
@@ -1540,10 +1544,6 @@
 			[
 				"layouts.blade",
 				"resources/views/layouts/app.blade.php"
-			],
-			[
-				"vended",
-				"public/js/vendedor.js"
 			]
 		],
 		"width": 0.0
@@ -1560,6 +1560,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 50.0,
+	"side_bar_width": 206.0,
 	"status_bar_visible": true
 }
