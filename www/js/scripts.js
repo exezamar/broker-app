@@ -456,34 +456,39 @@ $(document).on('click','.contPrduct', function()
        });//fin transaccion
   });//fin guardar cambios
   $("#btnEliminarProd").click(function(){
-    //ELIMINAR REGISTRO
-
     swal({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
+      title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      type: "warning",
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then(function () {
-      // //ELIMINAR REGISTRO
-      
-      //   db.transaction(function(tx)
-      //   {
-      //     tx.executeSql('DELETE FROM Products WHERE id = '+prodId+'');
-      //   }, function(error) {
-      //     alert('Transaction ERROR: ' + error.message);
-      //   }, function(tx) {
-      //   });//fin transaccion
-      ocultarSlide('modal-editanproducto');
-      setTimeout(function () {
-            mostrarSlide('cont-products');
-          }, 200);
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel",
+      closeOnConfirm: false,
+      closeOnCancel: true
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        //ELIMINAR REGISTRO
+          db.transaction(function(tx)
+          {
+            tx.executeSql('DELETE FROM Products WHERE id = '+prodId+'');
+          }, function(error) {
+            alert('Transaction ERROR: ' + error.message);
+          }, function(tx) {
+            ocultarSlide('modal-editanproducto');
+            setTimeout(function () {
+                  mostrarSlide('cont-tours');
+                }, 200);
+            swal('Product deleted','','success');
+          });//fin transaccion
 
-    });// fin swal
-
-
+        
+      } else {
+        //swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+    });
   });//fin eliminar producto
 
 
