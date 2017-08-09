@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"idPro",
+				"idProduct"
+			],
+			[
 				"prodPrecio",
 				"prodPrecioCant"
 			],
@@ -510,39 +514,11 @@
 			[
 				"datos",
 				"datosEfectivos"
-			],
-			[
-				"nu",
-				"numeroRowsDatos"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "www/index.html",
-			"settings":
-			{
-				"buffer_size": 25765,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "www/css/index.css",
-			"settings":
-			{
-				"buffer_size": 14080,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "www/js/scripts.js",
-			"settings":
-			{
-				"buffer_size": 18298,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -596,9 +572,17 @@
 	},
 	"file_history":
 	[
-		"/C/agd/app/Http/Controllers/PagesController.php",
+		"/C/broker-app/www/js/scripts.js",
+		"/C/broker-app/www/index.html",
+		"/C/agd-solicitudes/config.xml",
+		"/C/agd-solicitudes/www/index.html",
+		"/C/agd-solicitudes/www/js/scripts.js",
 		"/C/agd/app/Http/Controllers/PedidosController.php",
+		"/C/agd/app/Http/Controllers/MobileController.php",
+		"/C/agd-solicitudes/www/js/index.js",
+		"/C/broker-app/platforms/android/build/intermediates/assets/debug/www/index.html",
 		"/C/broker-app/www/css/index.css",
+		"/C/agd/app/Http/Controllers/PagesController.php",
 		"/C/CRM/public/js/scripts.js",
 		"/C/agd/public/js/resolutor.js",
 		"/C/Users/Exequiel/Desktop/FMCUMBI_PR.csv",
@@ -617,19 +601,13 @@
 		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/FHCTBI_PR.csv",
 		"/C/Users/Exequiel/Dropbox/Naum/QBIPOV5/FAPDBI.csv",
 		"/C/Users/Exequiel/Desktop/FTSOBI3_PR.csv",
-		"/C/broker-app/www/js/scripts.js",
-		"/C/broker-app/www/index.html",
 		"/C/Users/Exequiel/Desktop/.htaccess",
 		"/C/Users/Exequiel/Desktop/index.html",
 		"/C/nexo/resources/views/pages/historialSelector.blade.php",
 		"/C/nexo/public/js/selector.js",
 		"/C/nexo/resources/views/pages/pendientesSelector.blade.php",
 		"/C/agd/resources/views/pages/solicitante/nuevoPedido.blade.php",
-		"/C/agd-solicitudes/config.xml",
-		"/C/agd/app/Http/Controllers/MobileController.php",
 		"/C/agd-solicitudes/www/css/index.css",
-		"/C/agd-solicitudes/www/js/scripts.js",
-		"/C/agd-solicitudes/www/index.html",
 		"/C/agd/public/css/menu.css",
 		"/C/agd/public/css/index.css",
 		"/C/agd/resources/views/emails/nuevoPedido.blade.php",
@@ -641,7 +619,6 @@
 		"/C/extroversia/resources/views/pages/index.blade.php",
 		"/C/extroversia/routes/web.php",
 		"/C/extroversia/routes/api.php",
-		"/C/agd-solicitudes/www/js/index.js",
 		"/C/broker-app/platforms/browser/css/index.css",
 		"/C/broker-app-vieja/www/index.html",
 		"/C/broker-app-vieja/www/js/scripts.js",
@@ -722,8 +699,7 @@
 		"/C/CRM/routes/web.php",
 		"/C/CRM/app/Http/Controllers/HomeController.php",
 		"/C/CRM/app/Http/Middleware/VerifyCsrfToken.php",
-		"/C/extension-samuranium/background.js",
-		"/C/extension-samuranium/scripts.js"
+		"/C/extension-samuranium/background.js"
 	],
 	"find":
 	{
@@ -741,6 +717,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"cantidad",
+			"tablacantidades",
+			"btnContinuarPedido",
+			"tablacantidades",
+			"tablaCantidades",
+			"attr",
+			"cont-prod",
 			"val",
 			"var",
 			"inputmodal",
@@ -861,14 +844,7 @@
 			"91",
 			"varchar(8)",
 			"(62)",
-			"(37)",
-			"(45",
-			"(74)",
-			"(42)",
-			"(29)",
-			"(31)",
-			"(41)",
-			"(63)"
+			"(37)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -886,93 +862,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "www/index.html",
-					"settings":
-					{
-						"buffer_size": 25765,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23536,
-								23550
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 11511.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "www/css/index.css",
-					"settings":
-					{
-						"buffer_size": 14080,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12522,
-								12522
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 15251.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "www/js/scripts.js",
-					"settings":
-					{
-						"buffer_size": 18298,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17951,
-								17951
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 2680.0,
-						"translation.y": 9519.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		},
 		{
@@ -1038,6 +929,14 @@
 				"agd/app/Http/Controllers/PedidosController.php"
 			],
 			[
+				"mobilecon",
+				"agd/app/Http/Controllers/MobileController.php"
+			],
+			[
+				"idnex.html",
+				"platforms/android/build/intermediates/assets/debug/www/index.html"
+			],
+			[
 				"pagescontr",
 				"agd/app/Http/Controllers/PagesController.php"
 			],
@@ -1084,10 +983,6 @@
 			[
 				"pagescontro",
 				"agd/app/Http/Controllers/PagesController.php"
-			],
-			[
-				"mobilecon",
-				"agd/app/Http/Controllers/MobileController.php"
 			],
 			[
 				"scrip",
@@ -1540,10 +1435,6 @@
 			[
 				"login",
 				"resources/views/auth/login.blade.php"
-			],
-			[
-				"layouts.blade",
-				"resources/views/layouts/app.blade.php"
 			]
 		],
 		"width": 0.0
@@ -1560,6 +1451,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 50.0,
+	"side_bar_width": 256.0,
 	"status_bar_visible": true
 }
