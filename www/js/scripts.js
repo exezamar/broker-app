@@ -173,7 +173,7 @@ $("#btnCrearTour").click(function(){
           var moneda = resultSet.rows.item(i).moneda;
           var fecha = resultSet.rows.item(i).fecha;
           
-          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+" style='cursor:pointer;'></div>");
+          $("#bodyTours").append("<a href='#' class='test'><div class='animated contTour blue' id='tour_"+id+"' idTour="+id+" style='cursor:pointer;'></div></a>");
           $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
           $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
         };
@@ -508,40 +508,6 @@ $(document).on('touchstart','.contPrduct', function()
   });//fin eliminar producto
 
 
-function touchHandler(event)
-{
-    var touches = event.changedTouches,
-        first = touches[0],
-        type = "";
 
-    switch(event.type)
-    {
-       case "touchstart": type = "mousedown"; break;
-       case "touchmove":  type = "mousemove"; break;        
-       case "touchend":   type = "mouseup"; break;
-       default: return;
-    }
-
-    //initMouseEvent(type, canBubble, cancelable, view, clickCount, 
-    //           screenX, screenY, clientX, clientY, ctrlKey, 
-    //           altKey, shiftKey, metaKey, button, relatedTarget);
-
-    var simulatedEvent = document.createEvent("MouseEvent");
-    simulatedEvent.initMouseEvent(type, true, true, window, 1, 
-                          first.screenX, first.screenY, 
-                          first.clientX, first.clientY, false, 
-                          false, false, false, 0/*left*/, null);
-
-    first.target.dispatchEvent(simulatedEvent);
-    event.preventDefault();
-}
-
-function init() 
-{
-    document.addEventListener("touchstart", touchHandler, true);
-    document.addEventListener("touchmove", touchHandler, true);
-    document.addEventListener("touchend", touchHandler, true);
-    document.addEventListener("touchcancel", touchHandler, true);    
-}
 
 });//fin onready
