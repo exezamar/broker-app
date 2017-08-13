@@ -6,6 +6,8 @@ var nombreTour = '';
 var ubicacionTour = '';
 var monedaTour = '';
 var tablaTours = '';
+
+
 document.addEventListener('deviceready', function()
 {
 
@@ -116,7 +118,7 @@ $(document).ready( function() {
             var moneda = resultSet.rows.item(i).moneda;
             var fecha = resultSet.rows.item(i).fecha;
 
-            $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+"></div>");
+            $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+" style='cursor:pointer;'></div>");
             $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
             $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
           };
@@ -171,7 +173,7 @@ $("#btnCrearTour").click(function(){
           var moneda = resultSet.rows.item(i).moneda;
           var fecha = resultSet.rows.item(i).fecha;
           
-          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+"></div>");
+          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+" onclick='' style='cursor:pointer;'></div>");
           $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
           $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
         };
@@ -188,7 +190,7 @@ $("#btnCrearTour").click(function(){
       });//fin transaccion
 
     });
-$(document).on('click','.contTour', function() {
+$('body').on('click','.contTour' , function() {
    
    idTour = $(this).attr('idTour');
    nombreTour = $(this).children('td').eq(0).text();
