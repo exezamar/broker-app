@@ -123,8 +123,7 @@ $(document).ready( function() {
             $("#bodyTours").append("<div class='contTour animated  blue' id='tour_"+id+"' idTour="+id+"  style='cursor:pointer !important;'></div>");
             $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
             $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
-            var toto = document.getElementById('tour_'+id);
-            toto.addEventListener('click', function(){ alert('hola'); }, false);
+
           };
         }
         
@@ -199,7 +198,7 @@ $("#btnCrearTour").click(function(){
 //   alert('clickeado');
 
 // });
-$('#bodyTours').on('click touchstart','.contTour' , function() {
+$('#bodyTours').on('touchstart','.contTour' , function() {
 
    idTour = $(this).attr('idTour');
    nombreTour = $(this).children('td').eq(0).text();
@@ -296,8 +295,7 @@ $('#bodyTours').on('click touchstart','.contTour' , function() {
         });//fin transaccion
   });// fin btnCrearProducto
 
-function toto (){ alert('hola mundo'); }
-  $("#bodyTours").bind('touchstart', toto);
+
   $("#buscarProductos" ).keyup(function() {
       var valor = $( "#buscarProductos" ).val();
       $(".contPrduct" ).each(function()

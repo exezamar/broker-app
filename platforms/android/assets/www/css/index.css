@@ -464,6 +464,7 @@ table.dataTable tbody td{
   overflow:auto !important;
   height: 300px !important;
   position:relative;
+  cursor:pointer !important;
 }
 #bodyTours{
   width: 100% !important;
@@ -472,7 +473,7 @@ table.dataTable tbody td{
   height: 380px;
   overflow-y:scroll;
   background-color: #2196F3;
-  cursor:pointer;
+  cursor:pointer !important;
 }
 div.dataTables_scroll { clear: both !important; }
 #logo{width:150px;margin-top:20%;}
