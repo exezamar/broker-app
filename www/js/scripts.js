@@ -7,7 +7,9 @@ var ubicacionTour = '';
 var monedaTour = '';
 var tablaTours = '';
 
-
+function test(){
+  alert('test');
+}
 document.addEventListener('deviceready', function()
 {
 
@@ -118,9 +120,11 @@ $(document).ready( function() {
             var moneda = resultSet.rows.item(i).moneda;
             var fecha = resultSet.rows.item(i).fecha;
 
-            $("#bodyTours").append("<div class='contTour animated  blue' id='tour_"+id+"' idTour="+id+" onclick='' style='cursor:pointer !important;'></div>");
+            $("#bodyTours").append("<div class='contTour animated  blue' id='tour_"+id+"' idTour="+id+"  style='cursor:pointer !important;'></div>");
             $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
             $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+            var toto = document.getElementById('tour_'+id);
+            toto.addEventListener('click', function(){ alert('hola'); }, false);
           };
         }
         
