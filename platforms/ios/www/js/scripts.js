@@ -62,10 +62,10 @@ function ofuscar(div){ $("#"+div).addClass('ofuscado');}
 
 $(document).ready( function() {
   $(".ui-loader").hide();
-  function onSuccess(imageData){
+  function onSuccess1(imageData){
     var src = 'data:image/jpg;base64, ';
-    $("#image").attr('src', src+imageData);
-    $("#image").attr('src', imageData);
+    $("#image1").attr('src', src+imageData);
+    $("#image1").attr('src', imageData);
 
       // alert(src+imageData);
     }
@@ -81,14 +81,7 @@ $(document).ready( function() {
         }
 
 
-        $("#bsFoto").click(function(){
-          navigator.camera.getPicture(onSuccess, onFail,
-          {
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-            popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
-          });
-        });
+
 
         $("#login").click(function(){
 
@@ -394,7 +387,20 @@ $(document).on('click','.contPrduct', function()
      var cantPaquetes =  cantidad / Number(prodQTY);
      $("#totPackages").text(cantPaquetes);
   });
+  $("#bafp1").click(function(){
+    alert('sacando foto');
+    // navigator.camera.getPicture(onSuccess1, onFail,
+    // {
+    //   destinationType: Camera.DestinationType.FILE_URI,
+    //   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    //   popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
+    // });
 
+      navigator.camera.getPicture(onSuccess1, onFail, { quality: 50, 
+        destinationType: destinationType.FILE_URI,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
+    
+  });
   $("#btnEditarProducto").click(function(){
       ocultarSlide('modal-infoproducto');
       $("#ednnuevprod").val(prodNom);
@@ -456,34 +462,39 @@ $(document).on('click','.contPrduct', function()
        });//fin transaccion
   });//fin guardar cambios
   $("#btnEliminarProd").click(function(){
-    //ELIMINAR REGISTRO
-
     swal({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
+      title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      type: "warning",
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then(function () {
-      // //ELIMINAR REGISTRO
-      
-      //   db.transaction(function(tx)
-      //   {
-      //     tx.executeSql('DELETE FROM Products WHERE id = '+prodId+'');
-      //   }, function(error) {
-      //     alert('Transaction ERROR: ' + error.message);
-      //   }, function(tx) {
-      //   });//fin transaccion
-      ocultarSlide('modal-editanproducto');
-      setTimeout(function () {
-            mostrarSlide('cont-products');
-          }, 200);
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel",
+      closeOnConfirm: false,
+      closeOnCancel: true
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        //ELIMINAR REGISTRO
+          db.transaction(function(tx)
+          {
+            tx.executeSql('DELETE FROM Products WHERE id = '+prodId+'');
+          }, function(error) {
+            alert('Transaction ERROR: ' + error.message);
+          }, function(tx) {
+            ocultarSlide('modal-editanproducto');
+            setTimeout(function () {
+                  mostrarSlide('cont-tours');
+                }, 200);
+            swal('Product deleted','','success');
+          });//fin transaccion
 
-    });// fin swal
-
-
+        
+      } else {
+        //swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+    });
   });//fin eliminar producto
 
 

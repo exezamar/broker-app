@@ -572,10 +572,16 @@
 	},
 	"file_history":
 	[
+		"/C/ext-samu-css/scripts.js",
+		"/C/ext-samu-css/template.js",
+		"/C/Users/Exequiel/Desktop/test (1).py",
+		"/C/Users/Exequiel/Desktop/test.py",
+		"/C/agd-solicitudes/www/index.html",
 		"/C/broker-app/www/js/scripts.js",
+		"/C/extension-samuranium/scripts.js",
+		"/C/extension-samuranium/template.js",
 		"/C/broker-app/www/index.html",
 		"/C/agd-solicitudes/config.xml",
-		"/C/agd-solicitudes/www/index.html",
 		"/C/agd-solicitudes/www/js/scripts.js",
 		"/C/agd/app/Http/Controllers/PedidosController.php",
 		"/C/agd/app/Http/Controllers/MobileController.php",
@@ -685,11 +691,7 @@
 		"/C/extroversia/resources/assets/js/app.js",
 		"/C/extroversia/app/Providers/AppServiceProvider.php",
 		"/C/extroversia/vendor/laravel/framework/src/Illuminate/Support/Facades/Schema.php",
-		"/C/ext-samu-css/scripts.js",
-		"/C/Users/Exequiel/Desktop/test.py",
-		"/C/ext-samu-css/template.js",
 		"/C/ext-samu-css/template.html",
-		"/C/Users/Exequiel/Desktop/test (1).py",
 		"/C/Users/Exequiel/Desktop/test (6).py",
 		"/C/Users/Exequiel/Desktop/test (3).py",
 		"/C/Users/Exequiel/Desktop/test (4).py",
@@ -697,9 +699,7 @@
 		"/C/Users/Exequiel/Desktop/test (2).py",
 		"/C/xampp/php/php.ini",
 		"/C/CRM/routes/web.php",
-		"/C/CRM/app/Http/Controllers/HomeController.php",
-		"/C/CRM/app/Http/Middleware/VerifyCsrfToken.php",
-		"/C/extension-samuranium/background.js"
+		"/C/CRM/app/Http/Controllers/HomeController.php"
 	],
 	"find":
 	{
@@ -717,6 +717,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"save",
 			"cantidad",
 			"tablacantidades",
 			"btnContinuarPedido",
@@ -843,8 +844,7 @@
 			"(16)",
 			"91",
 			"varchar(8)",
-			"(62)",
-			"(37)"
+			"(62)"
 		],
 		"highlight": true,
 		"in_selection": false,
