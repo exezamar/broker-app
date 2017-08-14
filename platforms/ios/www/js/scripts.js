@@ -6,6 +6,10 @@ var nombreTour = '';
 var ubicacionTour = '';
 var monedaTour = '';
 var tablaTours = '';
+
+function test(){
+  alert('test');
+}
 document.addEventListener('deviceready', function()
 {
 
@@ -116,9 +120,10 @@ $(document).ready( function() {
             var moneda = resultSet.rows.item(i).moneda;
             var fecha = resultSet.rows.item(i).fecha;
 
-            $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+"></div>");
+            $("#bodyTours").append("<div class='contTour animated  blue' id='tour_"+id+"' idTour="+id+"  style='cursor:pointer !important;'></div>");
             $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
             $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+
           };
         }
         
@@ -171,7 +176,7 @@ $("#btnCrearTour").click(function(){
           var moneda = resultSet.rows.item(i).moneda;
           var fecha = resultSet.rows.item(i).fecha;
           
-          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+"></div>");
+          $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+" style='cursor:pointer;'></div>");
           $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
           $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
         };
@@ -188,8 +193,13 @@ $("#btnCrearTour").click(function(){
       });//fin transaccion
 
     });
-$(document).on('click','.contTour', function() {
-   
+
+//  $(document).on('click','#bodyTours' , function() {
+//   alert('clickeado');
+
+// });
+$('#bodyTours').on('touchstart','.contTour' , function() {
+
    idTour = $(this).attr('idTour');
    nombreTour = $(this).children('td').eq(0).text();
    ubicacionTour = $(this).children('td').eq(1).text();
@@ -285,6 +295,7 @@ $(document).on('click','.contTour', function() {
         });//fin transaccion
   });// fin btnCrearProducto
 
+
   $("#buscarProductos" ).keyup(function() {
       var valor = $( "#buscarProductos" ).val();
       $(".contPrduct" ).each(function()
@@ -296,6 +307,7 @@ $(document).on('click','.contTour', function() {
 
   $("#buscarTours" ).keyup(function() {
       var valor = $( "#buscarTours" ).val();
+      console.log('valor es '+valor);
       $(".contTour" ).each(function()
       {
          $('.contTour:not(:contains('+valor+'))').addClass('oculto');
@@ -312,7 +324,7 @@ var prodCantidadComprada = '';
 var prodDescripcion ='';
 var prodCantMin = '';
 var prodId = '';
-$(document).on('click','.contPrduct', function()
+$(document).on('touchstart','.contPrduct', function()
 {
       var id = $(this).attr('idProduct');
       var query = 'SELECT * FROM Products where "id" = "'+id+'"';
