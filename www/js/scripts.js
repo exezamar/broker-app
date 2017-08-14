@@ -66,10 +66,12 @@ function ofuscar(div){ $("#"+div).addClass('ofuscado');}
 
 $(document).ready( function() {
   $(".ui-loader").hide();
-  function onSuccess1(imageData){
-    var src = 'data:image/jpg;base64, ';
-    $("#image1").attr('src', src+imageData);
-    $("#image1").attr('src', imageData);
+  function onSuccess(imageData){
+
+    var src = 'data:image/jpg;base64,'+imageData;
+    alert('src: '+src);
+    // $("#image1").attr('src', src+imageData);
+    // $("#image1").attr('src', imageData);
 
       // alert(src+imageData);
     }
@@ -81,7 +83,7 @@ $(document).ready( function() {
           // Retrieve image file location from specified source
           navigator.camera.getPicture(onSuccess, onFail, { quality: 50, 
             destinationType: destinationType.FILE_URI,
-            sourceType: source });
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
         }
 
 
@@ -401,16 +403,14 @@ $(document).on('touchstart','.contPrduct', function()
   });
   $("#bafp1").click(function(){
     alert('sacando foto');
-    // navigator.camera.getPicture(onSuccess1, onFail,
+    // navigator.camera.getPicture(onSuccess, onFail,
     // {
     //   destinationType: Camera.DestinationType.FILE_URI,
     //   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
     //   popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
     // });
+        //getPhoto('Camera.PictureSourceType.CAMERA');
 
-      navigator.camera.getPicture(onSuccess1, onFail, { quality: 50, 
-        destinationType: destinationType.FILE_URI,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
     
   });
   $("#btnEditarProducto").click(function(){

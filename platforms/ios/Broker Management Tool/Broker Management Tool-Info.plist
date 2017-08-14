@@ -53,5 +53,11 @@
       <string>UIInterfaceOrientationPortraitUpsideDown</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+    <key>NSCameraUsageDescription</key>
+    <string>Take pictures of new products</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>add pictures to your products</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string/>
   </dict>
 </plist>
