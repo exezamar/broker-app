@@ -200,7 +200,8 @@ $("#btnCrearTour").click(function(){
 //   alert('clickeado');
 
 // });
-$('#bodyTours').on('touchstart','.contTour' , function() {
+$("#bodyTours").find(".contTour:first").trigger("click");
+$('#bodyTours').on('click touchstart','.contTour' , function() {
 
    idTour = $(this).attr('idTour');
    nombreTour = $(this).children('td').eq(0).text();
