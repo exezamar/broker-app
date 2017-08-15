@@ -6,6 +6,8 @@ var nombreTour = '';
 var ubicacionTour = '';
 var monedaTour = '';
 var tablaTours = '';
+var todosTours = [];
+var todosProductos = [];
 
 function test(){
   alert('test');
@@ -105,7 +107,7 @@ $(document).ready( function() {
             $("div.dataTables_scroll").css({"clear":"both !important"});
 
           }, 500);
-      //CREAR TABLA PARA TOURS
+      //BUSCAR TOURS
       db.executeSql("SELECT * FROM Tours order by id desc", [], function (resultSet) {
         var count = resultSet.rows.length;
         if (count == 0 ){
@@ -200,7 +202,8 @@ $("#btnCrearTour").click(function(){
 //   alert('clickeado');
 
 // });
-$('#bodyTours').on('touchstart','.contTour' , function() {
+$("#bodyTours").find(".contTour:first").trigger("click");
+$('#bodyTours').on('click touchstart','.contTour' , function() {
 
    idTour = $(this).attr('idTour');
    nombreTour = $(this).children('td').eq(0).text();
@@ -402,7 +405,7 @@ $(document).on('touchstart','.contPrduct', function()
      $("#totPackages").text(cantPaquetes);
   });
   $("#bafp1").click(function(){
-    //alert('sacando foto');
+    alert('sacando foto');
     // navigator.camera.getPicture(onSuccess, onFail,
     // {
     //   destinationType: Camera.DestinationType.FILE_URI,
@@ -410,17 +413,7 @@ $(document).on('touchstart','.contPrduct', function()
     //   popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
     // });
         //getPhoto('Camera.PictureSourceType.CAMERA');
-        function exito (){
-          alert('exito de camara');
-        }
-        function fallo(){
-          alert('fallo');
-        }
-        var options = { 
-          destinationType: destinationType.FILE_URI,
-          sourceType: Camera.PictureSourceType.CAMERA
-        }
-        navigator.camera.getPicture(exito, fallo, options);
+
     
   });
   $("#btnEditarProducto").click(function(){
@@ -520,6 +513,93 @@ $(document).on('touchstart','.contPrduct', function()
   });//fin eliminar producto
 
 
+  $('#syncDB').click(function(){
+  //pedir nombre de usuario
+   swal({
+     title: "What's your Email address?",
+     text: "You will need it to access the cloud",
+     type: "input",
+     showCancelButton: true,
+     closeOnConfirm: false,
+     animation: "slide-from-top",
+     inputPlaceholder: "E-mail"
+   },
+   function(inputValue){
+     if (inputValue === false) return false;
+     
+     if (inputValue === "") {
+       swal.showInputError("Email address is invalid");
+       return false
+     }
+     swal({
+          title: "Uploading information", 
+          text: "This could take several minutes.", 
+          showCancelButton: false,
+          showConfirmButton: false
+      });
 
 
+     //BUSCAR TOURS
+     db.executeSql("SELECT * FROM tours order by id desc", [], function (resultSet) {
+       var count = resultSet.rows.length;
+       for (var i = 0; i < resultSet.rows.length; i++)
+         {
+           var minilista = [];
+           var id = resultSet.rows.item(i).id;
+           var ubicacion = resultSet.rows.item(i).ubicacion;
+           var nombre = resultSet.rows.item(i).nombre;
+           var moneda = resultSet.rows.item(i).moneda;
+           var fecha = resultSet.rows.item(i).fecha;
+
+           minilista.push(nombre,ubicacion,fecha,moneda);
+           todosTours.push(minilista);
+         };
+       
+     }, function(error) {
+       alert('SELECT error: ' + error.message);
+     });//fin query
+     //BUSCAR PRODUCTOS
+     db.executeSql("SELECT * FROM products order by id desc", [], function (resultSet) {
+       var count = resultSet.rows.length;
+       for (var i = 0; i < resultSet.rows.length; i++)
+         {
+           var minilistaP = [];
+           var idTour = resultSet.rows.item(i).idTour;
+           var nombre = resultSet.rows.item(i).nombre;
+           var precioUnidad = resultSet.rows.item(i).precioUnidad;
+           var precioCantidad = resultSet.rows.item(i).precioCantidad;
+           var descripcion = resultSet.rows.item(i).descripcion;
+           var cantidadMinima = resultSet.rows.item(i).cantidadMinima;
+           var CBM = resultSet.rows.item(i).CBM;
+           var QTY = resultSet.rows.item(i).QTY;
+           var foto1 = resultSet.rows.item(i).foto1;
+           var foto2 = resultSet.rows.item(i).foto2;
+           var foto3 = resultSet.rows.item(i).foto3;
+           var cantidadComprada = resultSet.rows.item(i).cantidadComprada;
+         
+           minilistaP.push(idTour,nombre,precioUnidad,precioCantidad,cantidadMinima,descripcion,CBM,QTY,foto1,foto2,foto3,cantidadComprada);
+           todosProductos.push(minilistaP);
+         };
+     }, function(error) {
+       alert('SELECT error: ' + error.message);
+     });//fin query
+
+     $.ajax({
+               url:'http://ibroker.extroversia.com/sync',
+               type: 'post',
+               data: {
+                productos: todosProductos,
+                tours: todosTours,
+              },
+               success: function(respuesta) {
+                       swal.close();
+                       alert(respuesta);
+               },//fin success
+               error: function(xhr,err){
+                     alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+                     alert("responseText: "+xhr.responseText);
+                 }
+       });//fin ajax
+   });
+  });//fin sync
 });//fin onready

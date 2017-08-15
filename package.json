@@ -19,12 +19,12 @@
     },
     "cordova": {
         "plugins": {
-            "cordova-plugin-whitelist": {},
             "cordova-sqlite-storage": {},
             "cordova-plugin-camera": {
                 "CAMERA_USAGE_DESCRIPTION": "Take pictures of new products",
                 "PHOTOLIBRARY_USAGE_DESCRIPTION": "add pictures to your products"
-            }
+            },
+            "cordova-plugin-whitelist": {}
         },
         "platforms": [
             "android",

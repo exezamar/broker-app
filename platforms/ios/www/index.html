@@ -81,6 +81,11 @@
                          <b> <span> 02-30-17 </span></b>
                     </div>
                 </div>
+                <div id='syncDB' class='imtour blue' style='color:white;'>
+                    <div >
+                         <span>SYNC DATABASE  </span>
+                    </div>
+                </div>
 
             </div>
              <div class='modulo'>
@@ -111,8 +116,9 @@
 
             </div>
         </div>
+
     </div> <!-- fin cont-menu -->
-    <div id='cont-tours' class='animated oculto' onClick="">
+    <div id='cont-tours' class='animated oculto'>
       <div id='contTodoTours'>
         <div class='hmenus blue'>
             <div>
@@ -121,15 +127,15 @@
                  </a>
             </div>
         </div>
-        <div class='cmmodulos blue'>
+        <div class='cmmodulos blue' style='cursor:pointer;'>
            <div id='contTabla' class='blue'>
             <div class='contBusqProd'>
               <div>
                 <input type='text' placeholder='Search' class='busqitem' id='buscarTours' >
               </div>
             </div>
-            <div id='bodyTours' onclick="" style='cursor:pointer !important;'>
-              <!-- <div class='animated contTour blue' id='no-tours' style='cursor:pointer !important;'><div>Your shopping tours will show up here.</div></div> -->
+            <div id='bodyTours' style='cursor:pointer !important;'>
+              <!-- <div class='animated contTour blue' id='no-tours'><div>Your shopping tours will show up here.</div></div> -->
             </div>
              
           </div><!--  //fin contTabla -->
@@ -182,6 +188,7 @@
                         <a href="#" id='btnCrearTour' style='color:white;'>CREATE</a>
                     </div>
                 </div>
+
               </div>
           </div>   
 </div><!-- fin cont-tours -->  
@@ -247,6 +254,7 @@
                 <span>NEW PRODUCT</span>
             </div>
         </div>
+
       </div> <!-- fin contTodoProductos -->
   </div><!-- fin cont-producto -->  
 
@@ -335,6 +343,9 @@
                   <div class='bagrefoto' id='bafp1'>
                     <div style='margin-top:20px;text-align:center;color:gray'>
                       <span>Add <br>Photo</span>
+                    </div>
+                    <div>
+                      <img src="img/sinFoto.jpg" id='imgprod1'>
                     </div>
                   </div>
                   <div class='bagrefoto' id='bafp2'>
@@ -557,7 +568,9 @@
         <script type="text/javascript" src="js/index.js"></script>
 
         <script src="js/jquery-3.2.1.min.js"></script>
+
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        
         <script type="text/javascript" src="js/sweetalert.min.js"></script>
         <script type="text/javascript" src="js/tabla.min.js"></script>
         <script type="text/javascript" src="js/daterangepicker.js"></script>

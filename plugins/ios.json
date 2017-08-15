@@ -7,15 +7,15 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
         "cordova-plugin-camera": {
             "CAMERA_USAGE_DESCRIPTION": "Take pictures of new products",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": "add pictures to your products",
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },

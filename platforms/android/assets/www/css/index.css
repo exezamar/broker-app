@@ -458,8 +458,6 @@ table.dataTable tbody td{
   /*  border-bottom: 1px solid black;*/
 }
 
-
-
 #tablaTours{
   overflow:auto !important;
   height: 300px !important;
@@ -780,4 +778,8 @@ margin-bottom:5px;
 #modal-editanproducto{
   height: 100%;
   bottom:0px;
+}
+#syncDB{
+  display: flex;
+  justify-content:center;
 }
