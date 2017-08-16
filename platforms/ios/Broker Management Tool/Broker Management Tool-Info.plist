@@ -54,9 +54,9 @@
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>NSCameraUsageDescription</key>
-    <string>Take pictures of new products</string>
+    <string/>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>add pictures to your products</string>
+    <string/>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string/>
   </dict>

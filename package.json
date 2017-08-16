@@ -20,11 +20,11 @@
     "cordova": {
         "plugins": {
             "cordova-sqlite-storage": {},
+            "cordova-plugin-whitelist": {},
             "cordova-plugin-camera": {
-                "CAMERA_USAGE_DESCRIPTION": "Take pictures of new products",
-                "PHOTOLIBRARY_USAGE_DESCRIPTION": "add pictures to your products"
-            },
-            "cordova-plugin-whitelist": {}
+                "CAMERA_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+            }
         },
         "platforms": [
             "android",

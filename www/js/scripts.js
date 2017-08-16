@@ -9,9 +9,7 @@ var tablaTours = '';
 var todosTours = [];
 var todosProductos = [];
 
-function test(){
-  alert('test');
-}
+
 document.addEventListener('deviceready', function()
 {
 
@@ -68,27 +66,19 @@ function ofuscar(div){ $("#"+div).addClass('ofuscado');}
 
 $(document).ready( function() {
   $(".ui-loader").hide();
-  function onSuccess(imageData){
+  function onSuccess1(imageData){
 
     var src = 'data:image/jpg;base64,'+imageData;
-    alert('src: '+src);
-    // $("#image1").attr('src', src+imageData);
-    // $("#image1").attr('src', imageData);
+
+     $("#imgprod1").removeClass('oculto');
+     $("#imgprod1").attr('src', src+imageData);
+     $("#imgprod1").attr('src', src);
 
       // alert(src+imageData);
     }
     function onFail(error){
-      alert('error');
+     // alert('error');
     }
-
-    function getPhoto(source) {
-          // Retrieve image file location from specified source
-          navigator.camera.getPicture(onSuccess, onFail, { quality: 50, 
-            destinationType: destinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
-        }
-
-
 
 
         $("#login").click(function(){
@@ -405,14 +395,14 @@ $(document).on('touchstart','.contPrduct', function()
      $("#totPackages").text(cantPaquetes);
   });
   $("#bafp1").click(function(){
-    alert('sacando foto');
-    // navigator.camera.getPicture(onSuccess, onFail,
-    // {
-    //   destinationType: Camera.DestinationType.FILE_URI,
-    //   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-    //   popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
-    // });
-        //getPhoto('Camera.PictureSourceType.CAMERA');
+
+    navigator.camera.getPicture(onSuccess1, onFail,
+    {
+      destinationType: Camera.DestinationType.FILE_URI,
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+      popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
+    });
+       
 
     
   });

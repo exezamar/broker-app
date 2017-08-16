@@ -10,12 +10,12 @@
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "cordova-plugin-camera": {
-            "CAMERA_USAGE_DESCRIPTION": "Take pictures of new products",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": "add pictures to your products",
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },

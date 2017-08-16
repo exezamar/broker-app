@@ -10,10 +10,10 @@
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "cordova-plugin-camera": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-camera": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },
