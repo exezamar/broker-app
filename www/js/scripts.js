@@ -396,13 +396,32 @@ $(document).on('touchstart','.contPrduct', function()
   });
   $("#bafp1").click(function(){
 
-    navigator.camera.getPicture(onSuccess1, onFail,
-    {
-      destinationType: Camera.DestinationType.FILE_URI,
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
-    });
-       
+    // navigator.camera.getPicture(onSuccess1, onFail,
+    // {
+    //   destinationType: Camera.DestinationType.FILE_URI,
+    //   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    //   popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
+    // });
+   
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onSuccess1, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+      });
+    
+       function onSuccess01(foto){
+             var largeImage = document.getElementById('imgprod1');
+
+              // Unhide image elements
+              //
+
+              // Show the captured photo
+              // The inline CSS rules are used to resize the image
+              //
+              largeImage.src = foto;
+
+               $("#imgprod1").removeClass('oculto');
+       }
 
     
   });
