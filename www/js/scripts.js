@@ -404,6 +404,36 @@ $(document).on('touchstart','.contPrduct', function()
         function onSuccess(imageData) {
             var image = document.getElementById('imgprod1');
             // image.src = "data:image/jpeg;base64," + imageData;
+            // $("#imgprod1").removeClass('oculto');
+            // alert(imageData);
+            //guardar la ubicacion de la foto en sql
+              db.transaction(function(tx)
+              {
+                tx.executeSql('UPDATE products SET foto1 = "'+imageData+'" WHERE id = "'+prodId+'"');
+              }, function(error) {
+                alert('Transaction ERROR: ' + error.message);
+              }, function(tx) {
+                  //ponemos la foto en la imagen
+                 image.src = imageData;
+                 //falta: que en todos los casos se muestre la foto1, que al crear producto si no tiene foto1 que sea la img/sinFoto.png
+                 
+              });//fin transaccion
+            
+        }
+
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
+  });
+  $("#bafp2").click(function(){
+
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URI
+        });
+
+        function onSuccess(imageData) {
+            var image = document.getElementById('imgprod2');
+            // image.src = "data:image/jpeg;base64," + imageData;
             image.src = imageData;
             // $("#imgprod1").removeClass('oculto');
             // alert(imageData);
@@ -413,10 +443,25 @@ $(document).on('touchstart','.contPrduct', function()
         function onFail(message) {
             alert('Failed because: ' + message);
         }
-            
-      
+  });
+  $("#bafp3").click(function(){
 
-    
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URI
+        });
+
+        function onSuccess(imageData) {
+            var image = document.getElementById('imgprod3');
+            // image.src = "data:image/jpeg;base64," + imageData;
+            image.src = imageData;
+            // $("#imgprod1").removeClass('oculto');
+            // alert(imageData);
+            
+        }
+
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
   });
   $("#btnEditarProducto").click(function(){
       ocultarSlide('modal-infoproducto');
