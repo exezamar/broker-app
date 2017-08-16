@@ -71,7 +71,7 @@ $(document).ready( function() {
     var src = 'data:image/jpg;base64,'+imageData;
 
      $("#imgprod1").removeClass('oculto');
-     $("#imgprod1").attr('src', src+imageData);
+     // $("#imgprod1").attr('src', src+imageData);
      $("#imgprod1").attr('src', src);
 
       // alert(src+imageData);
@@ -321,6 +321,7 @@ var prodCantMin = '';
 var prodId = '';
 $(document).on('touchstart','.contPrduct', function()
 {
+      
       var id = $(this).attr('idProduct');
       var query = 'SELECT * FROM Products where "id" = "'+id+'"';
         db.executeSql(query, [], function (resultSet) 
@@ -396,32 +397,24 @@ $(document).on('touchstart','.contPrduct', function()
   });
   $("#bafp1").click(function(){
 
-    // navigator.camera.getPicture(onSuccess1, onFail,
-    // {
-    //   destinationType: Camera.DestinationType.FILE_URI,
-    //   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-    //   popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
-    // });
-   
-      // Retrieve image file location from specified source
-      navigator.camera.getPicture(onSuccess1, onFail, { quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
-      });
-    
-       function onSuccess01(foto){
-             var largeImage = document.getElementById('imgprod1');
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URI
+        });
 
-              // Unhide image elements
-              //
+        function onSuccess(imageData) {
+            var image = document.getElementById('imgprod1');
+            // image.src = "data:image/jpeg;base64," + imageData;
+            image.src = imageData;
+            // $("#imgprod1").removeClass('oculto');
+            // alert(imageData);
+            
+        }
 
-              // Show the captured photo
-              // The inline CSS rules are used to resize the image
-              //
-              largeImage.src = foto;
-
-               $("#imgprod1").removeClass('oculto');
-       }
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
+            
+      
 
     
   });

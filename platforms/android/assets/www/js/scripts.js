@@ -71,7 +71,7 @@ $(document).ready( function() {
     var src = 'data:image/jpg;base64,'+imageData;
 
      $("#imgprod1").removeClass('oculto');
-     $("#imgprod1").attr('src', src+imageData);
+     // $("#imgprod1").attr('src', src+imageData);
      $("#imgprod1").attr('src', src);
 
       // alert(src+imageData);
@@ -321,6 +321,7 @@ var prodCantMin = '';
 var prodId = '';
 $(document).on('touchstart','.contPrduct', function()
 {
+      
       var id = $(this).attr('idProduct');
       var query = 'SELECT * FROM Products where "id" = "'+id+'"';
         db.executeSql(query, [], function (resultSet) 
@@ -396,13 +397,24 @@ $(document).on('touchstart','.contPrduct', function()
   });
   $("#bafp1").click(function(){
 
-    navigator.camera.getPicture(onSuccess1, onFail,
-    {
-      destinationType: Camera.DestinationType.FILE_URI,
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      popoverOptions: new CameraPopoverOptions(300, 300, 100, 100, Camera.PopoverArrowDirection.ARROW_ANY)
-    });
-       
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URI
+        });
+
+        function onSuccess(imageData) {
+            var image = document.getElementById('imgprod1');
+            // image.src = "data:image/jpeg;base64," + imageData;
+            image.src = imageData;
+            // $("#imgprod1").removeClass('oculto');
+            // alert(imageData);
+            
+        }
+
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
+            
+      
 
     
   });

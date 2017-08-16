@@ -756,7 +756,13 @@ margin-bottom:5px;
   border-color:gray;
   width: 70px;
   height:70px;
-
+  position: relative;
+}
+#imgprod1{
+  position: absolute;
+  top:0px;
+  width: 75px;
+  height: 75px;
 }
 .cboagfo{
   display: -webkit-box;
