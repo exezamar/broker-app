@@ -621,10 +621,12 @@ function readFile(fileEntry) {
 
 
      //BUSCAR TOURS
-     db.executeSql("SELECT * FROM tours order by id desc", [], function (resultSet) {
+     db.executeSql("SELECT * FROM tours order by id desc", [], function (resultSet)
+     {
        var count = resultSet.rows.length;
        for (var i = 0; i <= resultSet.rows.length; i++)
          {
+          
            var minilista = [];
            var id = resultSet.rows.item(i).id;
            var ubicacion = resultSet.rows.item(i).ubicacion;
@@ -633,142 +635,182 @@ function readFile(fileEntry) {
            var fecha = resultSet.rows.item(i).fecha;
 
            minilista.push(nombre,ubicacion,fecha,moneda);
-           todosTours.push(minilista);
+           $.ajax({
+                     url:'http://ibroker.extroversia.com/nuevoTour',
+                     type: 'post',
+                     data: { 
+                      nombre: nombre,
+                      ubicacion: ubicacion,
+                      moneda: moneda,
+                      fecha: fecha,
+                      referencia: id,
+                      usuario: inputValue
+                     },
+                     success: function(respuesta) {
+                          
+                     },//fin success
+                     error: function(xhr,err){
+                           //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+                           alert("error: "+xhr.responseText);
+                       }
+             });//fin ajax
          };
        
      }, function(error) {
        alert('SELECT error: ' + error.message);
      });//fin query
-     /**
-      * This function will handle the conversion from a file to base64 format
-      *
-      * @path string
-      * @callback function receives as first parameter the content of the image
-      */
-     // function getFileContentAsBase64(path,callback){
-     //     window.resolveLocalFileSystemURL(path, gotFile, fail);
-                 
-     //     function fail(e) {
-     //           alert('Cannot find requested file');
-     //     }
+      
+  //BUSCAR PRODUCTOS
+  db.executeSql("SELECT * FROM products order by id desc", [], function (resultSet) {
+    var count = resultSet.rows.length;
+    for (var i = 0; i <= resultSet.rows.length; i++)
+      {
+        var minilistaP = [];
+        var idTour = resultSet.rows.item(i).idTour;
+        var nombre = resultSet.rows.item(i).nombre;
+        var precioUnidad = resultSet.rows.item(i).precioUnidad;
+        var precioCantidad = resultSet.rows.item(i).precioCantidad;
+        var descripcion = resultSet.rows.item(i).descripcion;
+        var cantidadMinima = resultSet.rows.item(i).cantidadMinima;
+        var tienda = resultSet.rows.item(i).tienda;
+        var CBM = resultSet.rows.item(i).CBM;
+        var QTY = resultSet.rows.item(i).QTY;
+        var foto1 = resultSet.rows.item(i).foto1;
+        var foto2 = resultSet.rows.item(i).foto2;
+        var foto3 = resultSet.rows.item(i).foto3;
+        var cantidadComprada = resultSet.rows.item(i).cantidadComprada;
+        var formDataFoto = new FormData();
+      //  minilistaP.push(idTour,nombre,precioUnidad,precioCantidad,cantidadMinima,descripcion,CBM,QTY,cantidadComprada);
+        
+        $.ajax({
+                  url:'http://ibroker.extroversia.com/nuevoProducto',
+                  type: 'post',
+                  data: { 
+                    nombre: nombre,
+                    precioUnidad: precioUnidad,
+                    precioCantidad: precioCantidad,
+                    cantidadMinima: cantidadMinima,
+                    descripcion: descripcion,
+                    CBM: CBM,
+                    QTY: QTY,
+                    tienda: tienda,
+                    cantidadComprada: cantidadComprada,
+                    usuario: inputValue,
+                    referencia: idTour
+                    
+                  },
+                  success: function(respuesta) {
+                          // tengo de respuesta el id creado alla, entonces subo un ajax con las fotos y le asigno ese id
+                          var idBackend = respuesta;
+                        
+                          window.resolveLocalFileSystemURL(foto1, successtot, failtot);
+                                       
+                           function failtot(e) { alert(e);}
+                           function successtot(fileEntry) {
+                            // alert('successo'+fileEntry.name);
+                           // foto1 = fileEntry;
+                            formData.append('foto1', fileEntry); 
 
-     //     function gotFile(fileEntry) {
-     //            fileEntry.file(function(file) {
-     //               var reader = new FileReader();
-     //               reader.onloadend = function(e) {
-     //                    var content = this.result;
-     //                    callback(content);
-     //               };
-     //               // The most important point, use the readAsDatURL Method from the file plugin
-     //               reader.readAsDataURL(file);
-     //            });
-     //     }
-     // }
+                            console.log('enviando imagen');
+                             $.ajax({
+                                url:'http://ibroker.extroversia.com/nuevaFoto',
+                                data: formData,
+                                // beforeSend: function (xhr) {
+                                //       var token = $('meta[name="csrf_token"]').attr('content');
+                                //       if (token) {return xhr.setRequestHeader('X-CSRF-TOKEN', token);}
+                                //         },
+                                type: 'POST',
+                                contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+                                processData: false, // NEEDED, DON'T OMIT THIS
+                                success: function(respuesta) {
+                                     alert('habemus foto');
+                                    },//fin success
+                                  error: function (error) {
+                                    alert('error al subir portada');
+                                  }
+                                });//fin ajax
 
-     //BUSCAR PRODUCTOS
-     db.executeSql("SELECT * FROM products order by id desc", [], function (resultSet) {
-       var count = resultSet.rows.length;
-       alert('cuenta produc'+count);
-       for (var i = 0; i <= resultSet.rows.length; i++)
-         {
-           var minilistaP = [];
-           var idTour = resultSet.rows.item(i).idTour;
-           var nombre = resultSet.rows.item(i).nombre;
-           var precioUnidad = resultSet.rows.item(i).precioUnidad;
-           var precioCantidad = resultSet.rows.item(i).precioCantidad;
-           var descripcion = resultSet.rows.item(i).descripcion;
-           var cantidadMinima = resultSet.rows.item(i).cantidadMinima;
-           var CBM = resultSet.rows.item(i).CBM;
-           var QTY = resultSet.rows.item(i).QTY;
-           var foto1 = resultSet.rows.item(i).foto1;
-           var foto2 = resultSet.rows.item(i).foto2;
-           var foto3 = resultSet.rows.item(i).foto3;
-           var cantidadComprada = resultSet.rows.item(i).cantidadComprada;
-          
-           var testeo = '';
-          
-          window.resolveLocalFileSystemURL(foto1, successtot, failtot);
-                       
-           function failtot(e) { alert(e);}
-           function successtot(fileEntry) {
-            // alert('successo'+fileEntry.name);
-            foto1 = fileEntry;
-              // fileEntry.file(function(file) {
-              //         var reader = new FileReader();
-              //         reader.onloadend = function(e) {
-              //         var content = this.result;
-              //         //console.log(content);
-              //         alert('contenido es'+JSON.parse(content));
-              //     };
-              //     reader.readAsText(file); // or the way you want to read it
-              // });
-           }
+                           }
 
-
-          
-           minilistaP.push(idTour,nombre,precioUnidad,precioCantidad,cantidadMinima,descripcion,CBM,QTY,foto1,foto2,foto3,cantidadComprada);
-           todosProductos.push(minilistaP);
-          
-         };
-     }, function(error) {
-       alert('SELECT error: ' + error.message);
-     });//fin query
-    // var testo = JSON.parse(todosProductos[8]);
-    // alert('test'+testo);
-    // for (var i = 0; i <= todosProductos[8].length; i++) {
-    //  var nombre =  todosProductos[8][i].name;
-    //  alert('nombre '+nombre);
-    // };
-    console.log('hola mundo'+todosProductos.length);
-     $.ajax({
-               url:'http://ibroker.extroversia.com/sync',
-               type: 'post',
-               data: {
-                productos: todosProductos,
-                tours: todosTours,
-              },
-               success: function(respuesta) {
-                       swal.close();
-                      // var toto = JSON.parse(respuesta);
-                       alert('hubo respuesta');
-               },//fin success
-               error: function(xhr,err){
-                     alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
-                     alert("responseText: "+xhr.responseText);
-                 }
-       });//fin ajax
-  // var form_data = new FormData();
-  // form_data.append('foto1', );
-  var cuenta = todosProductos.length;
-  alert('cuenta es '+cuenta);
-  // $.ajax({
-  //     url: 'http://10.0.0.37:8000/upload/',
-  //     type: 'POST',
-  //     beforeSend: function(xhr)
-  //          { 
-  //            xhr.setRequestHeader("authorization", "Basic bWFsYXpheTprdWFrYW5kcm9sbA=="); 
-  //            xhr.setRequestHeader("Content-Disposition", "attachment;filename=chacon");
-  //            xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-  //         },
-  //     data: form_data,
-  //     success: function (respuesta) {
-  //       $("#bodyInstrucciones").empty();
-  //       $("#bodyInstrucciones").append('<br><div>Test finished!</div>');
-  //       $("#bodyInstrucciones").append('<br><div>Building python test, please wait...</div>');
-  //        var testpy0 = respuesta.replaceAll("&#39;", "'");
-  //        var testpy1 = testpy0.replaceAll("&quot;", '"');
-  //        $("#bodyInstrucciones").append('<br><div>Test ready for download!</div>');
-  //         saveText( testpy1, "test.py" );
-  //     },
-  //     error: function (error) {
-  //       $("#bodyInstrucciones").empty();
-  //       $("#bodyInstrucciones").append('<br><div>Error! see console logs for more details.</div>');
-  //     },
-  //     cache: false,
-  //     processData: false,
-  // });    
+                  },//fin success
+                  error: function(xhr,err){
+                        //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+                        alert("error: "+xhr.responseText);
+                    }
+          });//fin ajax
+      };//fin for
+  }, function(error) {
+    alert('SELECT error: ' + error.message);
+  });//fin query
 
 
-   });
+
+    });//fin valida inputValue
   });//fin sync
+
+
+
+
+
+
 });//fin onready
+
+
+ //BUSCAR PRODUCTOS
+ // db.executeSql("SELECT * FROM products order by id desc", [], function (resultSet) {
+ //   var count = resultSet.rows.length;
+ //   alert('cuenta produc'+count);
+ //   for (var i = 0; i <= resultSet.rows.length; i++)
+ //     {
+ //       var minilistaP = [];
+ //       var idTour = resultSet.rows.item(i).idTour;
+ //       var nombre = resultSet.rows.item(i).nombre;
+ //       var precioUnidad = resultSet.rows.item(i).precioUnidad;
+ //       var precioCantidad = resultSet.rows.item(i).precioCantidad;
+ //       var descripcion = resultSet.rows.item(i).descripcion;
+ //       var cantidadMinima = resultSet.rows.item(i).cantidadMinima;
+ //       var CBM = resultSet.rows.item(i).CBM;
+ //       var QTY = resultSet.rows.item(i).QTY;
+ //       var foto1 = resultSet.rows.item(i).foto1;
+ //       var foto2 = resultSet.rows.item(i).foto2;
+ //       var foto3 = resultSet.rows.item(i).foto3;
+ //       var cantidadComprada = resultSet.rows.item(i).cantidadComprada;
+      
+ //       var testeo = '';
+      
+ //      window.resolveLocalFileSystemURL(foto1, successtot, failtot);
+                   
+ //       function failtot(e) { alert(e);}
+ //       function successtot(fileEntry) {
+ //        // alert('successo'+fileEntry.name);
+ //        foto1 = fileEntry;
+
+ //       }
+    
+ //       minilistaP.push(idTour,nombre,precioUnidad,precioCantidad,cantidadMinima,descripcion,CBM,QTY,cantidadComprada);
+       
+ //       $.ajax({
+ //                 url:'http://ibroker.extroversia.com/nuevoProducto',
+ //                 type: 'post',
+ //                 data: { producto: minilistaP},
+ //                 success: function(respuesta) {
+ //                         // tengo de respuesta el id creado alla, entonces subo un ajax con las fotos y le asigno ese id
+ //                         var idBackend = respuesta;
+
+ //                 },//fin success
+ //                 error: function(xhr,err){
+ //                       //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+ //                       alert("error: "+xhr.responseText);
+ //                   }
+ //         });//fin ajax
+      
+ //     };//fin for
+ // }, function(error) {
+ //   alert('SELECT error: ' + error.message);
+ // });//fin query
+// var testo = JSON.parse(todosProductos[8]);
+// alert('test'+testo);
+// for (var i = 0; i <= todosProductos[8].length; i++) {
+//  var nombre =  todosProductos[8][i].name;
+//  alert('nombre '+nombre);
+// };
