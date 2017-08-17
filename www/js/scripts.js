@@ -595,6 +595,7 @@ function readFile(fileEntry) {
 
   $('#syncDB').click(function(){
   //pedir nombre de usuario
+
    swal({
      title: "What's your Email address?",
      text: "You will need it to access the cloud",
@@ -622,7 +623,7 @@ function readFile(fileEntry) {
      //BUSCAR TOURS
      db.executeSql("SELECT * FROM tours order by id desc", [], function (resultSet) {
        var count = resultSet.rows.length;
-       for (var i = 0; i < resultSet.rows.length; i++)
+       for (var i = 0; i <= resultSet.rows.length; i++)
          {
            var minilista = [];
            var id = resultSet.rows.item(i).id;
@@ -667,7 +668,8 @@ function readFile(fileEntry) {
      //BUSCAR PRODUCTOS
      db.executeSql("SELECT * FROM products order by id desc", [], function (resultSet) {
        var count = resultSet.rows.length;
-       for (var i = 0; i < resultSet.rows.length; i++)
+       alert('cuenta produc'+count);
+       for (var i = 0; i <= resultSet.rows.length; i++)
          {
            var minilistaP = [];
            var idTour = resultSet.rows.item(i).idTour;
@@ -717,7 +719,7 @@ function readFile(fileEntry) {
     //  var nombre =  todosProductos[8][i].name;
     //  alert('nombre '+nombre);
     // };
-    console.log('hola mundo'+todosProductos);
+    console.log('hola mundo'+todosProductos.length);
      $.ajax({
                url:'http://ibroker.extroversia.com/sync',
                type: 'post',
@@ -735,6 +737,38 @@ function readFile(fileEntry) {
                      alert("responseText: "+xhr.responseText);
                  }
        });//fin ajax
+  // var form_data = new FormData();
+  // form_data.append('foto1', );
+  var cuenta = todosProductos.length;
+  alert('cuenta es '+cuenta);
+  // $.ajax({
+  //     url: 'http://10.0.0.37:8000/upload/',
+  //     type: 'POST',
+  //     beforeSend: function(xhr)
+  //          { 
+  //            xhr.setRequestHeader("authorization", "Basic bWFsYXpheTprdWFrYW5kcm9sbA=="); 
+  //            xhr.setRequestHeader("Content-Disposition", "attachment;filename=chacon");
+  //            xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+  //         },
+  //     data: form_data,
+  //     success: function (respuesta) {
+  //       $("#bodyInstrucciones").empty();
+  //       $("#bodyInstrucciones").append('<br><div>Test finished!</div>');
+  //       $("#bodyInstrucciones").append('<br><div>Building python test, please wait...</div>');
+  //        var testpy0 = respuesta.replaceAll("&#39;", "'");
+  //        var testpy1 = testpy0.replaceAll("&quot;", '"');
+  //        $("#bodyInstrucciones").append('<br><div>Test ready for download!</div>');
+  //         saveText( testpy1, "test.py" );
+  //     },
+  //     error: function (error) {
+  //       $("#bodyInstrucciones").empty();
+  //       $("#bodyInstrucciones").append('<br><div>Error! see console logs for more details.</div>');
+  //     },
+  //     cache: false,
+  //     processData: false,
+  // });    
+
+
    });
   });//fin sync
 });//fin onready
