@@ -6,7 +6,7 @@
 
 <!-- Seguridad. -->
 <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:* gap://* tel:* 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'" />
+<meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src * 'unsafe-inline' data:* gap://* tel:* 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'" />
 
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -309,7 +309,7 @@
                     <span class='tiformnt'>Q.T.Y</span> 
                   </div>
                   <div class='tinpf'>
-                    <input type='text' id='qtynuevprod' class='inputmodal'></input>
+                    <input  type='number' id='qtynuevprod' class='inputmodal'></input>
                   </div>
                 </div>
                 <div class='ilabfnp'>
@@ -317,7 +317,7 @@
                     <span class='tiformnt'>C.B.M</span> 
                   </div>
                   <div class='tinpf'>
-                    <input type='text' id='cbmnuevprod' class='inputmodal'></input>
+                    <input  type='number' id='cbmnuevprod' class='inputmodal'></input>
                   </div>
                 </div>
                 <div class='ilabfnp'>
@@ -325,7 +325,7 @@
                     <span class='tiformnt'>UNIT PRICE</span> 
                   </div>
                   <div class='tinpf'>
-                    <input type='text' id='upricenuevprod' class='inputmodal'></input>
+                    <input  type='number' id='upricenuevprod' class='inputmodal'></input>
                   </div>
                 </div>
                 <div class='ilabfnp'>
@@ -333,7 +333,7 @@
                     <span class='tiformnt'>BULK PRICE</span> 
                   </div>
                   <div class='tinpf'>
-                    <input type='text' id='bpricenuevprod' class='inputmodal'></input>
+                    <input  type='number' id='bpricenuevprod' class='inputmodal'></input>
                   </div>
                 </div>
                 <div class='ilabfnp'>
@@ -341,7 +341,7 @@
                     <span class='tiformnt'>MIN AMOUNT</span> 
                   </div>
                   <div class='tinpf'>
-                    <input type='text' id='minamnuevprod' class='inputmodal'></input>
+                    <input  type='number' id='minamnuevprod' class='inputmodal'></input>
                   </div>
                 </div>
                 <div class='cboagfo'>
@@ -357,10 +357,16 @@
                     <div style='margin-top:20px;text-align:center;color:gray'>
                        <span>Add <br>Photo</span>
                     </div>
+                    <div>
+                      <img id='imgprod2'>
+                    </div>
                   </div>
                   <div class='bagrefoto' id='bafp3'>
                     <div style='margin-top:20px;text-align:center;color:gray'>
                        <span>Add <br>Photo</span>
+                    </div>
+                    <div>
+                      <img id='imgprod3'>
                     </div>
                   </div>
                 </div>
@@ -389,7 +395,7 @@
                    </div>
                     <div class='modalBodyinfoP'>
                       <div id='contfprod' >
-                        <div style='min-height:200px;background: url("img/sinFoto.png") no-repeat fixed center; background-size:cover;'>
+                        <div id='imgProductoGrande' style='min-height:200px;width:100%;background: url("img/sinFoto.png") no-repeat; background-size:cover;image-orientation:from-image;'>
                           
                         </div>
                       </div>

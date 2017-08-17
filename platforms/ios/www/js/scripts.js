@@ -8,13 +8,14 @@ var monedaTour = '';
 var tablaTours = '';
 var todosTours = [];
 var todosProductos = [];
+var idProduct = '';
 
 
 document.addEventListener('deviceready', function()
 {
 
 	//CREAR BASE SI NO EXISTE
-	db = window.sqlitePlugin.openDatabase({name: 'brokersDev02.db', iosDatabaseLocation: 'Library'});
+	db = window.sqlitePlugin.openDatabase({name: 'brokersDev34.db', iosDatabaseLocation: 'Library'});
 	db.transaction(function (tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text, fecha text)");
     tx.executeSql("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY,idTour text, nombre text, precioUnidad text,precioCantidad, descripcion text,cantidadMinima text, CBM text, QTY text, tienda text, foto1 text, foto2 text, foto3 text, cantidadComprada text)");
@@ -63,6 +64,10 @@ function mostrarSlide(nombre){
 }
 
 function ofuscar(div){ $("#"+div).addClass('ofuscado');}
+
+
+
+
 
 $(document).ready( function() {
   $(".ui-loader").hide();
@@ -192,8 +197,8 @@ $("#btnCrearTour").click(function(){
 //   alert('clickeado');
 
 // });
-$("#bodyTours").find(".contTour:first").trigger("click");
-$('#bodyTours').on('click touchstart','.contTour' , function() {
+// $("#bodyTours").find(".contTour:first").trigger("click");
+$('#bodyTours').on('click touch','.contTour' , function() {
 
    idTour = $(this).attr('idTour');
    nombreTour = $(this).children('td').eq(0).text();
@@ -214,10 +219,16 @@ $('#bodyTours').on('click touchstart','.contTour' , function() {
             var tienda = resultSet.rows.item(i).tienda;
             var precioUnidad = resultSet.rows.item(i).precioUnidad;
             var precioCantidad = resultSet.rows.item(i).precioCantidad;
-
+            var foto1 = resultSet.rows.item(i).foto1;
+            // if (resultSet.rows.item(i).foto1 == null) {foto1 = 'img/sinFoto.png'};
+             // alert(foto1);
+             // alert('esto db: '+resultSet.rows.item(i).foto1);
             $("#contTodosProdu").append("<div id=prod"+i+ " class='contPrduct' idProduct="+id+"></div>");  
-            $("#prod"+i).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
+            $("#prod"+i).append("<div class='contImagenProd'><img id='imgFoto"+i+"' class='imgProduct'> </div>");
             $("#prod"+i).append("<div class='contDescProd'><div class='contInfoProd'> <div class='posnomprod'><span>"+nombre+"</span> </div><div class='postienda'><span>Store ID: </span><br><span>"+tienda+"</span></div></div><div class='contInfoProd'><div class='contUnitPrice'><span>Unit price: <br>"+precioUnidad+"</span></div><div class='contBulkPrice'> <span>Bulk price: <br> "+precioCantidad+"</span></div></div><div class='minfoprod'><div> <img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+            $("#imgFoto"+i).attr('src', foto1);
+            var test = $("#imgFoto"+i).attr('src');
+            // alert('src es '+test);
           };
         }//fin else
      });//fin query
@@ -263,14 +274,20 @@ $('#bodyTours').on('click touchstart','.contTour' , function() {
       var precioCantidad = $("#bpricenuevprod").val();
       var minima = $("#minamnuevprod").val();
       var cantidadComprada = $("#cantcompranuevprod").val();
+      var foto1 =  $("#imgprod1").attr('src');
+      var foto2 =  $("#imgprod2").attr('src');
+      var foto3 =  $("#imgprod3").attr('src');
 
+
+     
+      // alert(foto1);
       // var foto1 = $("#").val();
       // var foto2 = $("#").val();
       // var foto3 = $("#").val();
       //INGRESAR NUEVO REGISTRO
         db.transaction(function(tx)
         {
-          tx.executeSql('INSERT INTO products (idTour, nombre, precioUnidad, precioCantidad, descripcion,cantidadMinima,CBM,QTY,tienda, cantidadComprada ) VALUES (?,?,?,?,?,?,?,?,?,?)', [ idTour, nombreProd, precioUnidad, precioCantidad,descripcion,minima,cbm,qty,tienda,cantidadComprada]);
+          tx.executeSql('INSERT INTO products (idTour, nombre, precioUnidad, precioCantidad, descripcion,cantidadMinima,CBM,QTY,tienda, cantidadComprada,foto1,foto2,foto3 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)', [ idTour, nombreProd, precioUnidad, precioCantidad,descripcion,minima,cbm,qty,tienda,cantidadComprada,foto1,foto2,foto3]);
         }, function(error) {
           alert('Transaction ERROR: ' + error.message);
         }, function(tx) {
@@ -278,7 +295,7 @@ $('#bodyTours').on('click touchstart','.contTour' , function() {
           var random = Math.floor((Math.random() * 1000) + 100);
           var id='888'; //toDO conseguir el id del registro que acabo de crear. BUG.
           $("#contTodosProdu").prepend("<div id=prod"+random+ " class='contPrduct' idProduct="+id+"></div>");  
-          $("#prod"+random).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
+          $("#prod"+random).append("<div class='contImagenProd'><img src='"+foto1+"' class='imgProduct'> </div>");
           $("#prod"+random).append("<div class='contDescProd'><div class='contInfoProd'> <div class='posnomprod'><span>"+nombreProd+"</span> </div><div class='postienda'><span>Store ID: </span><br><span>"+tienda+"</span></div></div><div class='contInfoProd'><div class='contUnitPrice'><span>Unit price: <br>"+precioUnidad+"</span></div><div class='contBulkPrice'> <span>Bulk price: <br> "+precioCantidad+"</span></div></div><div class='minfoprod'><div> <img src='img/arrow-right.svg' class='parrow-right'></div></div>");
           $("#contTodosProdu").animate({ scrollTop: 0 }, "fast");  
           $(".inputmodal").val('');
@@ -319,7 +336,8 @@ var prodCantidadComprada = '';
 var prodDescripcion ='';
 var prodCantMin = '';
 var prodId = '';
-$(document).on('touchstart','.contPrduct', function()
+var foto1= '';
+$(document).on('click touch','.contPrduct', function()
 {
       
       var id = $(this).attr('idProduct');
@@ -343,6 +361,7 @@ $(document).on('touchstart','.contPrduct', function()
                  prodCantidadComprada = resultSet.rows.item(0).cantidadComprada;
                  prodDescripcion = resultSet.rows.item(0).descripcion;
                  prodCantMin = resultSet.rows.item(0).cantidadMinima;
+                 foto1 = resultSet.rows.item(0).foto1;
 
                  $("#nomprodinf").text(prodNom);
                  $("#nomtiendainf").text(prodTienda);
@@ -353,6 +372,8 @@ $(document).on('touchstart','.contPrduct', function()
                  $("#qtyprodinf").text(prodQTY);
                  $("#cbmcalcinf").text(prodCBM);
                  $("#totpriccalcinf2").val(prodCantidadComprada);
+
+                 $("#imgProductoGrande").css('background-image','url('+foto1+')');
 
                  var cbmcalculado = Number(prodCBM);
                  var unidad = Number(prodPrecioUn);
@@ -395,20 +416,59 @@ $(document).on('touchstart','.contPrduct', function()
      var cantPaquetes =  cantidad / Number(prodQTY);
      $("#totPackages").text(cantPaquetes);
   });
+
+  function movePic(file){ 
+      window.resolveLocalFileSystemURI(file, resolveOnSuccess, resOnError); 
+
+  } 
+
+  //Callback function when the file system uri has been resolved
+  function resolveOnSuccess(entry){ 
+      var d = new Date();
+      var n = d.getTime();
+      //new file name
+      var newFileName = n + ".jpg";
+      var myFolderApp = "ibroker";
+
+      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) {      
+      //The folder is created if doesn't exist
+      fileSys.root.getDirectory( myFolderApp,
+                      {create:true, exclusive: false},
+                      function(directory) {
+                          entry.copyTo(directory, newFileName,  successMove, resOnError);
+                      },
+                      resOnError);
+                      },
+      resOnError);
+  }
+
+  //Callback function when the file has been moved successfully - inserting the complete path
+  function successMove(entry) {
+      //I do my insert with "entry.fullPath" as for the path
+     // alert('successmove'+entry.fullPath);
+      var image = document.getElementById('imgprod1');
+      image.src = entry.toURL();
+      // alert('full path es'+image.src);
+  }
+
+  function resOnError(error) {
+      alert(error.code);
+  }
   $("#bafp1").click(function(){
 
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-            destinationType: Camera.DestinationType.DATA_URI
+        navigator.camera.getPicture(onSuccess12, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType:  Camera.PictureSourceType.PHOTOLIBRARY,
+            saveToPhotoAlbum:true
+           
         });
 
-        function onSuccess(imageData) {
-            var image = document.getElementById('imgprod1');
-            // image.src = "data:image/jpeg;base64," + imageData;
-            image.src = imageData;
-            // $("#imgprod1").removeClass('oculto');
-            // alert(imageData);
-            
-        }
+        function onSuccess12(imageData) {
+            // var image = document.getElementById('imgprod1');
+            // image.src = imageData;
+            var idelemento = 'imgprod1';
+            movePic(imageData);
+        };
 
         function onFail(message) {
             alert('Failed because: ' + message);
@@ -418,6 +478,10 @@ $(document).on('touchstart','.contPrduct', function()
 
     
   });
+
+
+
+
   $("#btnEditarProducto").click(function(){
       ocultarSlide('modal-infoproducto');
       $("#ednnuevprod").val(prodNom);
@@ -514,6 +578,20 @@ $(document).on('touchstart','.contPrduct', function()
     });
   });//fin eliminar producto
 
+function readFile(fileEntry) {
+
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
+
+        reader.onloadend = function() {
+            alert("Successful file read: " + this.result);
+            displayFileData(fileEntry.fullPath + ": " + this.result);
+        };
+
+        reader.readAsText(file);
+
+    }, onErrorReadFile);
+}
 
   $('#syncDB').click(function(){
   //pedir nombre de usuario
@@ -560,6 +638,32 @@ $(document).on('touchstart','.contPrduct', function()
      }, function(error) {
        alert('SELECT error: ' + error.message);
      });//fin query
+     /**
+      * This function will handle the conversion from a file to base64 format
+      *
+      * @path string
+      * @callback function receives as first parameter the content of the image
+      */
+     // function getFileContentAsBase64(path,callback){
+     //     window.resolveLocalFileSystemURL(path, gotFile, fail);
+                 
+     //     function fail(e) {
+     //           alert('Cannot find requested file');
+     //     }
+
+     //     function gotFile(fileEntry) {
+     //            fileEntry.file(function(file) {
+     //               var reader = new FileReader();
+     //               reader.onloadend = function(e) {
+     //                    var content = this.result;
+     //                    callback(content);
+     //               };
+     //               // The most important point, use the readAsDatURL Method from the file plugin
+     //               reader.readAsDataURL(file);
+     //            });
+     //     }
+     // }
+
      //BUSCAR PRODUCTOS
      db.executeSql("SELECT * FROM products order by id desc", [], function (resultSet) {
        var count = resultSet.rows.length;
@@ -578,14 +682,42 @@ $(document).on('touchstart','.contPrduct', function()
            var foto2 = resultSet.rows.item(i).foto2;
            var foto3 = resultSet.rows.item(i).foto3;
            var cantidadComprada = resultSet.rows.item(i).cantidadComprada;
-         
+          
+           var testeo = '';
+          
+          window.resolveLocalFileSystemURL(foto1, successtot, failtot);
+                       
+           function failtot(e) { alert(e);}
+           function successtot(fileEntry) {
+            // alert('successo'+fileEntry.name);
+            foto1 = fileEntry;
+              // fileEntry.file(function(file) {
+              //         var reader = new FileReader();
+              //         reader.onloadend = function(e) {
+              //         var content = this.result;
+              //         //console.log(content);
+              //         alert('contenido es'+JSON.parse(content));
+              //     };
+              //     reader.readAsText(file); // or the way you want to read it
+              // });
+           }
+
+
+          
            minilistaP.push(idTour,nombre,precioUnidad,precioCantidad,cantidadMinima,descripcion,CBM,QTY,foto1,foto2,foto3,cantidadComprada);
            todosProductos.push(minilistaP);
+          
          };
      }, function(error) {
        alert('SELECT error: ' + error.message);
      });//fin query
-
+    // var testo = JSON.parse(todosProductos[8]);
+    // alert('test'+testo);
+    // for (var i = 0; i <= todosProductos[8].length; i++) {
+    //  var nombre =  todosProductos[8][i].name;
+    //  alert('nombre '+nombre);
+    // };
+    console.log(todosProductos);
      $.ajax({
                url:'http://ibroker.extroversia.com/sync',
                type: 'post',
@@ -595,7 +727,8 @@ $(document).on('touchstart','.contPrduct', function()
               },
                success: function(respuesta) {
                        swal.close();
-                       alert(respuesta);
+                      // var toto = JSON.parse(respuesta);
+                       alert('hubo respuesta');
                },//fin success
                error: function(xhr,err){
                      alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
