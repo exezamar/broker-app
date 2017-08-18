@@ -15,7 +15,7 @@ document.addEventListener('deviceready', function()
 {
 
 	//CREAR BASE SI NO EXISTE
-	db = window.sqlitePlugin.openDatabase({name: 'brokersDev34.db', iosDatabaseLocation: 'Library'});
+	db = window.sqlitePlugin.openDatabase({name: 'iBrokerCh00.db', iosDatabaseLocation: 'Library'});
 	db.transaction(function (tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text, fecha text)");
     tx.executeSql("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY,idTour text, nombre text, precioUnidad text,precioCantidad, descripcion text,cantidadMinima text, CBM text, QTY text, tienda text, foto1 text, foto2 text, foto3 text, cantidadComprada text)");
@@ -94,6 +94,8 @@ $(document).ready( function() {
           }, 500);
 
         });
+
+        
         
         $("#bmTours").click(function(){
           ocultarSlide("cont-menu");
@@ -418,7 +420,7 @@ $(document).on('click touch','.contPrduct', function()
   });
 
   function movePic(file){ 
-      window.resolveLocalFileSystemURI(file, resolveOnSuccess, resOnError); 
+      window.resolveLocalFileSystemURL(file, resolveOnSuccess, resOnError); 
 
   } 
 
@@ -435,7 +437,7 @@ $(document).on('click touch','.contPrduct', function()
       fileSys.root.getDirectory( myFolderApp,
                       {create:true, exclusive: false},
                       function(directory) {
-                          entry.copyTo(directory, newFileName,  successMove, resOnError);
+                          entry.moveTo(directory, newFileName,  successMove, resOnError);
                       },
                       resOnError);
                       },
@@ -578,21 +580,61 @@ $(document).on('click touch','.contPrduct', function()
     });
   });//fin eliminar producto
 
-function readFile(fileEntry) {
+// function leerFile(fileEntry) {
 
-    fileEntry.file(function (file) {
-        var reader = new FileReader();
+//     fileEntry.file(function (file) {
+//         var reader = new FileReader();
 
-        reader.onloadend = function() {
-            alert("Successful file read: " + this.result);
-            displayFileData(fileEntry.fullPath + ": " + this.result);
-        };
+//         reader.onloadend = function() {
+//             console.log("Successful file read:TOTO " + this.result);
+//             displayFileData(fileEntry.fullPath + ": " + this.result);
+//         };
 
-        reader.readAsText(file);
+//         reader.readAsText(file);
 
-    }, onErrorReadFile);
-}
+//     });
+// }
+// function errorHandler(){console.log('ERROR');}
+// function onSuccessnueva(fileEntry) {
+//     alert(fileEntry.name);
+//     // alert(fileEntry.type);
+//     // alert(fileEntry.toURL);
+//     var camino = fileEntry.toURL();
+//     console.log('camino'+camino);
+//     var formDataExe = new FormData();
 
+//     fileEntry.file( function(file)
+//     {
+//       var reader = new FileReader();
+//       reader.onloadend = function(e)
+//       {
+//       //  formDataExe.append('foto1', this.result);
+//         console.log('ESTO ES RESULTADO'+this.result);
+//         // $.ajax({
+//         //   url:'http://ibroker.extroversia.com/nuevaFoto',
+//         //   data: formDataExe,
+//         //   type: 'POST',
+//         //   contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+//         //   processData: false, // NEEDED, DON'T OMIT THIS
+//         //   success: function(respuesta) {
+//         //        alert(respuesta);
+//         //       },//fin success
+//         //     error: function(xhr,err){
+//         //              alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+//         //              alert("error: "+xhr.responseText);
+//         //          }
+//         //   });//fin ajax
+
+//       };
+//       reader.readAsDataURL();
+
+
+
+//     }, errorHandler);
+
+
+// };
+ function failtot(e) { alert('no se encontro la imagen');}
   $('#syncDB').click(function(){
   //pedir nombre de usuario
 
@@ -681,7 +723,8 @@ function readFile(fileEntry) {
         var cantidadComprada = resultSet.rows.item(i).cantidadComprada;
         var formDataFoto = new FormData();
       //  minilistaP.push(idTour,nombre,precioUnidad,precioCantidad,cantidadMinima,descripcion,CBM,QTY,cantidadComprada);
-        
+        var idBackend = '';
+
         $.ajax({
                   url:'http://ibroker.extroversia.com/nuevoProducto',
                   type: 'post',
@@ -701,37 +744,7 @@ function readFile(fileEntry) {
                   },
                   success: function(respuesta) {
                           // tengo de respuesta el id creado alla, entonces subo un ajax con las fotos y le asigno ese id
-                          var idBackend = respuesta;
-                        
-                          window.resolveLocalFileSystemURL(foto1, successtot, failtot);
-                                       
-                           function failtot(e) { alert(e);}
-                           function successtot(fileEntry) {
-                            // alert('successo'+fileEntry.name);
-                           // foto1 = fileEntry;
-                            formData.append('foto1', fileEntry); 
-
-                            console.log('enviando imagen');
-                             $.ajax({
-                                url:'http://ibroker.extroversia.com/nuevaFoto',
-                                data: formData,
-                                // beforeSend: function (xhr) {
-                                //       var token = $('meta[name="csrf_token"]').attr('content');
-                                //       if (token) {return xhr.setRequestHeader('X-CSRF-TOKEN', token);}
-                                //         },
-                                type: 'POST',
-                                contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-                                processData: false, // NEEDED, DON'T OMIT THIS
-                                success: function(respuesta) {
-                                     alert('habemus foto');
-                                    },//fin success
-                                  error: function (error) {
-                                    alert('error al subir portada');
-                                  }
-                                });//fin ajax
-
-                           }
-
+                           // idBackend = respuesta;
                   },//fin success
                   error: function(xhr,err){
                         //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
@@ -739,78 +752,27 @@ function readFile(fileEntry) {
                     }
           });//fin ajax
       };//fin for
+      
   }, function(error) {
     alert('SELECT error: ' + error.message);
   });//fin query
 
-
+    swal('Data has been saved','','success');
 
     });//fin valida inputValue
   });//fin sync
 
 
 
+$(".totoBasta").click(function(){
 
+  ocultarSlide("cont-tours");
+  setTimeout(function () {
+    mostrarSlide('cont-menu');
+  }, 500);
+
+});
 
 
 });//fin onready
 
-
- //BUSCAR PRODUCTOS
- // db.executeSql("SELECT * FROM products order by id desc", [], function (resultSet) {
- //   var count = resultSet.rows.length;
- //   alert('cuenta produc'+count);
- //   for (var i = 0; i <= resultSet.rows.length; i++)
- //     {
- //       var minilistaP = [];
- //       var idTour = resultSet.rows.item(i).idTour;
- //       var nombre = resultSet.rows.item(i).nombre;
- //       var precioUnidad = resultSet.rows.item(i).precioUnidad;
- //       var precioCantidad = resultSet.rows.item(i).precioCantidad;
- //       var descripcion = resultSet.rows.item(i).descripcion;
- //       var cantidadMinima = resultSet.rows.item(i).cantidadMinima;
- //       var CBM = resultSet.rows.item(i).CBM;
- //       var QTY = resultSet.rows.item(i).QTY;
- //       var foto1 = resultSet.rows.item(i).foto1;
- //       var foto2 = resultSet.rows.item(i).foto2;
- //       var foto3 = resultSet.rows.item(i).foto3;
- //       var cantidadComprada = resultSet.rows.item(i).cantidadComprada;
-      
- //       var testeo = '';
-      
- //      window.resolveLocalFileSystemURL(foto1, successtot, failtot);
-                   
- //       function failtot(e) { alert(e);}
- //       function successtot(fileEntry) {
- //        // alert('successo'+fileEntry.name);
- //        foto1 = fileEntry;
-
- //       }
-    
- //       minilistaP.push(idTour,nombre,precioUnidad,precioCantidad,cantidadMinima,descripcion,CBM,QTY,cantidadComprada);
-       
- //       $.ajax({
- //                 url:'http://ibroker.extroversia.com/nuevoProducto',
- //                 type: 'post',
- //                 data: { producto: minilistaP},
- //                 success: function(respuesta) {
- //                         // tengo de respuesta el id creado alla, entonces subo un ajax con las fotos y le asigno ese id
- //                         var idBackend = respuesta;
-
- //                 },//fin success
- //                 error: function(xhr,err){
- //                       //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
- //                       alert("error: "+xhr.responseText);
- //                   }
- //         });//fin ajax
-      
- //     };//fin for
- // }, function(error) {
- //   alert('SELECT error: ' + error.message);
- // });//fin query
-// var testo = JSON.parse(todosProductos[8]);
-// alert('test'+testo);
-// for (var i = 0; i <= todosProductos[8].length; i++) {
-//  var nombre =  todosProductos[8][i].name;
-//  alert('nombre '+nombre);
-// };
