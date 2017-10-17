@@ -1,5 +1,5 @@
 
-var db = null;
+var db;
 var cuenta = 0;
 var idTour = '';
 var nombreTour = '';
@@ -13,20 +13,21 @@ var idProduct = '';
 
 document.addEventListener('deviceready', function()
 {
-
+  
 	//CREAR BASE SI NO EXISTE
-	db = window.sqlitePlugin.openDatabase({name: 'iBrokerCh00.db', iosDatabaseLocation: 'Library'});
+	db = window.sqlitePlugin.openDatabase({name: 'iBrokerQG.db', iosDatabaseLocation: 'Library'});
+  alert(JSON.parse(db));
 	db.transaction(function (tx) {
     tx.executeSql("CREATE TABLE IF NOT EXISTS tours (id INTEGER PRIMARY KEY, nombre text, ubicacion text, moneda text, fecha text)");
     tx.executeSql("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY,idTour text, nombre text, precioUnidad text,precioCantidad, descripcion text,cantidadMinima text, CBM text, QTY text, tienda text, foto1 text, foto2 text, foto3 text, cantidadComprada text)");
   }, function (err) {
-    alert("An error occurred while initializing the app");
+    alert("Error al crear la base de datos.");
   });
 
 });//fin deviceready
 
 $("#btnPopular").click(function(){
-
+ 
  	   //INGRESAR NUEVO REGISTRO
       db.transaction(function(tx)
       {
@@ -34,7 +35,7 @@ $("#btnPopular").click(function(){
       }, function(error) {
         alert('Transaction ERROR: ' + error.message);
       }, function() {
-       
+        
 		  });//fin transaccion
 
       //MOSTAR CUANTOS RECORDS HAY
@@ -159,6 +160,7 @@ $("#btnCrearTour").click(function(){
   var ubicacion = $("#ubinuevtour").val();
   var fecha = $("#fechnuevtour").val();
   var moneda = $( "#inputMoneda option:selected" ).text();
+
       //INGRESAR NUEVO REGISTRO
       db.transaction(function(tx)
       {
