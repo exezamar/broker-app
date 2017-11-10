@@ -9,7 +9,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <access subdomains="true" uri="https://s3-us-west-2.amazonaws.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -30,14 +29,8 @@
     <plugin name="cordova-plugin-camera" spec="^2.4.1">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="Take pictures of your products" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Take pictures of your products" />
-        <variable name="NSPhotoLibraryUsageDescription" value="Take pictures of your products" />
-        <variable name="NSPhotoLibraryAddUsageDescription" value="Take pictures of your products" />
-<gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription">
-    <string>For uploading receipt images</string>
-</gap:config-file>
-<gap:config-file platform="ios" parent="NSPhotoLibraryAddUsageDescription">
-    <string>For uploading receipt images</string>
-</gap:config-file>
+       
+
         
     </plugin>
     <plugin name="cordova-plugin-file" spec="^4.3.3" />
