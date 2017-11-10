@@ -679,13 +679,13 @@ color: white;
 .inputmodal{
   text-decoration: none !important;
   color: #009688 !important;
-  font-size: 1.2em !important;
+  /*font-size: 1.2em !important;*/
   background-color: white !important;
   border-style:none !important;
 }
 .inputmodal2{
   text-decoration: none !important;
-  font-size: 1.2em !important;
+  /*font-size: 1.2em !important;*/
   background-color: white !important;
   border-style:none !important;
   color:#2196F3;
@@ -693,7 +693,7 @@ color: white;
 .inputmodalSm{
   text-decoration: none !important;
   color: #009688 !important;
-  font-size: 1.2em !important;
+  /*font-size: 1.2em !important;*/
   background-color: white !important;
   border-style:none !important;
   width: 70px;

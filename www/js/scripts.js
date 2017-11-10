@@ -117,13 +117,13 @@ $(document).ready( function() {
 
         
         
-        $("#bmTours").click(function(){
-          ocultarSlide("cont-menu");
-          setTimeout(function () {
-            mostrarSlide('cont-tours');
-            $("div.dataTables_scroll").css({"clear":"both !important"});
+    $("#bmTours").click(function(){
+      ocultarSlide("cont-menu");
+      setTimeout(function () {
+        mostrarSlide('cont-tours');
+        $("div.dataTables_scroll").css({"clear":"both !important"});
 
-          }, 500);
+      }, 500);
       //BUSCAR TOURS
       //AJAX PARA BUSCAR LOS TOURS GUARDADOS EN AL NUBE:
       var email = window.localStorage.getItem("email");
@@ -280,10 +280,12 @@ $('#bodyTours').on('click touch','.contTour' , function() {
                               // alert(foto1);
                               // alert('esto db: '+resultSet.rows.item(i).foto1);
                              $("#contTodosProdu").append("<div id=prod"+i+ " class='contPrduct' idProduct="+id+"></div>");  
-                             $("#prod"+i).append("<div class='contImagenProd'><img id='imgFoto"+i+"' class='imgProduct'> </div>");
+                             $("#prod"+i).append("<div class='contImagenProd'><img src='"+foto1+"' class='imgProduct'> </div>");
                              $("#prod"+i).append("<div class='contDescProd'><div class='contInfoProd'> <div class='posnomprod'><span>"+nombre+"</span> </div><div class='postienda'><span>Store ID: </span><br><span>"+tienda+"</span></div></div><div class='contInfoProd'><div class='contUnitPrice'><span>Unit price: <br>"+precioUnidad+"</span></div><div class='contBulkPrice'> <span>Bulk price: <br> "+precioCantidad+"</span></div></div><div class='minfoprod'><div> <img src='img/arrow-right.svg' class='parrow-right'></div></div>");
-                             $("#imgFoto"+i).attr('src', foto1);
-                             var test = $("#imgFoto"+i).attr('src');
+                            
+                           
+                             
+                             
                              // alert('src es '+test);
                            };
                          }//fin else
@@ -341,8 +343,8 @@ $('#bodyTours').on('click touch','.contTour' , function() {
       var email = window.localStorage.getItem("email");
         //AJAX PARA CREAR PRODUCTO
       swal({
-            title: "Guardando producto", 
-            text: "Por favor espere.", 
+            title: "Saving changes", 
+            text: "please wait.", 
             showCancelButton: false,
             showConfirmButton: false
       });  
@@ -381,7 +383,7 @@ $('#bodyTours').on('click touch','.contTour' , function() {
                         $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
                         ocultarSlide('modal-nproducto');
                         setTimeout(function() {
-                          mostrarSlide('cont-products');
+                          mostrarSlide('cont-tours');
                         }, 200);
                       };
                   },//fin success
@@ -449,37 +451,72 @@ var prodDescripcion ='';
 var prodCantMin = '';
 var prodId = '';
 var foto1= '';
+var idProductoG = '';
 $(document).on('click touch','.contPrduct', function()
 {
       //buscar producto
       var id = $(this).attr('idProduct');
+      idProductoG = id;
+      swal({
+            title: "Fetching data", 
+            text: "please wait.", 
+            showCancelButton: false,
+            showConfirmButton: false
+      });  
       $.ajax({
                 url:'http://ibroker.extroversia.com/infoProducto',
                 type: 'post',
                 data: { idProducto:id},
                 success: function(respuesta) {
-                        var count = respuesta.length;
-                        if (count == 0 ){
-                           $("#bodyTours").append("<div class='animated contTour blue' id='no-tours'><div>Your shopping tours will show up here.</div></div>");
-                         }
-                         else{
-                           $("#bodyTours").empty();
-                           for (var i = 0; i < respuesta.length; i++)
-                           {
-                             
-                             var id = respuesta[i]['id'];
-                             var ubicacion = respuesta[i]['ubicacion'];
-                             var nombre = respuesta[i]['nombre'];
-                             var moneda = respuesta[i]['moneda'];
-                             var fecha = respuesta[i]['fecha'];
+                       swal.close();
+                       if (respuesta == 'No encontrado') {
+                         alert('no se encontro el id del producto');
+                        }
+                        else{
+                          
+                            var id = respuesta['id'];
+                            
+                            prodId = id;
+                            prodNom = respuesta['nombre'];
+                            prodTienda = respuesta['tienda'];
+                            prodQTY = respuesta['QTY'];
+                            prodCBM = respuesta['CBM'];
+                            prodPrecioUn = respuesta['precioUnidad'];
+                            prodPrecioCant = respuesta['precioCantidad'];
+                            prodCantidadComprada = respuesta['cantidadComprada'];
+                            prodDescripcion = respuesta['descripcion'];
+                            prodCantMin = respuesta['cantidadMinima'];
+                            foto1 = respuesta['foto1'];
+                            alert(foto1);
+                            $("#nomprodinf").text(prodNom);
+                            $("#nomtiendainf").text(prodTienda);
+                            $("#descprodinfo").text(prodDescripcion);
+                            $("#totpriccalcinf").text(prodPrecioUn);
+                            $("#bulkprodinf").text(prodPrecioCant);
+                            $("#cbmincalcinf").text(prodCantMin);
+                            $("#qtyprodinf").text(prodQTY);
+                            $("#cbmcalcinf").text(prodCBM);
+                            $("#totpriccalcinf2").val(prodCantidadComprada);
 
-                             $("#bodyTours").append("<div class='contTour animated  blue' id='tour_"+id+"' idTour="+id+"  style='cursor:pointer !important;'></div>");
-                             $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
-                             $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+                            $("#imgProductoGrande").css('background-image','url('+foto1+')');
 
-                           };
+                            var cbmcalculado = Number(prodCBM);
+                            var unidad = Number(prodPrecioUn);
+                            var comprada = Number(prodCantidadComprada);
+                            var total = unidad*comprada;
 
-                          };
+                            $("#cbmcalcprodinf").text(cbmcalculado);
+                            $("#imptotalprodinf").text(total);
+
+                            ocultarSlide('cont-products');
+                            setTimeout(function () {
+                            mostrarSlide('modal-infoproducto');
+                              
+                             }, 200);
+                            $("#contTodosProdu").append("<div id=prod"+id+ " class='contPrduct' idProduct="+id+"></div>");  
+                            $("#prod"+id).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
+                          
+                        }//fin else
 
                 },//fin success
                 error: function(xhr,err){
@@ -487,61 +524,6 @@ $(document).on('click touch','.contPrduct', function()
                       alert("error: "+xhr.responseText);
                   }
         });//fin ajax
-      // var query = 'SELECT * FROM Products where "id" = "'+id+'"';
-      //   db.executeSql(query, [], function (resultSet) 
-      //   {
-      //        var count = resultSet.rows.length;
-      //        if (count == 0) {
-      //         alert('no se encontro el id del producto');
-      //        }
-      //        else{
-               
-      //            var id = resultSet.rows.item(0).id;
-      //            prodId = id;
-      //            prodNom = resultSet.rows.item(0).nombre;
-      //            prodTienda = resultSet.rows.item(0).tienda;
-      //            prodQTY = resultSet.rows.item(0).QTY;
-      //            prodCBM = resultSet.rows.item(0).CBM;
-      //            prodPrecioUn = resultSet.rows.item(0).precioUnidad;
-      //            prodPrecioCant = resultSet.rows.item(0).precioCantidad;
-      //            prodCantidadComprada = resultSet.rows.item(0).cantidadComprada;
-      //            prodDescripcion = resultSet.rows.item(0).descripcion;
-      //            prodCantMin = resultSet.rows.item(0).cantidadMinima;
-      //            foto1 = resultSet.rows.item(0).foto1;
-
-      //            $("#nomprodinf").text(prodNom);
-      //            $("#nomtiendainf").text(prodTienda);
-      //            $("#descprodinfo").text(prodDescripcion);
-      //            $("#totpriccalcinf").text(prodPrecioUn);
-      //            $("#bulkprodinf").text(prodPrecioCant);
-      //            $("#cbmincalcinf").text(prodCantMin);
-      //            $("#qtyprodinf").text(prodQTY);
-      //            $("#cbmcalcinf").text(prodCBM);
-      //            $("#totpriccalcinf2").val(prodCantidadComprada);
-
-      //            $("#imgProductoGrande").css('background-image','url('+foto1+')');
-
-      //            var cbmcalculado = Number(prodCBM);
-      //            var unidad = Number(prodPrecioUn);
-      //            var comprada = Number(prodCantidadComprada);
-      //            var total = unidad*comprada;
-
-      //            $("#cbmcalcprodinf").text(cbmcalculado);
-      //            $("#imptotalprodinf").text(total);
-
-      //            ocultarSlide('cont-products');
-      //            setTimeout(function () {
-      //            mostrarSlide('modal-infoproducto');
-                   
-      //             }, 200);
-      //            // $("#contTodosProdu").append("<div id=prod"+i+ " class='contPrduct' idProduct="+id+"></div>");  
-      //            // $("#prod"+i).append("<div class='contImagenProd'><img src='img/sinFoto.png' class='imgProduct'> </div>");
-               
-      //        }//fin else
-      //     });//fin query
-
-      //ajax para buscar info de producto particular
-
  }); //fin contPrduct
   $("#btnVolverInfoProd").click(function(){
     ocultarSlide('modal-infoproducto');
@@ -626,30 +608,28 @@ $(document).on('click touch','.contPrduct', function()
   };
   var formFoto1 = new FormData();
   $("#bafp1").click(function(){
-
-        navigator.camera.getPicture(onSuccess12, onFail, { quality: 50,
+        navigator.camera.getPicture(onSuccessFoto1, onFail, { quality: 50,
             // destinationType: Camera.DestinationType.DATA_URL ,
             destinationType: Camera.DestinationType.FILE_URI ,
             // sourceType:  Camera.PictureSourceType.PHOTOLIBRARY,
             saveToPhotoAlbum:true
-           
         });
         
-        function onSuccess12(imageData) {
-
+        function onSuccessFoto1(imageData) {
+          $("#imgprod1").attr('src', 'img/sinFoto.png');
+          // $("#imgprod1").removeClass('oculto');
          var dato = imageData;
          var fd = new FormData();
               window.resolveLocalFileSystemURL(dato, function(fileEntry) {
                   fileEntry.file(function(file) {
                       var reader = new FileReader();
-                      // swal('Subiendo imagen','por favor espere');
+                      // swal('Subiendo imagen','please wait');
                           reader.onloadend = function(e) {
                                var imgBlob = new Blob([ this.result ], { type: "image/jpeg" } );
                                fd.append('attachment', imgBlob);
                                fd.append('uuid', dato.uuid);
                                fd.append('userRoleId', 12345);
-                               console.log(fd);
-                               //post form call here
+                               // console.log(fd);
                                $.ajax({
                                   url:'http://ibroker.extroversia.com/nuevaFoto',
                                   data: fd,
@@ -659,45 +639,25 @@ $(document).on('click touch','.contPrduct', function()
                                   success: function(respuesta) {
                                      // swal.close();
                                     $("#imgprod1").attr('src', respuesta);
-                                       $("#imgprod1").removeClass('oculto');
-                                       // $("#imgprod1").css('background', 'white');
+                                  
+                                    var test =  $("#imgprod1").attr('src');
+                                    alert('test es'+test);
                                       
                                       },//fin success
-                                    // error: function (error) {
-                                    //   swal('Problemas!','No se pudo subir la imagen','error');
-                                    // }
-                                    error: function (request, status, error) {
-                                           alert(request.responseText);
-                                       }
+                                    error: function (error) {
+                                      swal('Problemas!','No se pudo subir la imagen','error');
+                                    }
                                   });//fin ajax
                           };
                           reader.readAsArrayBuffer(file);
 
                   }, function(e){$scope.errorHandler(e)});
              }, function(e){$scope.errorHandler(e)});
-
-
-
-         // $("#imgprod1").attr('src', "data:image/jpeg;base64," + dato);
-         // $("#imgprod1").removeClass('oculto');
-         // $("#imgprod1").css('background', 'white');
-        
-       
-         
-         
-        };
-
+        };//fin onSuccess1
         function onFail(message) {
             alert('Failed because: ' + message);
         }
-            
-      
-
-    
-  });
-
-
-
+  });//fin bafp1
 
   $("#btnEditarProducto").click(function(){
       ocultarSlide('modal-infoproducto');
@@ -734,7 +694,63 @@ $(document).on('click touch','.contPrduct', function()
      prodCantidadComprada = $("#edcantComprada").val();
      prodDescripcion = $("#eddescnuevprod").val();
      prodCantMin =  $("#edminamnuevprod").val();
-     
+     var nombreProd = $("#ednnuevprod").val(); 
+     var descripcion = $("#eddescnuevprod").val();
+     var foto1 = $("#bafp1").attr('src');
+     var foto2 = $("#bafp2").attr('src');
+     var foto3 = $("#bafp3").attr('src');
+     var email = window.localStorage.getItem("email");
+     swal({
+           title: "Saving changes", 
+           text: "please wait.", 
+           showCancelButton: false,
+           showConfirmButton: false
+     });  
+       $.ajax({
+                 url:'http://ibroker.extroversia.com/editarProducto',
+                 type: 'post',
+                 data: { 
+                   nombreProd:nombreProd,
+                   descripcion:descripcion,
+                   tienda:prodTienda,
+                   QTY:prodQTY,
+                   CBM:prodCBM,
+                   precioUnidad:prodPrecioUn,
+                   precioCantidad:prodPrecioCant,
+                   minima:prodCantMin,
+                   cantidadComprada:prodCantidadComprada,
+                   foto1:foto1,
+                   foto2:foto2,
+                   foto3:foto3,
+                   idTour:idTour,
+                   email:email,
+                   idProducto:idProductoG
+                 },
+                 success: function(respuesta) {
+                     swal.close();
+                     $("#bodyTours").empty();
+                     for (var i = 0; i < respuesta.length; i++)
+                     {
+                       var id = respuesta[i].id;
+                       var ubicacion = respuesta[i].ubicacion;
+                       var nombre = respuesta[i].nombre;
+                       var moneda = respuesta[i].moneda;
+                       var fecha = respuesta[i].fecha;
+                       
+                       $("#bodyTours").append("<div class='animated contTour blue' id='tour_"+id+"' idTour="+id+" style='cursor:pointer;'></div>");
+                       $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
+                       $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+                       ocultarSlide('modal-editanproducto');
+                       setTimeout(function() {
+                         mostrarSlide('cont-products');
+                       }, 200);
+                     };
+                 },//fin success
+                 error: function(xhr,err){
+                       //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+                       alert("error: "+xhr.responseText);
+                   }
+         });//fin ajax
      //EDITAR REGISTRO
        // db.transaction(function(tx)
        // {
@@ -776,6 +792,7 @@ $(document).on('click touch','.contPrduct', function()
     },
     function(isConfirm){
       if (isConfirm) {
+        
         //ELIMINAR REGISTRO
           // db.transaction(function(tx)
           // {
@@ -789,8 +806,39 @@ $(document).on('click touch','.contPrduct', function()
           //       }, 200);
           //   swal('Product deleted','','success');
           // });//fin transaccion
-
+          swal({
+                title: "Saving changes", 
+                text: "please wait.", 
+                showCancelButton: false,
+                showConfirmButton: false
+          });
           //ajax para eliminar el producto
+          $.ajax({
+                    url:'http://ibroker.extroversia.com/eliminarProducto',
+                    type: 'post',
+                    data: { 
+                      idProducto:idProductoG
+                    },
+                    success: function(respuesta) {
+                        swal.close();
+                        if (respuesta =='borrado')
+                        {
+                            ocultarSlide('modal-editanproducto');
+                            setTimeout(function () {
+                                  mostrarSlide('cont-tours');
+                                }, 200);
+                            swal('Product deleted','','success');
+                        }
+                        else{
+                          swal('Product id not found','We were unable to locate the product','error');
+                        }
+                        
+                    },//fin success
+                    error: function(xhr,err){
+                          //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+                          alert("error: "+xhr.responseText);
+                      }
+            });//fin ajax
 
         
       } else {
@@ -799,61 +847,6 @@ $(document).on('click touch','.contPrduct', function()
     });
   });//fin eliminar producto
 
-// function leerFile(fileEntry) {
-
-//     fileEntry.file(function (file) {
-//         var reader = new FileReader();
-
-//         reader.onloadend = function() {
-//             console.log("Successful file read:TOTO " + this.result);
-//             displayFileData(fileEntry.fullPath + ": " + this.result);
-//         };
-
-//         reader.readAsText(file);
-
-//     });
-// }
-// function errorHandler(){console.log('ERROR');}
-// function onSuccessnueva(fileEntry) {
-//     alert(fileEntry.name);
-//     // alert(fileEntry.type);
-//     // alert(fileEntry.toURL);
-//     var camino = fileEntry.toURL();
-//     console.log('camino'+camino);
-//     var formDataExe = new FormData();
-
-//     fileEntry.file( function(file)
-//     {
-//       var reader = new FileReader();
-//       reader.onloadend = function(e)
-//       {
-//       //  formDataExe.append('foto1', this.result);
-//         console.log('ESTO ES RESULTADO'+this.result);
-//         // $.ajax({
-//         //   url:'http://ibroker.extroversia.com/nuevaFoto',
-//         //   data: formDataExe,
-//         //   type: 'POST',
-//         //   contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-//         //   processData: false, // NEEDED, DON'T OMIT THIS
-//         //   success: function(respuesta) {
-//         //        alert(respuesta);
-//         //       },//fin success
-//         //     error: function(xhr,err){
-//         //              alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
-//         //              alert("error: "+xhr.responseText);
-//         //          }
-//         //   });//fin ajax
-
-//       };
-//       reader.readAsDataURL();
-
-
-
-//     }, errorHandler);
-
-
-// };
- function failtot(e) { alert('no se encontro la imagen');}
   $('#syncDB').click(function(){
   //pedir nombre de usuario
 
