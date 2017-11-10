@@ -451,8 +451,42 @@ var prodId = '';
 var foto1= '';
 $(document).on('click touch','.contPrduct', function()
 {
-      
+      //buscar producto
       var id = $(this).attr('idProduct');
+      $.ajax({
+                url:'http://ibroker.extroversia.com/infoProducto',
+                type: 'post',
+                data: { idProducto:id},
+                success: function(respuesta) {
+                        var count = respuesta.length;
+                        if (count == 0 ){
+                           $("#bodyTours").append("<div class='animated contTour blue' id='no-tours'><div>Your shopping tours will show up here.</div></div>");
+                         }
+                         else{
+                           $("#bodyTours").empty();
+                           for (var i = 0; i < respuesta.length; i++)
+                           {
+                             
+                             var id = respuesta[i]['id'];
+                             var ubicacion = respuesta[i]['ubicacion'];
+                             var nombre = respuesta[i]['nombre'];
+                             var moneda = respuesta[i]['moneda'];
+                             var fecha = respuesta[i]['fecha'];
+
+                             $("#bodyTours").append("<div class='contTour animated  blue' id='tour_"+id+"' idTour="+id+"  style='cursor:pointer !important;'></div>");
+                             $("#tour_"+id).append("<div class='contDescProd'><div class='contInfoProd'><div class='posnomtour'><span>"+nombre+"</span> </div><div class='postienda'> <span>Date: </span><br><span>"+fecha+"</span></div></div><div class='contInfoProd'><div class='contLocation'><span>Location: <br> "+ubicacion+"</div><div class='contCurrency'></span><span>Currency: <br> "+moneda+"</span></div></div></div>");
+                             $("#tour_"+id).append("<div class='posarrowt'><div><img src='img/arrow-right.svg' class='parrow-right'></div></div>");
+
+                           };
+
+                          };
+
+                },//fin success
+                error: function(xhr,err){
+                      //alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
+                      alert("error: "+xhr.responseText);
+                  }
+        });//fin ajax
       // var query = 'SELECT * FROM Products where "id" = "'+id+'"';
       //   db.executeSql(query, [], function (resultSet) 
       //   {
@@ -507,6 +541,7 @@ $(document).on('click touch','.contPrduct', function()
       //     });//fin query
 
       //ajax para buscar info de producto particular
+
  }); //fin contPrduct
   $("#btnVolverInfoProd").click(function(){
     ocultarSlide('modal-infoproducto');
