@@ -34,4 +34,7 @@
     <plugin name="cordova-plugin-file" spec="^4.3.3" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.6.3" />
     <plugin name="cordova-plugin-console" spec="^1.0.7" />
+    <gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription">
+        <string>For uploading product images</string>
+    </gap:config-file>
 </widget>
