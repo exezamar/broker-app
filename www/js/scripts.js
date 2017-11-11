@@ -487,7 +487,7 @@ $(document).on('click touch','.contPrduct', function()
                             prodDescripcion = respuesta['descripcion'];
                             prodCantMin = respuesta['cantidadMinima'];
                             foto1 = respuesta['foto1'];
-                            alert(foto1);
+                            // alert(foto1);
                             $("#nomprodinf").text(prodNom);
                             $("#nomtiendainf").text(prodTienda);
                             $("#descprodinfo").text(prodDescripcion);
@@ -641,7 +641,7 @@ $(document).on('click touch','.contPrduct', function()
                                     $("#imgprod1").attr('src', respuesta);
                                   
                                     var test =  $("#imgprod1").attr('src');
-                                    alert('test es'+test);
+                                    // alert('test es'+test);
                                       
                                       },//fin success
                                     error: function (error) {
